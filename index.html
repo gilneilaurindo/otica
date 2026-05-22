@@ -5,16 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Sua Logo | Luxo, Relojoaria & Joias</title>
     
-    <!-- OTIMIZAÇÃO E FONTES -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👓</text></svg>">
+
+    <meta property="og:title" content="Sua Logo | Ótica, Relojoaria & Joias">
+    <meta property="og:description" content="Há mais de 10 anos transformando olhares. Agende seu check-up visual e descubra a elegância que você merece.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:type" content="website">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     
-    <!-- BIBLIOTECA DE ANIMAÇÃO DE SCROLL (AOS) -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
-    <!-- TAILWIND CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -112,6 +116,47 @@
             animation: slideGradient 8s ease infinite;
         }
 
+        /* Menu Navigation Animations */
+        .nav-link {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 2px;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 50%;
+            background-color: #C5A059;
+            transition: all 0.3s ease-in-out;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .nav-link:hover {
+            color: #C5A059 !important;
+            text-shadow: 0 0 8px rgba(197, 160, 89, 0.3);
+        }
+
+        /* Mobile Nav Button Animation */
+        .mobile-nav-btn {
+            transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s;
+        }
+        .mobile-nav-btn:active {
+            transform: scale(0.85);
+        }
+        .mobile-nav-btn:hover i {
+            animation: bounceIcon 0.5s ease;
+        }
+        @keyframes bounceIcon {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
+        }
+
         /* Bg Text Decorativo */
         .bg-text {
             position: absolute; font-size: 12rem; font-weight: 900; color: rgba(197, 160, 89, 0.04);
@@ -139,7 +184,6 @@
 </head>
 <body class="bg-brand-50 text-slate-900 dark:bg-brand-900 dark:text-white transition-colors duration-500 font-sans overflow-x-hidden">
 
-    <!-- Preloader -->
     <div id="preloader">
         <div class="loader-logo flex items-center gap-2">
             <i class="fas fa-glasses text-brand-500"></i>
@@ -150,96 +194,86 @@
         </div>
     </div>
 
-    <!-- Barra Superior Brilhante -->
     <div class="bg-animated-banner text-brand-900 text-[9px] md:text-[11px] font-bold py-2.5 text-center uppercase tracking-[0.2em] px-4 relative z-[60] shadow-md">
         <span id="top-bar-text" class="transition-opacity duration-500 drop-shadow-sm">✨ Há mais de 10 anos transformando olhares & Estilos ✨</span>
     </div>
 
-    <!-- Navegação Desktop -->
     <nav class="sticky top-0 glass-nav z-50 h-16 md:h-20 flex items-center transition-all">
         <div class="max-w-7xl mx-auto px-4 w-full flex justify-between items-center">
             
-            <!-- Logo -->
-            <div class="font-serif text-2xl text-slate-900 dark:text-white tracking-wider cursor-pointer flex items-center gap-2" onclick="app.scrollTo('hero')">
-                <i class="fas fa-gem text-brand-500 text-xl text-shine"></i>
+            <div class="font-serif text-2xl text-slate-900 dark:text-white tracking-wider cursor-pointer flex items-center gap-2 group" onclick="app.scrollTo('hero')">
+                <i class="fas fa-glasses text-brand-500 text-xl text-shine group-hover:scale-110 transition-transform duration-300"></i>
                 <span class="font-bold">SUA</span><span class="font-light text-brand-500">LOGO</span>
             </div>
             
             <div class="hidden md:flex items-center gap-6 lg:gap-8">
-                <button onclick="app.scrollTo('sobre')" class="text-slate-600 dark:text-slate-300 hover:text-brand-500 text-[11px] font-bold uppercase tracking-widest transition">Quem Somos</button>
-                <button onclick="app.scrollTo('colecao')" class="text-slate-600 dark:text-slate-300 hover:text-brand-500 text-[11px] font-bold uppercase tracking-widest transition">Catálogo</button>
-                <button onclick="app.scrollTo('consultas')" class="text-slate-600 dark:text-slate-300 hover:text-brand-500 text-[11px] font-bold uppercase tracking-widest transition">Exames</button>
-                <button onclick="app.scrollTo('lojas')" class="text-slate-600 dark:text-slate-300 hover:text-brand-500 text-[11px] font-bold uppercase tracking-widest transition">Lojas</button>
+                <button onclick="app.scrollTo('sobre')" class="nav-link text-slate-600 dark:text-slate-300 text-[11px] font-bold uppercase tracking-widest transition-colors duration-300">Quem Somos</button>
+                <button onclick="app.scrollTo('colecao')" class="nav-link text-slate-600 dark:text-slate-300 text-[11px] font-bold uppercase tracking-widest transition-colors duration-300">Catálogo</button>
+                <button onclick="app.scrollTo('consultas')" class="nav-link text-slate-600 dark:text-slate-300 text-[11px] font-bold uppercase tracking-widest transition-colors duration-300">Exames</button>
+                <button onclick="app.scrollTo('lojas')" class="nav-link text-slate-600 dark:text-slate-300 text-[11px] font-bold uppercase tracking-widest transition-colors duration-300">Lojas</button>
                 
-                <!-- Ícones de Ferramentas -->
                 <div class="flex items-center gap-3 border-l border-slate-300 dark:border-white/20 pl-6">
-                    <button onclick="app.toggleTheme()" class="w-10 h-10 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/10 transition" title="Mudar Tema">
+                    <button onclick="app.toggleTheme()" class="w-10 h-10 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/10 transition-all duration-300 hover:rotate-180" title="Mudar Tema">
                         <i id="theme-icon" class="fas fa-sun text-lg"></i>
                     </button>
                     
-                    <button onclick="app.toggleCart()" class="w-10 h-10 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/10 transition relative" title="Carrinho">
+                    <button onclick="app.toggleCart()" class="w-10 h-10 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/10 transition-all duration-300 hover:scale-110 relative" title="Carrinho">
                         <i class="fas fa-shopping-bag text-lg"></i>
-                        <span id="cart-count-desktop" class="absolute top-1 right-1 bg-brand-500 text-brand-900 text-[9px] font-bold w-4 h-4 flex items-center justify-center rounded-full hidden">0</span>
+                        <span id="cart-count-desktop" class="absolute top-1 right-1 bg-brand-500 text-brand-900 text-[9px] font-bold w-4 h-4 flex items-center justify-center rounded-full hidden shadow-glow">0</span>
                     </button>
 
-                    <!-- Botão ADM -->
-                    <button onclick="app.openModal('modal-admin')" class="w-10 h-10 rounded-full flex items-center justify-center text-slate-400 hover:text-brand-500 transition" title="Painel Administrativo">
+                    <button onclick="app.openLoginAdm()" class="w-10 h-10 rounded-full flex items-center justify-center text-slate-400 hover:text-brand-500 transition-all duration-300 hover:scale-110" title="Painel Administrativo">
                         <i class="fas fa-chart-line text-lg"></i>
                     </button>
                 </div>
             </div>
             
             <div class="md:hidden flex items-center gap-3">
-                <button onclick="app.toggleCart()" class="relative w-10 h-10 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 transition">
+                <button onclick="app.toggleCart()" class="relative w-10 h-10 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 transition-transform duration-300 active:scale-90">
                     <i class="fas fa-shopping-bag text-lg"></i>
                     <span id="cart-count-mobile" class="absolute top-1 right-1 bg-brand-500 text-brand-900 text-[9px] font-bold w-4 h-4 flex items-center justify-center rounded-full hidden">0</span>
                 </button>
-                <button onclick="app.openModal('modal-admin')" class="text-slate-400 hover:text-brand-500 transition ml-2">
+                <button onclick="app.openLoginAdm()" class="text-slate-400 hover:text-brand-500 transition-transform duration-300 active:scale-90 ml-2">
                     <i class="fas fa-chart-line text-lg"></i>
                 </button>
             </div>
         </div>
     </nav>
 
-    <!-- Menu Inferior Mobile -->
     <div class="md:hidden fixed bottom-0 left-0 w-full glass-nav z-[60] flex justify-around items-center py-3 pb-safe shadow-[0_-10px_40px_rgba(0,0,0,0.05)] rounded-t-3xl border-t border-brand-500/20">
-        <button onclick="app.scrollTo('hero')" class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 hover:text-brand-500 transition w-16">
+        <button onclick="app.scrollTo('hero')" class="mobile-nav-btn flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 hover:text-brand-500 transition w-16">
             <i class="fas fa-home text-lg"></i>
             <span class="text-[8px] font-bold uppercase">Início</span>
         </button>
-        <button onclick="app.scrollTo('colecao')" class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 hover:text-brand-500 transition w-16">
-            <i class="fas fa-gem text-lg"></i>
+        <button onclick="app.scrollTo('colecao')" class="mobile-nav-btn flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 hover:text-brand-500 transition w-16">
+            <i class="fas fa-glasses text-lg"></i>
             <span class="text-[8px] font-bold uppercase">Catálogo</span>
         </button>
-        <button onclick="app.openModal('modal-agendamento')" class="flex flex-col items-center gap-1 transition w-16 relative -mt-5">
-            <div class="bg-brand-500 text-brand-900 w-12 h-12 rounded-full flex items-center justify-center shadow-premium border-2 border-brand-50 dark:border-brand-900 transition-transform">
+        <button onclick="app.openModal('modal-agendamento')" class="mobile-nav-btn flex flex-col items-center gap-1 transition w-16 relative -mt-5">
+            <div class="bg-brand-500 text-brand-900 w-12 h-12 rounded-full flex items-center justify-center shadow-premium border-2 border-brand-50 dark:border-brand-900 transition-transform hover:rotate-12">
                 <i class="far fa-calendar-check text-lg"></i>
             </div>
         </button>
-        <button onclick="app.scrollTo('lojas')" class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 hover:text-brand-500 transition w-16">
+        <button onclick="app.scrollTo('lojas')" class="mobile-nav-btn flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 hover:text-brand-500 transition w-16">
             <i class="fas fa-map-marker-alt text-lg"></i>
             <span class="text-[8px] font-bold uppercase">Lojas</span>
         </button>
     </div>
 
     <main>
-        <!-- Hero Section Animada -->
         <section id="hero" class="relative overflow-hidden py-6 md:py-10">
             <div class="bg-text top-10 -left-20">LUXURY</div>
             <div class="max-w-7xl mx-auto px-4 relative z-10">
                 <div class="relative rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-brand-800 aspect-[4/5] sm:aspect-[3/4] md:aspect-[21/9] w-full mx-auto flex items-center shadow-premium group" data-aos="zoom-out" data-aos-duration="1000">
                     
-                    <!-- Sliders de Fundo -->
                     <div id="hero-slider" class="absolute inset-0 w-full h-full slider-container">
                         <img src="https://images.unsplash.com/photo-1509695507497-903c140c43b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" class="slide-img hero-slide active" alt="Modelo Óculos">
+                        <img src="https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" class="slide-img hero-slide" alt="Modelo Masculino Óculos">
                         <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" class="slide-img hero-slide" alt="Mulher Joias">
-                        <img src="https://images.unsplash.com/photo-1582142407894-ec85a1260a46?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" class="slide-img hero-slide" alt="Armação Estilosa">
                     </div>
                     
-                    <!-- Overlay Cinza Chumbo -->
                     <div class="absolute inset-0 bg-gradient-to-r from-brand-900/95 via-brand-900/70 to-brand-900/40 z-[2]"></div>
                     
-                    <!-- Conteúdo do Hero -->
                     <div class="relative z-10 p-8 md:p-20 text-white w-full text-center md:text-left mt-auto md:mt-0 max-w-2xl">
                         <span data-aos="fade-up" data-aos-delay="200" class="text-[9px] md:text-[11px] font-bold uppercase tracking-[0.4em] text-brand-500 border border-brand-500/50 bg-brand-500/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6 inline-block">Ótica, Relógios & Joias</span>
                         
@@ -249,27 +283,25 @@
                         <p data-aos="fade-up" data-aos-delay="600" class="text-slate-300 text-sm md:text-lg mb-8 max-w-md mx-auto md:mx-0 font-light">
                             Exclusividade em armações, precisão em relógios e o brilho eterno das joias finas.
                         </p>
-                        <button data-aos="fade-up" data-aos-delay="800" onclick="app.scrollTo('colecao')" class="bg-brand-500 text-brand-900 px-8 py-4 rounded-full font-bold uppercase text-[10px] md:text-[12px] tracking-widest hover:bg-white hover:text-brand-900 transition-all shadow-glow hover:shadow-premium">
+                        <button data-aos="fade-up" data-aos-delay="800" onclick="app.scrollTo('colecao')" class="bg-brand-500 text-brand-900 px-8 py-4 rounded-full font-bold uppercase text-[10px] md:text-[12px] tracking-widest hover:bg-white hover:text-brand-900 transition-all duration-300 shadow-glow hover:shadow-premium hover:scale-105">
                             Explorar Vitrine <i class="fas fa-arrow-right ml-2"></i>
                         </button>
                     </div>
 
-                    <!-- Ícones Flutuantes Decorativos -->
                     <div class="absolute top-10 right-20 z-20 text-brand-500/30 text-6xl floating-icon hidden md:block"><i class="fas fa-glasses"></i></div>
                     <div class="absolute bottom-20 right-40 z-20 text-brand-500/20 text-5xl floating-icon-delayed hidden md:block"><i class="far fa-clock"></i></div>
-                    <div class="absolute top-40 right-10 z-20 text-brand-500/20 text-4xl floating-icon-fast hidden md:block"><i class="far fa-gem"></i></div>
+                    <div class="absolute top-40 right-10 z-20 text-brand-500/20 text-4xl floating-icon-fast hidden md:block"><i class="fas fa-glasses"></i></div>
                 </div>
             </div>
         </section>
 
-        <!-- NOVO: Seção Quem Somos -->
         <section id="sobre" class="py-16 md:py-24 relative overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <div data-aos="fade-right" class="relative">
-                        <div class="absolute -inset-4 bg-brand-500/20 rounded-[3rem] transform -rotate-3"></div>
-                        <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Nossa Loja" class="w-full h-[400px] object-cover rounded-[2rem] shadow-xl relative z-10">
-                        <div class="absolute -bottom-8 -right-8 bg-brand-900 text-brand-500 p-6 rounded-3xl shadow-premium z-20 border border-brand-500/30 hidden md:block">
+                        <div class="absolute -inset-4 bg-brand-500/20 rounded-[3rem] transform -rotate-3 transition-transform duration-700 hover:rotate-0"></div>
+                        <img src="https://cdn6.campograndenews.com.br/uploads/noticias/2025/01/11/0317ab477a2ded630218a9043e77d179a01080ab.jpeg" alt="Nossa Loja" class="w-full h-[400px] object-cover rounded-[2rem] shadow-xl relative z-10">
+                        <div class="absolute -bottom-8 -right-8 bg-brand-900 text-brand-500 p-6 rounded-3xl shadow-premium z-20 border border-brand-500/30 hidden md:block animate-bounce" style="animation-duration: 3s;">
                             <p class="font-serif text-4xl italic font-bold">10+</p>
                             <p class="text-[10px] uppercase tracking-widest font-bold">Anos de Tradição</p>
                         </div>
@@ -281,13 +313,13 @@
                             Fundada com o propósito de unir saúde ocular e alta moda, a <strong class="text-brand-500">SUA LOGO</strong> construiu uma trajetória de sucesso. Trabalhamos incansavelmente para trazer as melhores tendências do mercado mundial direto para você.
                         </p>
                         <p class="text-slate-600 dark:text-slate-300 text-sm md:text-base mb-8 font-light leading-relaxed">
-                            Nossa equipe é formada por consultores ópticos especializados, prontos para oferecer um atendimento humanizado, entendendo exatamente o que o seu rosto e o seu estilo precisam.
+                            Nossa equipa é formada por consultores ópticos especializados, prontos para oferecer um atendimento humanizado, entendendo exatamente o que o seu rosto e o seu estilo precisam.
                         </p>
                         <div class="flex items-center gap-6 border-t border-slate-200 dark:border-white/10 pt-6">
                             <div class="flex -space-x-4">
-                                <img class="w-12 h-12 rounded-full border-2 border-white dark:border-brand-900 object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100" alt="Equipe">
-                                <img class="w-12 h-12 rounded-full border-2 border-white dark:border-brand-900 object-cover" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100" alt="Equipe">
-                                <img class="w-12 h-12 rounded-full border-2 border-white dark:border-brand-900 object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" alt="Equipe">
+                                <img class="w-12 h-12 rounded-full border-2 border-white dark:border-brand-900 object-cover hover:-translate-y-2 transition-transform duration-300 cursor-pointer" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100" alt="Equipe">
+                                <img class="w-12 h-12 rounded-full border-2 border-white dark:border-brand-900 object-cover hover:-translate-y-2 transition-transform duration-300 cursor-pointer" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100" alt="Equipe">
+                                <img class="w-12 h-12 rounded-full border-2 border-white dark:border-brand-900 object-cover hover:-translate-y-2 transition-transform duration-300 cursor-pointer" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" alt="Equipe">
                             </div>
                             <div>
                                 <p class="text-[10px] uppercase font-bold text-slate-500 tracking-widest">Equipe de Especialistas</p>
@@ -299,7 +331,6 @@
             </div>
         </section>
 
-        <!-- Vitrine Completa Estilo E-commerce -->
         <section id="colecao" class="max-w-7xl mx-auto px-4 py-16 md:py-24 relative bg-slate-50 dark:bg-brand-900/50 rounded-[3rem]">
             <div class="bg-text top-40 right-0 opacity-50 text-right">EXCLUSIVO</div>
             
@@ -308,40 +339,42 @@
                 <h2 class="font-serif text-4xl md:text-5xl text-slate-900 dark:text-white italic tracking-tight">Vitrine <span class="text-shine">Completa</span></h2>
             </div>
 
-            <!-- Filtros Interativos -->
             <div class="flex justify-center w-full overflow-x-auto no-scrollbar pb-4 mb-10 snap-x snap-mandatory" data-aos="fade-up" data-aos-delay="100">
                 <div class="flex gap-2 w-max px-1 bg-white dark:bg-brand-800 p-2 rounded-full shadow-sm border border-slate-100 dark:border-brand-500/20">
-                    <button onclick="app.filterProducts('Tudo', this)" class="filter-btn active px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest bg-brand-500 text-brand-900 transition">Tudo</button>
-                    <button onclick="app.filterProducts('Oculos', this)" class="filter-btn px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-brand-900 transition">Óculos</button>
-                    <button onclick="app.filterProducts('Relogios', this)" class="filter-btn px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-brand-900 transition">Relógios</button>
-                    <button onclick="app.filterProducts('Joias', this)" class="filter-btn px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-brand-900 transition">Joias</button>
+                    <button onclick="app.filterProducts('Tudo', this)" class="filter-btn active px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest bg-brand-500 text-brand-900 transition-all duration-300 transform active:scale-95">Tudo</button>
+                    <button onclick="app.filterProducts('Oculos', this)" class="filter-btn px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-brand-900 transition-all duration-300 transform active:scale-95">Óculos</button>
+                    <button onclick="app.filterProducts('Relogios', this)" class="filter-btn px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-brand-900 transition-all duration-300 transform active:scale-95">Relógios</button>
+                    <button onclick="app.filterProducts('Joias', this)" class="filter-btn px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-brand-900 transition-all duration-300 transform active:scale-95">Joias</button>
                 </div>
             </div>
 
-            <!-- Grid de Produtos Completo -->
-            <div id="vitrine-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
-                <!-- Produtos renderizados via JavaScript -->
+            <div id="vitrine-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6 relative z-10">
+                </div>
+            
+            <div class="text-center mt-12" data-aos="fade-up">
+                <button onclick="app.openWhatsApp('Olá! Gostaria de ver o catálogo completo de produtos.')" class="border border-slate-900 dark:border-slate-500 text-brand-500 px-10 py-4 rounded-full text-[10px] md:text-xs uppercase font-bold tracking-widest hover:text-slate-400 hover:border-slate-400 transition-all duration-300 bg-transparent">
+                    Ver Catálogo Completo no WhatsApp
+                </button>
             </div>
         </section>
 
-        <!-- Seção Check-up da Visão -->
         <section id="consultas" class="py-16 md:py-24 relative overflow-hidden bg-white dark:bg-brand-900 transition-colors duration-500">
             <div class="max-w-7xl mx-auto px-4 relative z-10">
                 <div class="flex flex-col lg:flex-row items-center relative">
                     
-                    <div class="w-full lg:w-3/5 rounded-[2rem] overflow-hidden shadow-2xl relative" data-aos="fade-right">
-                        <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Exame de Vista Doutora" class="w-full h-[400px] md:h-[600px] object-cover">
+                    <div class="w-full lg:w-3/5 rounded-[2rem] overflow-hidden shadow-2xl relative group" data-aos="fade-right">
+                        <img src="https://marcelabarreira.com.br/wp-content/uploads/2021/11/exame-vista-crian%C3%A7as-bebe.jpg-g-scaled.jpg" alt="Exame de Vista Pediátrico" class="w-full h-[400px] md:h-[600px] object-cover group-hover:scale-105 transition duration-700">
                         <div class="absolute inset-0 bg-brand-900/10 mix-blend-multiply"></div>
                     </div>
 
-                    <div class="w-[90%] lg:w-1/2 bg-brand-900 text-white p-8 md:p-12 rounded-[2rem] shadow-premium relative -mt-20 lg:mt-0 lg:-ml-24 z-20 border border-brand-500/30" data-aos="fade-left">
+                    <div class="w-[90%] lg:w-1/2 bg-brand-900 text-white p-6 md:p-12 rounded-[2rem] shadow-premium relative -mt-20 lg:mt-0 lg:-ml-24 z-20 border border-brand-500/30" data-aos="fade-left">
                         <div class="absolute -top-6 -right-6 bg-brand-500 text-brand-900 w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-lg floating-icon"><i class="fas fa-eye"></i></div>
                         
                         <span class="bg-brand-500 text-brand-900 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-md mb-4 inline-block">Saúde Visual em Primeiro Lugar</span>
                         <h2 class="font-serif text-3xl md:text-5xl italic mb-6 text-white leading-tight">Check-up <br><span class="text-shine">da Visão</span></h2>
                         
                         <p class="text-slate-300 text-sm md:text-base mb-6 font-light leading-relaxed">
-                            A saúde dos seus olhos não pode esperar. Agende seu check-up com nossos especialistas. Avaliação clínica completa e indicação das lentes ideais para sua rotina.
+                            A saúde dos seus olhos não pode esperar. Com nossos especialistas e tecnologia de ponta, indicaremos a lente ideal para sua rotina e de toda a família.
                         </p>
                         
                         <ul class="space-y-3 mb-8">
@@ -350,7 +383,7 @@
                             <li class="flex items-center gap-3 text-sm text-slate-300"><i class="fas fa-check-circle text-brand-500"></i> Laboratório Digital Próprio</li>
                         </ul>
 
-                        <button onclick="app.openModal('modal-agendamento')" class="w-full bg-brand-500 text-brand-900 font-bold py-4 rounded-xl uppercase text-[11px] tracking-widest shadow-glow hover:bg-white transition flex items-center justify-center gap-2">
+                        <button onclick="app.openModal('modal-agendamento')" class="w-full bg-brand-500 text-brand-900 font-bold py-4 rounded-xl uppercase text-[11px] tracking-widest shadow-glow hover:bg-white transition-all duration-300 flex items-center justify-center gap-2 hover:-translate-y-1">
                             <i class="far fa-calendar-alt text-lg"></i> Agendar meu Exame Agora
                         </button>
                     </div>
@@ -359,7 +392,6 @@
             </div>
         </section>
 
-        <!-- NOVO: Carrossel de Depoimentos Ampliado -->
         <section id="depoimentos" class="max-w-7xl mx-auto px-4 py-16 md:py-24 relative overflow-hidden">
             <div class="bg-text top-10 left-10 opacity-20">CLIENTES</div>
             <div class="text-center mb-12 relative z-10" data-aos="fade-up">
@@ -368,15 +400,13 @@
             </div>
             
             <div class="relative group" data-aos="fade-up">
-                <!-- Botão Scroll Esq -->
-                <button onclick="app.scrollCarrossel(-350)" class="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white dark:bg-brand-900 rounded-full shadow-lg border border-slate-100 dark:border-brand-500/20 text-brand-500 flex items-center justify-center -ml-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                <button onclick="app.scrollCarrossel(-350)" class="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white dark:bg-brand-900 rounded-full shadow-lg border border-slate-100 dark:border-brand-500/20 text-brand-500 flex items-center justify-center -ml-4 opacity-0 group-hover:opacity-100 transition-opacity active:scale-90">
                     <i class="fas fa-chevron-left"></i>
                 </button>
 
-                <!-- Container do Carrossel -->
                 <div id="carrossel-depoimentos" class="flex gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-8 pt-4 scroll-smooth px-4">
                     
-                    <div class="bg-white dark:bg-brand-800 p-8 rounded-[2rem] shadow-sm border border-slate-100 dark:border-brand-500/20 hover:shadow-premium transition-all duration-500 flex-1 min-w-[300px] sm:min-w-[350px] snap-center relative">
+                    <div class="bg-white dark:bg-brand-800 p-8 rounded-[2rem] shadow-sm border border-slate-100 dark:border-brand-500/20 hover:shadow-premium transition-all duration-500 flex-1 min-w-[300px] sm:min-w-[350px] snap-center relative hover:-translate-y-2">
                         <div class="absolute top-6 right-6 text-brand-500/20 text-4xl"><i class="fas fa-quote-right"></i></div>
                         <div class="flex gap-1 text-brand-500 text-xs mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                         <p class="text-slate-600 dark:text-slate-300 text-sm italic mb-8 relative z-10">"Amei o atendimento da Sua Logo! A Doutora foi super atenciosa no exame, e me ajudaram a escolher uma armação que combinou certinho."</p>
@@ -402,7 +432,7 @@
                         </div>
                     </div>
 
-                    <div class="bg-white dark:bg-brand-800 p-8 rounded-[2rem] shadow-sm border border-slate-100 dark:border-brand-500/20 hover:shadow-premium transition-all duration-500 flex-1 min-w-[300px] sm:min-w-[350px] snap-center relative">
+                    <div class="bg-white dark:bg-brand-800 p-8 rounded-[2rem] shadow-sm border border-slate-100 dark:border-brand-500/20 hover:shadow-premium transition-all duration-500 flex-1 min-w-[300px] sm:min-w-[350px] snap-center relative hover:-translate-y-2">
                         <div class="absolute top-6 right-6 text-brand-500/20 text-4xl"><i class="fas fa-quote-right"></i></div>
                         <div class="flex gap-1 text-brand-500 text-xs mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                         <p class="text-slate-600 dark:text-slate-300 text-sm italic mb-8 relative z-10">"Estava com muita dor de cabeça por causa da luz do computador. Fiz o exame na Sua Logo, coloquei lentes Blue Protect e minha vida mudou!"</p>
@@ -416,14 +446,12 @@
                     </div>
                 </div>
 
-                <!-- Botão Scroll Dir -->
-                <button onclick="app.scrollCarrossel(350)" class="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white dark:bg-brand-900 rounded-full shadow-lg border border-slate-100 dark:border-brand-500/20 text-brand-500 flex items-center justify-center -mr-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                <button onclick="app.scrollCarrossel(350)" class="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white dark:bg-brand-900 rounded-full shadow-lg border border-slate-100 dark:border-brand-500/20 text-brand-500 flex items-center justify-center -mr-4 opacity-0 group-hover:opacity-100 transition-opacity active:scale-90">
                     <i class="fas fa-chevron-right"></i>
                 </button>
             </div>
         </section>
 
-        <!-- Nossas Lojas (GPS) -->
         <section id="lojas" class="max-w-7xl mx-auto px-4 py-16 md:py-24 relative border-t border-slate-200 dark:border-white/10">
             <div class="text-center mb-12" data-aos="fade-up">
                 <span class="text-brand-500 text-[10px] font-bold uppercase tracking-widest mb-2 block">Visite-nos</span>
@@ -432,7 +460,9 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="bg-white dark:bg-brand-800 rounded-[2rem] p-6 shadow-lg border border-slate-100 dark:border-brand-500/20 group" data-aos="fade-right">
-                    <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Loja Matriz" class="w-full h-48 object-cover rounded-xl mb-6">
+                    <div class="overflow-hidden rounded-xl mb-6">
+                        <img src="https://cdn6.campograndenews.com.br/uploads/noticias/2025/01/11/0317ab477a2ded630218a9043e77d179a01080ab.jpeg" alt="Loja Matriz" class="w-full h-48 object-cover transform group-hover:scale-110 transition duration-700">
+                    </div>
                     <h3 class="font-serif text-2xl text-slate-900 dark:text-white mb-2">Loja Matriz Premium</h3>
                     <p class="text-slate-500 dark:text-slate-400 text-sm mb-6"><i class="fas fa-map-marker-alt text-brand-500 mr-2"></i> Av. Principal, 1000 - Centro, São Paulo/SP</p>
                     <button onclick="window.open('https://maps.google.com/?q=Otica', '_blank')" class="w-full border-2 border-brand-500 text-brand-500 py-3 rounded-xl uppercase text-[10px] font-bold tracking-widest hover:bg-brand-500 hover:text-brand-900 transition flex items-center justify-center gap-2">
@@ -441,7 +471,9 @@
                 </div>
 
                 <div class="bg-white dark:bg-brand-800 rounded-[2rem] p-6 shadow-lg border border-slate-100 dark:border-brand-500/20 group" data-aos="fade-left">
-                    <img src="https://images.unsplash.com/photo-1582142407894-ec85a1260a46?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Loja Shopping" class="w-full h-48 object-cover rounded-xl mb-6">
+                    <div class="overflow-hidden rounded-xl mb-6">
+                        <img src="https://cdn6.campograndenews.com.br/uploads/noticias/2025/01/11/0317ab477a2ded630218a9043e77d179a01080ab.jpeg" alt="Loja Shopping" class="w-full h-48 object-cover transform group-hover:scale-110 transition duration-700">
+                    </div>
                     <h3 class="font-serif text-2xl text-slate-900 dark:text-white mb-2">Unidade Shopping</h3>
                     <p class="text-slate-500 dark:text-slate-400 text-sm mb-6"><i class="fas fa-map-marker-alt text-brand-500 mr-2"></i> Shopping Boulevard - Piso 2 - Loja 45</p>
                     <button onclick="window.open('https://maps.google.com/?q=Otica', '_blank')" class="w-full border-2 border-brand-500 text-brand-500 py-3 rounded-xl uppercase text-[10px] font-bold tracking-widest hover:bg-brand-500 hover:text-brand-900 transition flex items-center justify-center gap-2">
@@ -451,14 +483,13 @@
             </div>
         </section>
 
-        <!-- Footer -->
         <footer class="bg-brand-900 text-white pt-16 pb-8 px-4 border-t-[4px] border-brand-500 relative overflow-hidden">
             <div class="absolute -top-40 -right-40 w-96 h-96 bg-brand-500/5 rounded-full blur-3xl pointer-events-none"></div>
             
             <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left relative z-10">
                 <div>
                     <div class="font-serif text-3xl text-brand-500 tracking-wider mb-2 flex items-center justify-center md:justify-start gap-2">
-                        <i class="fas fa-gem text-shine"></i>
+                        <i class="fas fa-glasses text-shine"></i>
                         <span class="font-bold text-white">SUA</span><span class="font-light text-brand-500">LOGO</span>
                     </div>
                     <p class="text-slate-400 text-sm max-w-xs mx-auto md:mx-0">Cuidar da sua visão e do seu estilo é o nosso maior compromisso.</p>
@@ -466,32 +497,29 @@
                 <div class="flex flex-col items-center md:items-end gap-4">
                     <button onclick="app.openWhatsApp('Olá, vim pelo site e gostaria de conversar com um atendente.')" class="bg-brand-500 text-brand-900 px-6 py-3 rounded-full text-[10px] uppercase font-bold tracking-widest hover:bg-white transition shadow-md">Fale Conosco</button>
                     <div class="flex gap-4 mt-2">
-                        <a href="https://instagram.com/sualogo" target="_blank" class="w-10 h-10 rounded-full bg-brand-800 border border-brand-500/30 flex items-center justify-center hover:bg-brand-500 hover:text-brand-900 transition"><i class="fab fa-instagram"></i></a>
+                        <a href="https://instagram.com/sualogo" target="_blank" class="w-10 h-10 rounded-full bg-brand-800 border border-brand-500/30 flex items-center justify-center hover:bg-brand-500 hover:text-brand-900 transition hover:scale-110"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
             <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-white/10 text-center flex flex-col gap-2 relative z-10">
                 <p class="text-[10px] font-bold uppercase tracking-widest text-brand-500/50">
-                    &copy; 2026 Sua Logo Ótica e Joalheria. Todos os direitos reservados.
+                    © 2026 Sua Logo Ótica e Joalheria. Todos os direitos reservados.
                 </p>
             </div>
         </footer>
     </main>
 
-    <!-- Balão Flutuante do WhatsApp -->
-    <button onclick="app.openWhatsApp('Olá! Vim pelo site e gostaria de atendimento.');" class="fixed bottom-24 md:bottom-8 right-4 md:right-8 bg-[#25d366] text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-[0_10px_20px_rgba(37,211,102,0.3)] hover:scale-110 hover:-translate-y-1 transition-all z-[90] cursor-pointer border-none outline-none">
+    <button onclick="app.openWhatsApp('Olá! Vim pelo site e gostaria de atendimento.');" class="fixed bottom-24 md:bottom-8 right-4 md:right-8 bg-[#25d366] text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-[0_10px_20px_rgba(37,211,102,0.3)] hover:scale-110 hover:-translate-y-1 transition-all z-[90] cursor-pointer border-none outline-none focus:outline-none">
         <i class="fab fa-whatsapp"></i>
     </button>
 
-    <!-- CARRINHO LATERAL (SIDEBAR) -->
     <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full md:w-[400px] bg-white dark:bg-brand-900 shadow-2xl z-[2000] transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col border-l border-slate-100 dark:border-brand-500/20">
         <div class="p-6 border-b border-slate-100 dark:border-white/10 flex justify-between items-center bg-brand-50 dark:bg-brand-800">
             <h3 class="font-serif text-2xl italic tracking-tight text-slate-900 dark:text-white"><i class="fas fa-shopping-bag text-brand-500 mr-2"></i>Sua Sacola</h3>
             <button onclick="app.toggleCart()" class="w-8 h-8 rounded-full bg-slate-200 dark:bg-brand-900 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-brand-500 transition"><i class="fas fa-times"></i></button>
         </div>
         <div id="cart-items" class="flex-1 overflow-y-auto p-6 space-y-4 custom-scrollbar bg-white dark:bg-brand-900">
-            <!-- Itens injetados via JS -->
-        </div>
+            </div>
         <div class="p-6 bg-brand-50 dark:bg-brand-800 border-t border-slate-100 dark:border-white/10 shadow-[0_-10px_20px_rgba(0,0,0,0.05)]">
             <div class="mb-5">
                 <label class="text-[9px] font-bold uppercase text-slate-500 dark:text-slate-400 ml-1">Como deseja receber?</label>
@@ -511,43 +539,37 @@
     </div>
     <div id="cart-overlay" class="fixed inset-0 bg-brand-900/60 backdrop-blur-sm z-[1900] hidden opacity-0 transition-opacity duration-500" onclick="app.toggleCart()"></div>
 
-    <!-- MODAL DE AGENDAMENTO (COM DATA E HORA) -->
     <div id="modal-agendamento" class="fixed inset-0 bg-brand-900/80 backdrop-blur-sm z-[2000] hidden flex items-end md:items-center justify-center pb-0 md:p-4">
-        <div id="modal-agendamento-box" class="bg-white dark:bg-brand-800 w-full max-w-md rounded-t-[2.5rem] md:rounded-[2.5rem] p-8 shadow-premium relative transition-transform transform translate-y-full md:translate-y-0 border border-slate-100 dark:border-brand-500/30">
+        <div id="modal-agendamento-box" class="bg-white dark:bg-brand-800 w-full max-w-md rounded-t-[2.5rem] md:rounded-[2.5rem] p-6 md:p-8 shadow-premium relative transition-transform transform translate-y-full md:translate-y-0 border border-slate-100 dark:border-brand-500/30">
             <button onclick="app.closeModal('modal-agendamento')" class="absolute top-6 right-6 w-8 h-8 rounded-full bg-slate-100 dark:bg-brand-900 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-brand-500 transition"><i class="fas fa-times"></i></button>
             
-            <h3 class="font-serif text-2xl italic mb-1 text-slate-900 dark:text-white">Agendar Atendimento</h3>
-            <p class="text-[10px] text-brand-500 font-bold uppercase tracking-widest mb-6">Organize seu horário conosco</p>
+            <h3 class="font-serif text-2xl italic mb-1 text-slate-900 dark:text-white">Agendar Consulta</h3>
+            <p class="text-[10px] text-brand-500 font-bold uppercase tracking-widest mb-4">Verifique nossos dias de atendimento</p>
             
-            <div class="space-y-4 mb-8">
+            <div class="bg-slate-50 dark:bg-brand-900 border border-slate-200 dark:border-brand-500/20 rounded-xl p-4 mb-6">
+                <h4 class="text-[10px] font-bold uppercase text-slate-500 dark:text-slate-400 mb-3 flex items-center gap-2"><i class="fas fa-calendar-alt text-brand-500"></i> Dias Disponíveis de Consultas</h4>
+                <div class="space-y-3">
+                    <div class="flex justify-between items-center bg-white dark:bg-brand-800 p-3 rounded-lg border border-slate-100 dark:border-white/5 shadow-sm hover:border-brand-500 transition-colors">
+                        <span class="font-bold text-slate-800 dark:text-white text-sm">Terças e Quintas</span>
+                        <span class="text-brand-500 text-xs font-bold bg-brand-500/10 px-2 py-1 rounded">09h às 18h</span>
+                    </div>
+                    <div class="flex justify-between items-center bg-white dark:bg-brand-800 p-3 rounded-lg border border-slate-100 dark:border-white/5 shadow-sm hover:border-brand-500 transition-colors">
+                        <span class="font-bold text-slate-800 dark:text-white text-sm">Sábados</span>
+                        <span class="text-brand-500 text-xs font-bold bg-brand-500/10 px-2 py-1 rounded">09h às 13h</span>
+                    </div>
+                </div>
+                <p class="text-[9px] text-slate-500 mt-3 italic text-center">* Envie uma mensagem para verificar a disponibilidade de vagas.</p>
+            </div>
+
+            <div class="space-y-4 mb-6">
                 <div>
-                    <label class="text-[9px] font-bold uppercase text-slate-500 dark:text-slate-400 ml-1">Serviço Desejado</label>
+                    <label class="text-[9px] font-bold uppercase text-slate-500 dark:text-slate-400 ml-1">Qual o Serviço?</label>
                     <select id="form-assunto" class="w-full bg-slate-50 dark:bg-brand-900 border border-slate-200 dark:border-brand-500/20 text-slate-800 dark:text-white rounded-xl p-3 mt-1 outline-none text-sm font-medium focus:border-brand-500 transition">
                         <option value="Exame de Vista Completo">Agendar Exame de Vista</option>
                         <option value="Orçamento de Lentes (Já Tenho Receita)">Orçamento de Lentes (Tenho Receita)</option>
                         <option value="Visita para Ver Óculos/Joias">Visita para Ver Óculos/Joias</option>
                     </select>
                 </div>
-                
-                <div class="grid grid-cols-2 gap-4">
-                    <div>
-                        <label class="text-[9px] font-bold uppercase text-slate-500 dark:text-slate-400 ml-1">Data</label>
-                        <input type="date" id="form-data" class="w-full bg-slate-50 dark:bg-brand-900 border border-slate-200 dark:border-brand-500/20 text-slate-800 dark:text-white rounded-xl p-3 mt-1 outline-none text-sm focus:border-brand-500 transition font-sans">
-                    </div>
-                    <div>
-                        <label class="text-[9px] font-bold uppercase text-slate-500 dark:text-slate-400 ml-1">Horário</label>
-                        <select id="form-hora" class="w-full bg-slate-50 dark:bg-brand-900 border border-slate-200 dark:border-brand-500/20 text-slate-800 dark:text-white rounded-xl p-3 mt-1 outline-none text-sm focus:border-brand-500 transition font-sans">
-                            <option value="">Escolha...</option>
-                            <option value="09:00">09:00</option>
-                            <option value="10:00">10:00</option>
-                            <option value="11:00">11:00</option>
-                            <option value="14:00">14:00</option>
-                            <option value="15:00">15:00</option>
-                            <option value="16:00">16:00</option>
-                        </select>
-                    </div>
-                </div>
-
                 <div>
                     <label class="text-[9px] font-bold uppercase text-slate-500 dark:text-slate-400 ml-1">Seu Nome Completo</label>
                     <input type="text" id="form-nome" placeholder="Como devemos te chamar?" class="w-full bg-slate-50 dark:bg-brand-900 border border-slate-200 dark:border-brand-500/20 text-slate-800 dark:text-white rounded-xl p-3 mt-1 outline-none text-sm focus:border-brand-500 transition">
@@ -555,17 +577,91 @@
             </div>
             
             <button onclick="app.enviarAgendamento()" class="w-full bg-[#25d366] text-white font-bold py-4 rounded-xl uppercase text-[11px] tracking-widest shadow-lg hover:bg-[#1ebd5a] transition flex items-center justify-center gap-2">
-                <i class="fab fa-whatsapp text-lg"></i> Confirmar Agendamento
+                <i class="fab fa-whatsapp text-lg"></i> Solicitar Vaga via WhatsApp
             </button>
         </div>
     </div>
 
-    <!-- NOVO PAINEL ADM SUPERIOR (ERP) PADRONIZADO COM O SITE -->
+    <div id="modal-login-adm" class="fixed inset-0 bg-slate-900/80 backdrop-blur-md z-[2500] hidden flex items-center justify-center p-4">
+        <div id="modal-login-adm-box" class="bg-white dark:bg-brand-800 w-full max-w-sm rounded-[2rem] p-8 shadow-premium relative transition-transform transform scale-95 border border-slate-100 dark:border-brand-500/30">
+            <button onclick="app.closeModal('modal-login-adm')" class="absolute top-4 right-4 text-slate-400 hover:text-brand-500 transition"><i class="fas fa-times"></i></button>
+            <div class="text-center mb-6">
+                <div class="w-16 h-16 bg-red-100 dark:bg-red-500/10 text-red-500 rounded-full flex items-center justify-center text-3xl mx-auto mb-4 border border-red-200 dark:border-red-500/30"><i class="fas fa-lock"></i></div>
+                <h3 class="font-serif text-2xl italic text-slate-900 dark:text-white">Acesso Restrito</h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">Área exclusiva para administradores e gestores da <b>Sua Logo</b>.</p>
+            </div>
+            <button onclick="app.entrarAdm()" class="w-full bg-brand-500 text-brand-900 font-bold py-3 rounded-xl uppercase text-[11px] tracking-widest hover:bg-brand-600 transition shadow-md">
+                Acessar Dashboard (Protótipo)
+            </button>
+        </div>
+    </div>
+
+    <div id="modal-tour" class="fixed inset-0 bg-slate-900/80 dark:bg-black/90 backdrop-blur-md z-[5000] hidden flex items-center justify-center p-4 font-sans">
+        <div id="modal-tour-box" class="bg-white dark:bg-brand-900 w-full max-w-md rounded-[2rem] p-8 shadow-premium relative transition-transform transform scale-95 border border-slate-200 dark:border-brand-500/30 text-center">
+            <div id="tour-icon" class="w-20 h-20 mx-auto bg-brand-50 dark:bg-brand-500/10 text-brand-500 rounded-full flex items-center justify-center text-4xl mb-6 shadow-inner transition-transform duration-300 transform hover:scale-110">
+                <i class="fas fa-rocket"></i>
+            </div>
+            <span id="tour-step-badge" class="text-[9px] text-brand-500 font-bold uppercase tracking-widest mb-2 block">Passo 1 de 4</span>
+            <h3 id="tour-title" class="font-serif text-2xl italic mb-4 text-slate-900 dark:text-white">Bem-vinda ao seu App!</h3>
+            <p id="tour-text" class="text-sm text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
+                Este aplicativo foi criado como um protótipo funcional para demonstrar a estratégia de vendas e gestão da sua nova ótica.
+            </p>
+            
+            <div class="flex justify-center gap-2 mb-8" id="tour-dots">
+                <div class="w-2 h-2 rounded-full bg-brand-500"></div>
+                <div class="w-2 h-2 rounded-full bg-slate-200 dark:bg-slate-700"></div>
+                <div class="w-2 h-2 rounded-full bg-slate-200 dark:bg-slate-700"></div>
+                <div class="w-2 h-2 rounded-full bg-slate-200 dark:bg-slate-700"></div>
+            </div>
+
+            <div class="flex gap-3">
+                <button onclick="app.closeTour()" class="flex-1 bg-slate-100 dark:bg-white/5 text-slate-600 dark:text-slate-300 font-bold py-3 rounded-xl uppercase text-[10px] tracking-widest hover:bg-slate-200 dark:hover:bg-white/10 transition">
+                    Pular
+                </button>
+                <button id="tour-next-btn" onclick="app.nextTourStep()" class="flex-1 bg-brand-500 text-brand-900 font-bold py-3 rounded-xl uppercase text-[10px] tracking-widest hover:bg-brand-600 transition shadow-md">
+                    Próximo <i class="fas fa-arrow-right ml-1"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-adm-tour" class="fixed inset-0 bg-brand-900/90 backdrop-blur-xl z-[6000] hidden flex items-center justify-center p-4 font-sans">
+        <div id="modal-adm-tour-box" class="bg-slate-50 dark:bg-brand-800 w-full max-w-md rounded-[2rem] p-8 shadow-premium relative transition-transform transform scale-95 border border-brand-500/30 text-center overflow-hidden">
+            <div class="absolute -top-10 -right-10 w-32 h-32 bg-brand-500/20 rounded-full blur-2xl"></div>
+            
+            <button onclick="app.closeAdmTour()" class="absolute top-4 right-4 text-slate-400 hover:text-brand-500 transition z-10"><i class="fas fa-times"></i></button>
+            
+            <div id="adm-tour-icon" class="w-20 h-20 mx-auto bg-white dark:bg-brand-900 text-brand-500 rounded-2xl flex items-center justify-center text-4xl mb-6 shadow-md border border-brand-500/20 transition-transform duration-300">
+                <i class="fas fa-chart-line"></i>
+            </div>
+            <span id="adm-tour-step-badge" class="text-[9px] text-brand-500 font-bold uppercase tracking-widest mb-2 block">Poder do ERP - Passo 1 de 4</span>
+            <h3 id="adm-tour-title" class="font-serif text-2xl italic mb-4 text-slate-900 dark:text-white">Seu Centro de Comando</h3>
+            <p id="adm-tour-text" class="text-sm text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
+                Aqui tem acesso a todos os indicadores vitais do seu negócio em tempo real. Controle o faturamento e os agendamentos numa única janela.
+            </p>
+            
+            <div class="flex justify-center gap-2 mb-8" id="adm-tour-dots">
+                <div class="w-2 h-2 rounded-full bg-brand-500"></div>
+                <div class="w-2 h-2 rounded-full bg-slate-200 dark:bg-slate-700"></div>
+                <div class="w-2 h-2 rounded-full bg-slate-200 dark:bg-slate-700"></div>
+                <div class="w-2 h-2 rounded-full bg-slate-200 dark:bg-slate-700"></div>
+            </div>
+
+            <div class="flex gap-3">
+                <button onclick="app.closeAdmTour()" class="flex-1 bg-white dark:bg-brand-900 border border-slate-200 dark:border-white/10 text-slate-600 dark:text-slate-300 font-bold py-3 rounded-xl uppercase text-[10px] tracking-widest hover:bg-slate-100 dark:hover:bg-white/5 transition">
+                    Explorar
+                </button>
+                <button id="adm-tour-next-btn" onclick="app.nextAdmTourStep()" class="flex-1 bg-brand-500 text-brand-900 font-bold py-3 rounded-xl uppercase text-[10px] tracking-widest hover:bg-brand-600 transition shadow-md">
+                    Avançar <i class="fas fa-arrow-right ml-1"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <div id="modal-admin" class="fixed inset-0 bg-slate-900/60 dark:bg-black/80 backdrop-blur-md z-[3000] hidden flex items-center justify-center p-0 md:p-6 font-sans">
         <div id="modal-admin-box" class="bg-slate-50 dark:bg-brand-900 w-full h-full md:h-auto md:max-h-[95vh] md:max-w-7xl md:rounded-[2rem] flex flex-col shadow-2xl relative transition-transform transform scale-95 border border-slate-200 dark:border-white/10 overflow-hidden">
             
-            <!-- Admin Header -->
-            <div class="bg-white dark:bg-brand-800 p-4 md:p-6 flex justify-between items-center border-b border-slate-200 dark:border-white/10">
+            <div class="bg-white dark:bg-brand-800 p-4 md:p-6 flex justify-between items-center border-b border-slate-200 dark:border-white/10 flex-wrap gap-4">
                 <div class="flex items-center gap-4">
                     <div class="w-12 h-12 bg-gradient-to-br from-brand-500 to-yellow-600 text-white rounded-xl flex items-center justify-center text-xl shadow-glow"><i class="fas fa-glasses"></i></div>
                     <div>
@@ -573,14 +669,16 @@
                         <span class="text-[10px] text-brand-500 font-bold uppercase tracking-widest flex items-center gap-1"><i class="fas fa-shield-alt"></i> Autenticado: Gestor</span>
                     </div>
                 </div>
-                <div class="flex items-center gap-3">
+                <div class="flex items-center gap-2 md:gap-3 w-full md:w-auto overflow-x-auto no-scrollbar">
+                    <button onclick="app.startAdmTour()" class="flex items-center gap-2 bg-brand-500/10 hover:bg-brand-500/20 text-brand-600 dark:text-brand-500 px-4 py-2 rounded-lg text-[11px] font-bold uppercase tracking-widest transition border border-brand-500/30 whitespace-nowrap">
+                        <i class="fas fa-magic"></i> Tour Guiado
+                    </button>
                     <button onclick="app.adminAction('Sincronizando banco de dados...')" class="hidden md:flex items-center gap-2 bg-slate-100 hover:bg-slate-200 dark:bg-brand-900 dark:hover:bg-white/10 text-slate-700 dark:text-white px-4 py-2 rounded-lg text-[11px] font-bold uppercase tracking-widest transition border border-slate-200 dark:border-white/5"><i class="fas fa-sync-alt"></i> Sincronizar</button>
-                    <button onclick="app.adminAction('Gerando relatório Excel...')" class="flex items-center gap-2 bg-green-600 hover:bg-green-500 text-white px-4 py-2 rounded-lg text-[11px] font-bold uppercase tracking-widest transition shadow-md"><i class="fas fa-file-excel"></i> Exportar Base</button>
-                    <button onclick="app.closeModal('modal-admin')" class="w-10 h-10 bg-slate-100 dark:bg-red-500/10 text-slate-500 hover:text-red-500 dark:text-red-500 rounded-lg flex items-center justify-center hover:bg-red-50 dark:hover:bg-red-500 dark:hover:text-white transition ml-2"><i class="fas fa-times"></i></button>
+                    <button onclick="app.adminAction('Gerando relatório Excel...')" class="flex items-center gap-2 bg-green-600 hover:bg-green-500 text-white px-4 py-2 rounded-lg text-[11px] font-bold uppercase tracking-widest transition shadow-md whitespace-nowrap"><i class="fas fa-file-excel"></i> Exportar Base</button>
+                    <button onclick="app.closeModal('modal-admin')" class="w-10 h-10 min-w-[40px] bg-slate-100 dark:bg-red-500/10 text-slate-500 hover:text-red-500 dark:text-red-500 rounded-lg flex items-center justify-center hover:bg-red-50 dark:hover:bg-red-500 dark:hover:text-white transition"><i class="fas fa-times"></i></button>
                 </div>
             </div>
 
-            <!-- Menus de Navegação do ADM -->
             <div class="flex border-b border-slate-200 dark:border-white/10 bg-white dark:bg-brand-800 px-4 md:px-6 overflow-x-auto no-scrollbar">
                 <button class="adm-tab-btn active px-6 py-4 text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 hover:text-brand-500 dark:hover:text-white transition whitespace-nowrap" onclick="app.changeAdmTab('dashboard', this)"><i class="fas fa-chart-pie mr-2"></i> Visão Geral</button>
                 <button class="adm-tab-btn px-6 py-4 text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 hover:text-brand-500 dark:hover:text-white transition whitespace-nowrap" onclick="app.changeAdmTab('estoque', this)"><i class="fas fa-boxes mr-2"></i> Estoque & Planilhas</button>
@@ -588,28 +686,26 @@
                 <button class="adm-tab-btn px-6 py-4 text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 hover:text-brand-500 dark:hover:text-white transition whitespace-nowrap" onclick="app.changeAdmTab('depoimentos', this)"><i class="fas fa-star mr-2"></i> Depoimentos</button>
             </div>
 
-            <!-- Área de Conteúdo do ADM -->
             <div class="flex-1 overflow-y-auto p-4 md:p-6 custom-scrollbar bg-slate-50 dark:bg-brand-900 relative">
                 
-                <!-- ABA: VISÃO GERAL -->
                 <div id="tab-dashboard" class="adm-tab-content active">
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-                        <div class="bg-white dark:bg-brand-800 p-6 rounded-2xl border border-slate-200 dark:border-white/5 relative overflow-hidden shadow-sm">
+                        <div class="bg-white dark:bg-brand-800 p-6 rounded-2xl border border-slate-200 dark:border-white/5 relative overflow-hidden shadow-sm hover:-translate-y-1 transition-transform">
                             <div class="w-10 h-10 bg-blue-100 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 rounded-lg flex items-center justify-center mb-4"><i class="fas fa-dollar-sign"></i></div>
                             <span class="text-[9px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 block mb-1">Total Faturamento</span>
                             <p class="font-bold text-2xl md:text-3xl text-slate-900 dark:text-white">R$ 84.5k</p>
                         </div>
-                        <div class="bg-white dark:bg-brand-800 p-6 rounded-2xl border border-slate-200 dark:border-white/5 relative overflow-hidden shadow-sm">
+                        <div class="bg-white dark:bg-brand-800 p-6 rounded-2xl border border-slate-200 dark:border-white/5 relative overflow-hidden shadow-sm hover:-translate-y-1 transition-transform">
                             <div class="w-10 h-10 bg-orange-100 dark:bg-orange-500/20 text-orange-600 dark:text-orange-400 rounded-lg flex items-center justify-center mb-4"><i class="fas fa-calendar-check"></i></div>
                             <span class="text-[9px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 block mb-1">Exames Agendados</span>
                             <p class="font-bold text-2xl md:text-3xl text-slate-900 dark:text-white">45</p>
                         </div>
-                        <div class="bg-white dark:bg-brand-800 p-6 rounded-2xl border border-slate-200 dark:border-white/5 relative overflow-hidden shadow-sm">
+                        <div class="bg-white dark:bg-brand-800 p-6 rounded-2xl border border-slate-200 dark:border-white/5 relative overflow-hidden shadow-sm hover:-translate-y-1 transition-transform">
                             <div class="w-10 h-10 bg-green-100 dark:bg-green-500/20 text-green-600 dark:text-green-400 rounded-lg flex items-center justify-center mb-4"><i class="fas fa-shopping-bag"></i></div>
                             <span class="text-[9px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 block mb-1">Vendas Online</span>
                             <p class="font-bold text-2xl md:text-3xl text-slate-900 dark:text-white">128</p>
                         </div>
-                        <div class="bg-red-50 dark:bg-brand-800 p-6 rounded-2xl border border-red-200 dark:border-red-500/30 relative overflow-hidden dark:bg-gradient-to-br dark:from-red-500/10 dark:to-transparent shadow-sm">
+                        <div class="bg-red-50 dark:bg-brand-800 p-6 rounded-2xl border border-red-200 dark:border-red-500/30 relative overflow-hidden dark:bg-gradient-to-br dark:from-red-500/10 dark:to-transparent shadow-sm hover:-translate-y-1 transition-transform">
                             <div class="w-10 h-10 bg-red-100 dark:bg-red-500/20 text-red-600 dark:text-red-400 rounded-lg flex items-center justify-center mb-4"><i class="fas fa-exclamation-triangle"></i></div>
                             <span class="text-[9px] font-bold uppercase tracking-widest text-red-500 dark:text-red-400 block mb-1">Alertas de Reposição</span>
                             <p class="font-bold text-2xl md:text-3xl text-red-700 dark:text-white">3 Itens</p>
@@ -621,15 +717,15 @@
                             <div class="p-4 border-b border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5"><h3 class="text-xs font-bold text-slate-800 dark:text-white uppercase tracking-widest"><i class="fas fa-fire text-brand-500 mr-2"></i>Top Produtos (Mais Vendidos)</h3></div>
                             <div class="p-4">
                                 <div class="flex justify-between items-center mb-3 border-b border-slate-100 dark:border-white/5 pb-2">
-                                    <div class="flex items-center gap-3"><img src="https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=50" class="w-8 h-8 rounded"><span class="text-sm text-slate-700 dark:text-slate-300">Armação Hexagonal Gold</span></div>
+                                    <div class="flex items-center gap-3"><img src="https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=50" class="w-8 h-8 rounded object-cover"><span class="text-sm text-slate-700 dark:text-slate-300">Armação Hexagonal Gold</span></div>
                                     <span class="text-brand-500 font-bold">42 un</span>
                                 </div>
                                 <div class="flex justify-between items-center mb-3 border-b border-slate-100 dark:border-white/5 pb-2">
-                                    <div class="flex items-center gap-3"><img src="https://images.unsplash.com/photo-1524592094714-0f0654ece975?w=50" class="w-8 h-8 rounded"><span class="text-sm text-slate-700 dark:text-slate-300">Relógio Minimalist</span></div>
+                                    <div class="flex items-center gap-3"><img src="https://acdn-us.mitiendanube.com/stores/001/116/055/products/mulher-com-relfogio-minimalista-petit-gold-a8fd6b2980bbfd89d017527756048343-1024-1024.webp" class="w-8 h-8 rounded object-cover"><span class="text-sm text-slate-700 dark:text-slate-300">Relógio Minimalist</span></div>
                                     <span class="text-brand-500 font-bold">28 un</span>
                                 </div>
                                 <div class="flex justify-between items-center">
-                                    <div class="flex items-center gap-3"><img src="https://images.unsplash.com/photo-1508296695146-257a814070b4?w=50" class="w-8 h-8 rounded"><span class="text-sm text-slate-700 dark:text-slate-300">Solar Cat Eye Fem.</span></div>
+                                    <div class="flex items-center gap-3"><img src="https://images.unsplash.com/photo-1508296695146-257a814070b4?w=50" class="w-8 h-8 rounded object-cover"><span class="text-sm text-slate-700 dark:text-slate-300">Solar Cat Eye Fem.</span></div>
                                     <span class="text-brand-500 font-bold">15 un</span>
                                 </div>
                             </div>
@@ -651,7 +747,6 @@
                     </div>
                 </div>
 
-                <!-- ABA: ESTOQUE E PLANILHAS -->
                 <div id="tab-estoque" class="adm-tab-content">
                     <div class="flex flex-wrap justify-between items-center mb-6 gap-4">
                         <h3 class="text-slate-900 dark:text-white font-bold text-lg font-serif">Controle de Entradas e Saídas</h3>
@@ -675,13 +770,11 @@
                                 </tr>
                             </thead>
                             <tbody id="admin-products-tbody">
-                                <!-- Produtos renderizados via JavaScript -->
-                            </tbody>
+                                </tbody>
                         </table>
                     </div>
                 </div>
 
-                <!-- ABA: MARKETING -->
                 <div id="tab-marketing" class="adm-tab-content">
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                         
@@ -738,7 +831,6 @@
                     </div>
                 </div>
 
-                <!-- ABA: DEPOIMENTOS -->
                 <div id="tab-depoimentos" class="adm-tab-content">
                     <div class="flex justify-between items-center mb-6">
                         <h3 class="text-slate-900 dark:text-white font-bold text-lg font-serif">Gestão de Reviews e Prova Social</h3>
@@ -772,7 +864,6 @@
         </div>
     </div>
 
-    <!-- MODAL EDITAR/NOVO PRODUTO -->
     <div id="modal-edit-product" class="fixed inset-0 bg-slate-900/60 dark:bg-black/80 backdrop-blur-md z-[4000] hidden flex items-center justify-center p-4 font-sans">
         <div id="modal-edit-product-box" class="bg-white dark:bg-brand-800 w-full max-w-2xl rounded-[2rem] p-6 md:p-8 shadow-2xl relative transition-transform transform scale-95 border border-slate-200 dark:border-white/10 overflow-y-auto max-h-[95vh] custom-scrollbar">
             <button onclick="app.closeProductModal()" class="absolute top-6 right-6 w-8 h-8 rounded-full bg-slate-100 dark:bg-brand-900 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-brand-500 transition"><i class="fas fa-times"></i></button>
@@ -839,7 +930,6 @@
         </div>
     </div>
 
-    <!-- Pop-up Notificação Inteligente -->
     <div id="sales-notification" class="fixed top-24 md:bottom-10 md:top-auto left-4 right-4 md:right-auto bg-brand-900 p-3 rounded-2xl shadow-premium flex items-center gap-3 transform -translate-y-48 md:translate-y-48 transition-transform duration-500 z-[80] border border-brand-500/30 pointer-events-none md:w-72">
         <div id="sn-icon-container" class="w-10 h-10 rounded-full bg-brand-500/20 flex items-center justify-center text-brand-500 shrink-0"><i id="sn-icon" class="far fa-eye"></i></div>
         <div class="flex-1 min-w-0">
@@ -848,7 +938,6 @@
         </div>
     </div>
 
-    <!-- Toast -->
     <div id="toast" class="fixed top-5 left-1/2 -translate-x-1/2 bg-brand-900 text-brand-500 border border-brand-500/50 shadow-2xl rounded-full p-3 pr-6 flex items-center gap-3 transform -translate-y-32 transition-transform duration-500 z-[3000] w-max max-w-[90%]">
         <div class="w-8 h-8 bg-brand-500 text-brand-900 rounded-full flex items-center justify-center shrink-0 shadow-inner">
             <i class="fas fa-check text-xs"></i>
@@ -861,15 +950,28 @@
         const app = {
             whatsappNumber: "5511999990000", 
             cart: [],
+            // EXPANDINDO PARA 20 PRODUTOS NA VITRINE
             products: [
                 { id: 1, nome: "Solar Cat Eye Vintage", category: "Oculos", preco: 329.90, img: "https://images.unsplash.com/photo-1508296695146-257a814070b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", sku: "SL-001", fornecedor: "Luxxotica", lote: "10/25", estoque: 15, destaque: true },
-                { id: 2, nome: "Aviador Dark Classic", category: "Oculos", preco: 349.00, img: "https://images.unsplash.com/photo-1583141165275-5ad2634d0b04?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", sku: "SL-002", fornecedor: "RayBan", lote: "11/25", estoque: 8, destaque: false },
-                { id: 3, nome: "Relógio Gold Minimalist", category: "Relogios", preco: 599.00, img: "https://images.unsplash.com/photo-1524592094714-0f0654ece975?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", sku: "RL-001", fornecedor: "Michael Kors", lote: "05/26", estoque: 28, destaque: false },
+                { id: 2, nome: "Aviador Dark Classic", category: "Oculos", preco: 349.00, img: "https://acdn-us.mitiendanube.com/stores/001/753/058/products/13-13-13-c09531768ef7c725bb17701261229401-1024-1024.webp", sku: "SL-002", fornecedor: "RayBan", lote: "11/25", estoque: 8, destaque: false },
+                { id: 3, nome: "Relógio Gold Minimalist", category: "Relogios", preco: 599.00, img: "https://acdn-us.mitiendanube.com/stores/001/116/055/products/mulher-com-relfogio-minimalista-petit-gold-a8fd6b2980bbfd89d017527756048343-1024-1024.webp", sku: "RL-001", fornecedor: "Michael Kors", lote: "05/26", estoque: 28, destaque: true },
                 { id: 4, nome: "Chronograph Black Steel", category: "Relogios", preco: 899.00, img: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", sku: "RL-002", fornecedor: "Fossil", lote: "01/26", estoque: 5, destaque: false },
                 { id: 5, nome: "Armação Hexagonal Gold", category: "Oculos", preco: 289.00, img: "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", sku: "RX-1029", fornecedor: "RayBan", lote: "05/26", estoque: 42, destaque: false },
-                { id: 6, nome: "Colar Ponto de Luz", category: "Joias", preco: 199.90, img: "https://images.unsplash.com/photo-1599643478524-fb66f70d00cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", sku: "JL-001", fornecedor: "Rommanel", lote: "J001", estoque: 1, destaque: false },
+                { id: 6, nome: "Colar Ponto de Luz", category: "Joias", preco: 199.90, img: "https://www.mafeacessorios.com.br/products/colar-ponto-de-luz-12mm-banhado-a-ouro-18k?srsltid=AfmBOoqDghLG4RHVY4lOyTrqBsgLJmo7pHgKpQrfp8YUi3V5poEU9dtC", sku: "JL-001", fornecedor: "Rommanel", lote: "J001", estoque: 1, destaque: false },
                 { id: 7, nome: "Armação Executive Masc", category: "Oculos", preco: 219.00, img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", sku: "RX-1030", fornecedor: "Oakley", lote: "03/26", estoque: 12, destaque: false },
-                { id: 8, nome: "Armação Crystal Glow", category: "Oculos", preco: 199.00, img: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", sku: "TR-9920", fornecedor: "Luxxotica", lote: "L203", estoque: 2, destaque: false }
+                { id: 8, nome: "Armação Crystal Glow", category: "Oculos", preco: 199.00, img: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", sku: "TR-9920", fornecedor: "Luxxotica", lote: "L203", estoque: 2, destaque: false },
+                { id: 9, nome: "Solar Bold Square", category: "Oculos", preco: 389.00, img: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", sku: "SL-003", fornecedor: "Prada", lote: "02/26", estoque: 4, destaque: false },
+                { id: 10, nome: "Solar Sport Performance", category: "Oculos", preco: 459.00, img: "https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", sku: "SL-004", fornecedor: "Oakley", lote: "06/26", estoque: 18, destaque: false },
+                { id: 11, nome: "Relógio Silver & Blue", category: "Relogios", preco: 749.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShAO4rCUJ6ALHr26i_yERsvSCXGm5avY0DnbEjKMSeew&s", sku: "RL-003", fornecedor: "Technos", lote: "04/26", estoque: 11, destaque: true },
+                { id: 12, nome: "Relógio Rose Gold", category: "Relogios", preco: 689.00, img: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", sku: "RL-004", fornecedor: "Michael Kors", lote: "07/26", estoque: 6, destaque: false },
+                { id: 13, nome: "Brinco Argola Ouro 18k", category: "Joias", preco: 429.00, img: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", sku: "JL-002", fornecedor: "Vivara", lote: "J002", estoque: 10, destaque: false },
+                { id: 14, nome: "Anel Solitário Diamante", category: "Joias", preco: 1290.00, img: "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", sku: "JL-003", fornecedor: "Sua Logo Fine", lote: "J003", estoque: 2, destaque: true },
+                { id: 15, nome: "Armação Redonda Classic", category: "Oculos", preco: 249.00, img: "https://images.unsplash.com/photo-1509695507497-903c140c43b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", sku: "RX-1031", fornecedor: "RayBan", lote: "08/26", estoque: 22, destaque: false },
+                { id: 16, nome: "Armação Clubmaster Masc", category: "Oculos", preco: 319.00, img: "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", sku: "RX-1032", fornecedor: "RayBan", lote: "09/26", estoque: 14, destaque: false },
+                { id: 17, nome: "Solar Wayfarer Style", category: "Oculos", preco: 299.00, img: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", sku: "SL-005", fornecedor: "Vogue", lote: "10/26", estoque: 30, destaque: false },
+                { id: 18, nome: "Pulseira Riviera", category: "Joias", preco: 589.00, img: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", sku: "JL-004", fornecedor: "Rommanel", lote: "J004", estoque: 7, destaque: false },
+                { id: 19, nome: "Relógio Smart Elegance", category: "Relogios", preco: 1199.00, img: "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", sku: "RL-005", fornecedor: "Apple", lote: "11/26", estoque: 3, destaque: true },
+                { id: 20, nome: "Armação Titanium Ultra", category: "Oculos", preco: 459.00, img: "https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", sku: "RX-1033", fornecedor: "Oakley", lote: "12/26", estoque: 9, destaque: false }
             ],
 
             init() {
@@ -881,7 +983,6 @@
                 this.renderVitrine();
                 this.renderAdminTable();
 
-                // Set min date for the calendar to today
                 const today = new Date().toISOString().split('T')[0];
                 const dateInput = document.getElementById('form-data');
                 if(dateInput) dateInput.setAttribute('min', today);
@@ -889,7 +990,10 @@
                 setTimeout(() => {
                     const loader = document.getElementById('preloader');
                     loader.style.opacity = '0';
-                    setTimeout(() => loader.style.display = 'none', 800);
+                    setTimeout(() => {
+                        loader.style.display = 'none';
+                        this.startTour();
+                    }, 800);
                 }, 1500);
             },
 
@@ -934,7 +1038,6 @@
                 const m = document.getElementById(id);
                 const box = document.getElementById(id + '-box');
                 
-                // Bloqueia a rolagem do fundo no telemóvel
                 document.body.style.overflow = 'hidden'; 
                 
                 m.classList.remove('hidden');
@@ -948,12 +1051,23 @@
                 const m = document.getElementById(id);
                 const box = document.getElementById(id + '-box');
                 
-                // Restaura a rolagem do fundo
                 document.body.style.overflow = ''; 
                 
                 if(id === 'modal-admin') box.classList.add('scale-95');
                 else box.classList.add('translate-y-full');
                 setTimeout(() => m.classList.add('hidden'), 300);
+            },
+
+            openLoginAdm() {
+                this.openModal('modal-login-adm');
+            },
+
+            entrarAdm() {
+                this.closeModal('modal-login-adm');
+                this.showToast("Autenticando...");
+                setTimeout(() => {
+                    this.openModal('modal-admin');
+                }, 1000);
             },
 
             openWhatsApp(mensagem) {
@@ -963,7 +1077,6 @@
                 }, 800);
             },
 
-            // --- DEPOIMENTOS (CARROSSEL NAV) ---
             scrollCarrossel(amount) {
                 const container = document.getElementById('carrossel-depoimentos');
                 if(container) {
@@ -971,30 +1084,23 @@
                 }
             },
 
-            // --- SISTEMA DE AGENDAMENTO ---
             enviarAgendamento() {
                 const assunto = document.getElementById('form-assunto').value;
                 const nome = document.getElementById('form-nome').value.trim();
-                const data = document.getElementById('form-data').value;
-                const hora = document.getElementById('form-hora').value;
                 
-                if(!nome || !data || !hora) { 
-                    this.showToast("Preencha Nome, Data e Horário!"); 
+                if(!nome) { 
+                    this.showToast("Preencha seu nome!"); 
                     return; 
                 }
 
-                const dataBR = data.split('-').reverse().join('/');
-                const msg = `*📅 NOVO AGENDAMENTO SITE*%0A%0A*Nome:* ${nome}%0A*Serviço:* ${assunto}%0A*Data:* ${dataBR}%0A*Horário:* ${hora}h%0A%0A_Aguardando confirmação da loja._`;
+                const msg = `*📅 NOVO AGENDAMENTO SITE*%0A%0A*Nome:* ${nome}%0A*Serviço:* ${assunto}%0A%0A_Gostaria de verificar a disponibilidade de horário num dos dias de atendimento disponíveis._`;
                 
                 this.closeModal('modal-agendamento');
                 this.openWhatsApp(msg);
                 
                 document.getElementById('form-nome').value = '';
-                document.getElementById('form-data').value = '';
-                document.getElementById('form-hora').value = '';
             },
 
-            // --- SISTEMA DINÂMICO DE PRODUTOS (RENDER) ---
             renderVitrine(filter = 'Tudo') {
                 const grid = document.getElementById('vitrine-grid');
                 if(!grid) return;
@@ -1004,16 +1110,16 @@
                 grid.innerHTML = filtered.map((p, idx) => {
                     let catName = p.category === 'Oculos' ? 'Óculos' : (p.category === 'Relogios' ? 'Relógio' : 'Joia');
                     return `
-                        <div class="product-card bg-white dark:bg-brand-800 rounded-[2rem] p-4 border border-slate-100 dark:border-brand-500/20 shadow-lg group flex flex-col animate-[fadeIn_0.5s_ease-in-out]">
-                            <div class="h-64 rounded-xl overflow-hidden relative mb-4 bg-slate-50 dark:bg-slate-900 flex items-center justify-center">
+                        <div class="product-card bg-white dark:bg-brand-800 rounded-[2rem] p-3 md:p-4 border border-slate-100 dark:border-brand-500/20 shadow-lg group flex flex-col animate-[fadeIn_0.5s_ease-in-out]">
+                            <div class="h-48 md:h-64 rounded-xl overflow-hidden relative mb-4 bg-slate-50 dark:bg-slate-900 flex items-center justify-center">
                                 ${p.destaque ? '<div class="absolute top-2 left-2 bg-brand-500 text-brand-900 text-[8px] font-bold uppercase tracking-widest px-2 py-1 rounded-md z-10 shadow-md">Destaque</div>' : ''}
                                 <img src="${p.img}" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
                             </div>
                             <span class="text-[9px] text-brand-500 font-bold uppercase tracking-widest">${catName}</span>
-                            <h3 class="font-bold text-slate-800 dark:text-white text-sm mt-1">${p.nome}</h3>
-                            <p class="font-serif italic text-xl mt-2 text-slate-900 dark:text-brand-500 font-bold mb-4">R$ ${p.preco.toFixed(2).replace('.', ',')}</p>
+                            <h3 class="font-bold text-slate-800 dark:text-white text-xs md:text-sm mt-1 truncate">${p.nome}</h3>
+                            <p class="font-serif italic text-lg md:text-xl mt-2 text-slate-900 dark:text-brand-500 font-bold mb-4">R$ ${p.preco.toFixed(2).replace('.', ',')}</p>
                             <button onclick="app.adicionarAoCarrinho(${p.id})" class="w-full mt-auto bg-slate-100 dark:bg-brand-900 text-slate-900 dark:text-white py-3 rounded-xl text-[10px] uppercase font-bold tracking-widest hover:bg-brand-500 hover:text-brand-900 transition-colors shadow-sm">
-                                Adicionar à Sacola
+                                Adicionar
                             </button>
                         </div>
                     `;
@@ -1032,7 +1138,7 @@
                         <tr class="border-b border-slate-100 dark:border-white/5 hover:bg-slate-50 dark:hover:bg-white/5 transition">
                             <td class="py-3 px-4 flex items-center gap-3">
                                 <img src="${p.img}" class="w-8 h-8 rounded object-cover shadow-sm">
-                                <div><p class="font-bold text-slate-900 dark:text-white">${p.nome}</p><span class="text-[9px] text-slate-500">SKU: ${p.sku}</span></div>
+                                <div><p class="font-bold text-slate-900 dark:text-white truncate max-w-[120px]">${p.nome}</p><span class="text-[9px] text-slate-500">SKU: ${p.sku}</span></div>
                             </td>
                             <td class="py-3 px-4 text-xs">${p.fornecedor} <br><span class="text-[9px] text-slate-500">Lote: ${p.lote}</span></td>
                             <td class="py-3 px-4"><span class="${stockClass} px-2 py-1 rounded font-bold border">${p.estoque} un</span></td>
@@ -1048,7 +1154,6 @@
                 }).join('');
             },
 
-            // --- CRUD DE PRODUTOS NO ADM ---
             openProductModal(id = null) {
                 const m = document.getElementById('modal-edit-product');
                 const box = document.getElementById('modal-edit-product-box');
@@ -1111,9 +1216,8 @@
                 this.closeProductModal();
                 this.showToast("Produto salvo com sucesso!");
                 
-                // Reinicia os botões de filtro para "Tudo"
                 document.querySelectorAll('.filter-btn').forEach((btn, i) => {
-                    if(i===0) { btn.classList.add('bg-brand-500', 'text-brand-900'); btn.classList.remove('text-slate-500'); }
+                    if(i===0) { btn.classList.add('bg-brand-500', 'text-brand-900'); btn.classList.remove('text-slate-500', 'dark:text-slate-300'); }
                     else { btn.classList.remove('bg-brand-500', 'text-brand-900'); btn.classList.add('text-slate-500', 'dark:text-slate-300'); }
                 });
             },
@@ -1127,7 +1231,6 @@
                 }
             },
 
-            // --- SISTEMA DE FILTROS ---
             filterProducts(category, btnElement) {
                 const buttons = document.querySelectorAll('.filter-btn');
                 buttons.forEach(btn => {
@@ -1140,12 +1243,10 @@
                 this.renderVitrine(category);
             },
 
-            // --- E-COMMERCE ---
             toggleCart() {
                 const s = document.getElementById('cart-sidebar'), o = document.getElementById('cart-overlay');
                 const op = !s.classList.contains('translate-x-full');
                 
-                // Bloqueia ou restaura a rolagem do fundo
                 document.body.style.overflow = op ? 'hidden' : '';
                 
                 s.classList.toggle('translate-x-full', op);
@@ -1225,22 +1326,17 @@
                 this.atualizarCarrinhoUI();
             },
 
-            // --- AÇÕES DO PAINEL ADM ---
             changeAdmTab(tabId, btnElement) {
-                // Tira active dos botões
                 document.querySelectorAll('.adm-tab-btn').forEach(btn => {
                     btn.classList.remove('active', 'text-white');
                     btn.classList.add('text-slate-400');
                 });
-                // Coloca active no botão clicado
                 btnElement.classList.add('active', 'text-white');
                 btnElement.classList.remove('text-slate-400');
 
-                // Tira active dos conteudos
                 document.querySelectorAll('.adm-tab-content').forEach(content => {
                     content.classList.remove('active');
                 });
-                // Mostra conteudo novo
                 document.getElementById('tab-' + tabId).classList.add('active');
             },
 
@@ -1251,14 +1347,158 @@
                 }, 1500);
             },
 
-            // --- NOTIFICAÇÕES INTELIGENTES ---
+            tourStep: 0,
+            admTourStep: 0,
+            tourData: [
+                {
+                    icon: "fas fa-rocket",
+                    title: "Bem-vinda ao seu App!",
+                    text: "Este aplicativo é um protótipo funcional criado para demonstrar a poderosa estratégia de vendas e gestão da sua nova ótica."
+                },
+                {
+                    icon: "fas fa-bullseye",
+                    title: "Estratégia de Conversão",
+                    text: "O design foi projetado para vender. As notificações flutuantes criam prova social, enquanto a vitrine e o carrinho facilitam a decisão do cliente."
+                },
+                {
+                    icon: "fas fa-shield-alt",
+                    title: "Segurança e LGPD",
+                    text: "Fique tranquila: toda a captação de leads, agendamentos e vendas será registrada em planilhas seguras, respeitando rigorosamente a LGPD."
+                },
+                {
+                    icon: "fas fa-chart-line",
+                    title: "Painel Gestor (ERP)",
+                    text: "Você tem o controle! Clique no ícone de gráfico no menu superior para aceder ao Painel ADM e gerenciar estoque, vendas e marketing de forma simples."
+                }
+            ],
+            admTourData: [
+                {
+                    icon: "fas fa-chart-pie",
+                    title: "Indicadores em Tempo Real",
+                    text: "Na Visão Geral, acompanha o seu faturamento, agendamentos e recebe alertas críticos se algum produto estiver a esgotar."
+                },
+                {
+                    icon: "fas fa-boxes",
+                    title: "Controlo de Estoque",
+                    text: "Aqui pode adicionar novos produtos, editar SKUs, gerir fornecedores e manter a sua vitrine do site sempre atualizada com apenas um clique."
+                },
+                {
+                    icon: "fas fa-bullhorn",
+                    title: "Estratégia de Marketing",
+                    text: "Mude os textos dos banners, ative campanhas sazonais e coloque etiquetas de 'Mais Vendido' ou 'Destaque' nos seus produtos."
+                },
+                {
+                    icon: "fas fa-star",
+                    title: "Gestão de Depoimentos",
+                    text: "Aprove e edite os depoimentos dos seus clientes com facilidade para mostrar na página inicial. A prova social é a chave para vender mais!"
+                }
+            ],
+
+            startTour() {
+                if(!sessionStorage.getItem('tourCompleted')) {
+                    this.tourStep = 0;
+                    this.updateTourUI();
+                    const m = document.getElementById('modal-tour');
+                    const box = document.getElementById('modal-tour-box');
+                    m.classList.remove('hidden');
+                    setTimeout(() => box.classList.remove('scale-95'), 10);
+                }
+            },
+
+            updateTourUI() {
+                const data = this.tourData[this.tourStep];
+                document.getElementById('tour-icon').innerHTML = `<i class="${data.icon}"></i>`;
+                document.getElementById('tour-step-badge').innerText = `Passo ${this.tourStep + 1} de ${this.tourData.length}`;
+                document.getElementById('tour-title').innerText = data.title;
+                document.getElementById('tour-text').innerText = data.text;
+
+                const dots = document.getElementById('tour-dots').children;
+                for(let i=0; i<dots.length; i++) {
+                    dots[i].className = i === this.tourStep 
+                        ? 'w-2 h-2 rounded-full bg-brand-500 transition-all duration-300' 
+                        : 'w-2 h-2 rounded-full bg-slate-200 dark:bg-slate-700 transition-all duration-300';
+                }
+
+                const btn = document.getElementById('tour-next-btn');
+                if(this.tourStep === this.tourData.length - 1) {
+                    btn.innerHTML = 'Começar <i class="fas fa-check ml-1"></i>';
+                } else {
+                    btn.innerHTML = 'Próximo <i class="fas fa-arrow-right ml-1"></i>';
+                }
+            },
+
+            nextTourStep() {
+                if(this.tourStep < this.tourData.length - 1) {
+                    this.tourStep++;
+                    this.updateTourUI();
+                } else {
+                    this.closeTour();
+                }
+            },
+
+            closeTour() {
+                sessionStorage.setItem('tourCompleted', 'true');
+                const m = document.getElementById('modal-tour');
+                const box = document.getElementById('modal-tour-box');
+                box.classList.add('scale-95');
+                setTimeout(() => m.classList.add('hidden'), 300);
+            },
+
+            startAdmTour() {
+                this.admTourStep = 0;
+                this.updateAdmTourUI();
+                const m = document.getElementById('modal-adm-tour');
+                const box = document.getElementById('modal-adm-tour-box');
+                m.classList.remove('hidden');
+                setTimeout(() => box.classList.remove('scale-95'), 10);
+            },
+
+            updateAdmTourUI() {
+                const data = this.admTourData[this.admTourStep];
+                document.getElementById('adm-tour-icon').innerHTML = `<i class="${data.icon}"></i>`;
+                document.getElementById('adm-tour-step-badge').innerText = `O Poder do ERP - Passo ${this.admTourStep + 1} de ${this.admTourData.length}`;
+                document.getElementById('adm-tour-title').innerText = data.title;
+                document.getElementById('adm-tour-text').innerText = data.text;
+
+                const dots = document.getElementById('adm-tour-dots').children;
+                for(let i=0; i<dots.length; i++) {
+                    dots[i].className = i === this.admTourStep 
+                        ? 'w-2 h-2 rounded-full bg-brand-500 transition-all duration-300' 
+                        : 'w-2 h-2 rounded-full bg-slate-200 dark:bg-slate-700 transition-all duration-300';
+                }
+
+                const btn = document.getElementById('adm-tour-next-btn');
+                if(this.admTourStep === this.admTourData.length - 1) {
+                    btn.innerHTML = 'Entendi <i class="fas fa-check ml-1"></i>';
+                } else {
+                    btn.innerHTML = 'Avançar <i class="fas fa-arrow-right ml-1"></i>';
+                }
+            },
+
+            nextAdmTourStep() {
+                if(this.admTourStep < this.admTourData.length - 1) {
+                    this.admTourStep++;
+                    this.updateAdmTourUI();
+                } else {
+                    this.closeAdmTour();
+                }
+            },
+
+            closeAdmTour() {
+                const m = document.getElementById('modal-adm-tour');
+                const box = document.getElementById('modal-adm-tour-box');
+                box.classList.add('scale-95');
+                setTimeout(() => m.classList.add('hidden'), 300);
+            },
+
             startSmartNotifications() {
                 const events = [
-                    { name: "Carlos A.", action: "agendou Exame de Vista para sexta", icon: "far fa-calendar-check" },
-                    { name: "Letícia M.", action: "comprou Solar Cat Eye Vintage", icon: "fas fa-shopping-bag" },
-                    { name: "Juliana T.", action: "comprou Colar Ponto de Luz", icon: "far fa-gem" },
-                    { name: "Ana P.", action: "vai retirar Armação Hexagonal na Loja", icon: "fas fa-box-open" },
-                    { name: "Roberto F.", action: "comprou Chronograph Steel", icon: "far fa-clock" }
+                    { name: "Letícia M.", action: "comprou Óculos Solar Cat Eye Vintage", icon: "fas fa-shopping-bag" },
+                    { name: "Carlos A.", action: "agendou para o dia de exame de vista", icon: "far fa-calendar-check" },
+                    { name: "Juliana T.", action: "comprou Colar Ponto de Luz", icon: "fas fa-glasses" },
+                    { name: "Ana P.", action: "confirmou comparecimento no exame", icon: "fas fa-user-check" },
+                    { name: "Roberto F.", action: "comprou Chronograph Steel", icon: "far fa-clock" },
+                    { name: "Marcela V.", action: "comprou Armação Crystal Glow", icon: "fas fa-glasses" }
                 ];
                 
                 const notif = document.getElementById('sales-notification');
