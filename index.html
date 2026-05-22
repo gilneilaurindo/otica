@@ -5,20 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Sua Logo | Luxo, Relojoaria & Joias</title>
     
+    <!-- FAVICON -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👓</text></svg>">
 
+    <!-- TAGS DE COMPARTILHAMENTO (WHATSAPP, FACEBOOK, INSTAGRAM) -->
     <meta property="og:title" content="Sua Logo | Ótica, Relojoaria & Joias">
     <meta property="og:description" content="Há mais de 10 anos transformando olhares. Agende seu check-up visual e descubra a elegância que você merece.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
     <meta property="og:type" content="website">
     
+    <!-- OTIMIZAÇÃO E FONTES -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     
+    <!-- BIBLIOTECA DE ANIMAÇÃO DE SCROLL (AOS) -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
+    <!-- TAILWIND CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -172,9 +177,28 @@
         input[type="date"]::-webkit-calendar-picker-indicator,
         input[type="time"]::-webkit-calendar-picker-indicator { cursor: pointer; filter: invert(0.5) sepia(1) saturate(5) hue-rotate(5deg); }
 
-        /* Admin Tabs */
-        .adm-tab-btn.active { color: #C5A059; border-bottom: 2px solid #C5A059; }
-        .dark .adm-tab-btn.active { background: rgba(255,255,255,0.02); }
+        /* Admin Tabs Premium */
+        .adm-tab-btn {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid transparent;
+        }
+        .adm-tab-btn.active {
+            background: linear-gradient(135deg, #C5A059, #A6823F);
+            color: #fff !important;
+            box-shadow: 0 8px 20px -6px rgba(197, 160, 89, 0.6);
+            transform: translateY(-2px);
+        }
+        .dark .adm-tab-btn.active {
+            background: rgba(197, 160, 89, 0.15);
+            color: #C5A059 !important;
+            border: 1px solid rgba(197, 160, 89, 0.4);
+            box-shadow: 0 0 20px rgba(197, 160, 89, 0.2);
+        }
+        .adm-tab-btn:hover:not(.active) {
+            background: rgba(197, 160, 89, 0.05);
+            color: #C5A059;
+        }
+
         .adm-tab-content { display: none; }
         .adm-tab-content.active { display: block; animation: fadeIn 0.3s ease; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
@@ -184,6 +208,7 @@
 </head>
 <body class="bg-brand-50 text-slate-900 dark:bg-brand-900 dark:text-white transition-colors duration-500 font-sans overflow-x-hidden">
 
+    <!-- Preloader -->
     <div id="preloader">
         <div class="loader-logo flex items-center gap-2">
             <i class="fas fa-glasses text-brand-500"></i>
@@ -194,13 +219,16 @@
         </div>
     </div>
 
+    <!-- Barra Superior Brilhante -->
     <div class="bg-animated-banner text-brand-900 text-[9px] md:text-[11px] font-bold py-2.5 text-center uppercase tracking-[0.2em] px-4 relative z-[60] shadow-md">
         <span id="top-bar-text" class="transition-opacity duration-500 drop-shadow-sm">✨ Há mais de 10 anos transformando olhares & Estilos ✨</span>
     </div>
 
+    <!-- Navegação Desktop -->
     <nav class="sticky top-0 glass-nav z-50 h-16 md:h-20 flex items-center transition-all">
         <div class="max-w-7xl mx-auto px-4 w-full flex justify-between items-center">
             
+            <!-- Logo -->
             <div class="font-serif text-2xl text-slate-900 dark:text-white tracking-wider cursor-pointer flex items-center gap-2 group" onclick="app.scrollTo('hero')">
                 <i class="fas fa-glasses text-brand-500 text-xl text-shine group-hover:scale-110 transition-transform duration-300"></i>
                 <span class="font-bold">SUA</span><span class="font-light text-brand-500">LOGO</span>
@@ -212,6 +240,7 @@
                 <button onclick="app.scrollTo('consultas')" class="nav-link text-slate-600 dark:text-slate-300 text-[11px] font-bold uppercase tracking-widest transition-colors duration-300">Exames</button>
                 <button onclick="app.scrollTo('lojas')" class="nav-link text-slate-600 dark:text-slate-300 text-[11px] font-bold uppercase tracking-widest transition-colors duration-300">Lojas</button>
                 
+                <!-- Ícones de Ferramentas -->
                 <div class="flex items-center gap-3 border-l border-slate-300 dark:border-white/20 pl-6">
                     <button onclick="app.toggleTheme()" class="w-10 h-10 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/10 transition-all duration-300 hover:rotate-180" title="Mudar Tema">
                         <i id="theme-icon" class="fas fa-sun text-lg"></i>
@@ -222,6 +251,7 @@
                         <span id="cart-count-desktop" class="absolute top-1 right-1 bg-brand-500 text-brand-900 text-[9px] font-bold w-4 h-4 flex items-center justify-center rounded-full hidden shadow-glow">0</span>
                     </button>
 
+                    <!-- Botão ADM -->
                     <button onclick="app.openLoginAdm()" class="w-10 h-10 rounded-full flex items-center justify-center text-slate-400 hover:text-brand-500 transition-all duration-300 hover:scale-110" title="Painel Administrativo">
                         <i class="fas fa-chart-line text-lg"></i>
                     </button>
@@ -240,6 +270,7 @@
         </div>
     </nav>
 
+    <!-- Menu Inferior Mobile (COM ANIMAÇÕES) -->
     <div class="md:hidden fixed bottom-0 left-0 w-full glass-nav z-[60] flex justify-around items-center py-3 pb-safe shadow-[0_-10px_40px_rgba(0,0,0,0.05)] rounded-t-3xl border-t border-brand-500/20">
         <button onclick="app.scrollTo('hero')" class="mobile-nav-btn flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 hover:text-brand-500 transition w-16">
             <i class="fas fa-home text-lg"></i>
@@ -261,6 +292,7 @@
     </div>
 
     <main>
+        <!-- Hero Section Animada -->
         <section id="hero" class="relative overflow-hidden py-6 md:py-10">
             <div class="bg-text top-10 -left-20">LUXURY</div>
             <div class="max-w-7xl mx-auto px-4 relative z-10">
@@ -295,6 +327,7 @@
             </div>
         </section>
 
+        <!-- Seção Quem Somos -->
         <section id="sobre" class="py-16 md:py-24 relative overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -331,6 +364,7 @@
             </div>
         </section>
 
+        <!-- Vitrine Completa Estilo E-commerce -->
         <section id="colecao" class="max-w-7xl mx-auto px-4 py-16 md:py-24 relative bg-slate-50 dark:bg-brand-900/50 rounded-[3rem]">
             <div class="bg-text top-40 right-0 opacity-50 text-right">EXCLUSIVO</div>
             
@@ -349,15 +383,17 @@
             </div>
 
             <div id="vitrine-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6 relative z-10">
-                </div>
+                <!-- Produtos renderizados via JavaScript -->
+            </div>
             
             <div class="text-center mt-12" data-aos="fade-up">
-                <button onclick="app.openWhatsApp('Olá! Gostaria de ver o catálogo completo de produtos.')" class="border border-slate-900 dark:border-slate-500 text-brand-500 px-10 py-4 rounded-full text-[10px] md:text-xs uppercase font-bold tracking-widest hover:text-slate-400 hover:border-slate-400 transition-all duration-300 bg-transparent">
+                <button onclick="app.openWhatsApp('Olá! Gostaria de ver o catálogo completo de produtos.')" class="border border-slate-900 dark:border-slate-500 text-brand-500 px-10 py-4 rounded-full text-[10px] md:text-xs uppercase font-bold tracking-widest hover:text-slate-400 hover:border-slate-400 transition-all duration-300 bg-transparent shadow-sm hover:shadow-md">
                     Ver Catálogo Completo no WhatsApp
                 </button>
             </div>
         </section>
 
+        <!-- Seção Check-up da Visão -->
         <section id="consultas" class="py-16 md:py-24 relative overflow-hidden bg-white dark:bg-brand-900 transition-colors duration-500">
             <div class="max-w-7xl mx-auto px-4 relative z-10">
                 <div class="flex flex-col lg:flex-row items-center relative">
@@ -392,6 +428,7 @@
             </div>
         </section>
 
+        <!-- Carrossel de Depoimentos -->
         <section id="depoimentos" class="max-w-7xl mx-auto px-4 py-16 md:py-24 relative overflow-hidden">
             <div class="bg-text top-10 left-10 opacity-20">CLIENTES</div>
             <div class="text-center mb-12 relative z-10" data-aos="fade-up">
@@ -452,6 +489,7 @@
             </div>
         </section>
 
+        <!-- Nossas Lojas (GPS) -->
         <section id="lojas" class="max-w-7xl mx-auto px-4 py-16 md:py-24 relative border-t border-slate-200 dark:border-white/10">
             <div class="text-center mb-12" data-aos="fade-up">
                 <span class="text-brand-500 text-[10px] font-bold uppercase tracking-widest mb-2 block">Visite-nos</span>
@@ -483,6 +521,7 @@
             </div>
         </section>
 
+        <!-- Footer -->
         <footer class="bg-brand-900 text-white pt-16 pb-8 px-4 border-t-[4px] border-brand-500 relative overflow-hidden">
             <div class="absolute -top-40 -right-40 w-96 h-96 bg-brand-500/5 rounded-full blur-3xl pointer-events-none"></div>
             
@@ -509,17 +548,20 @@
         </footer>
     </main>
 
+    <!-- Balão Flutuante do WhatsApp -->
     <button onclick="app.openWhatsApp('Olá! Vim pelo site e gostaria de atendimento.');" class="fixed bottom-24 md:bottom-8 right-4 md:right-8 bg-[#25d366] text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-[0_10px_20px_rgba(37,211,102,0.3)] hover:scale-110 hover:-translate-y-1 transition-all z-[90] cursor-pointer border-none outline-none focus:outline-none">
         <i class="fab fa-whatsapp"></i>
     </button>
 
+    <!-- CARRINHO LATERAL (SIDEBAR) -->
     <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full md:w-[400px] bg-white dark:bg-brand-900 shadow-2xl z-[2000] transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col border-l border-slate-100 dark:border-brand-500/20">
         <div class="p-6 border-b border-slate-100 dark:border-white/10 flex justify-between items-center bg-brand-50 dark:bg-brand-800">
             <h3 class="font-serif text-2xl italic tracking-tight text-slate-900 dark:text-white"><i class="fas fa-shopping-bag text-brand-500 mr-2"></i>Sua Sacola</h3>
             <button onclick="app.toggleCart()" class="w-8 h-8 rounded-full bg-slate-200 dark:bg-brand-900 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-brand-500 transition"><i class="fas fa-times"></i></button>
         </div>
         <div id="cart-items" class="flex-1 overflow-y-auto p-6 space-y-4 custom-scrollbar bg-white dark:bg-brand-900">
-            </div>
+            <!-- Itens injetados via JS -->
+        </div>
         <div class="p-6 bg-brand-50 dark:bg-brand-800 border-t border-slate-100 dark:border-white/10 shadow-[0_-10px_20px_rgba(0,0,0,0.05)]">
             <div class="mb-5">
                 <label class="text-[9px] font-bold uppercase text-slate-500 dark:text-slate-400 ml-1">Como deseja receber?</label>
@@ -539,6 +581,7 @@
     </div>
     <div id="cart-overlay" class="fixed inset-0 bg-brand-900/60 backdrop-blur-sm z-[1900] hidden opacity-0 transition-opacity duration-500" onclick="app.toggleCart()"></div>
 
+    <!-- MODAL DE AGENDAMENTO (CALENDÁRIO ANIMADO) -->
     <div id="modal-agendamento" class="fixed inset-0 bg-brand-900/80 backdrop-blur-sm z-[2000] hidden flex items-end md:items-center justify-center pb-0 md:p-4">
         <div id="modal-agendamento-box" class="bg-white dark:bg-brand-800 w-full max-w-md rounded-t-[2.5rem] md:rounded-[2.5rem] p-6 md:p-8 shadow-premium relative transition-transform transform translate-y-full md:translate-y-0 border border-slate-100 dark:border-brand-500/30">
             <button onclick="app.closeModal('modal-agendamento')" class="absolute top-6 right-6 w-8 h-8 rounded-full bg-slate-100 dark:bg-brand-900 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-brand-500 transition"><i class="fas fa-times"></i></button>
@@ -582,6 +625,7 @@
         </div>
     </div>
 
+    <!-- MODAL DE LOGIN ADM RESTRITO -->
     <div id="modal-login-adm" class="fixed inset-0 bg-slate-900/80 backdrop-blur-md z-[2500] hidden flex items-center justify-center p-4">
         <div id="modal-login-adm-box" class="bg-white dark:bg-brand-800 w-full max-w-sm rounded-[2rem] p-8 shadow-premium relative transition-transform transform scale-95 border border-slate-100 dark:border-brand-500/30">
             <button onclick="app.closeModal('modal-login-adm')" class="absolute top-4 right-4 text-slate-400 hover:text-brand-500 transition"><i class="fas fa-times"></i></button>
@@ -596,6 +640,7 @@
         </div>
     </div>
 
+    <!-- MODAL DE TOUR INTERATIVO (ONBOARDING GERAL) -->
     <div id="modal-tour" class="fixed inset-0 bg-slate-900/80 dark:bg-black/90 backdrop-blur-md z-[5000] hidden flex items-center justify-center p-4 font-sans">
         <div id="modal-tour-box" class="bg-white dark:bg-brand-900 w-full max-w-md rounded-[2rem] p-8 shadow-premium relative transition-transform transform scale-95 border border-slate-200 dark:border-brand-500/30 text-center">
             <div id="tour-icon" class="w-20 h-20 mx-auto bg-brand-50 dark:bg-brand-500/10 text-brand-500 rounded-full flex items-center justify-center text-4xl mb-6 shadow-inner transition-transform duration-300 transform hover:scale-110">
@@ -625,6 +670,7 @@
         </div>
     </div>
 
+    <!-- MODAL DE TOUR DO PAINEL ADM -->
     <div id="modal-adm-tour" class="fixed inset-0 bg-brand-900/90 backdrop-blur-xl z-[6000] hidden flex items-center justify-center p-4 font-sans">
         <div id="modal-adm-tour-box" class="bg-slate-50 dark:bg-brand-800 w-full max-w-md rounded-[2rem] p-8 shadow-premium relative transition-transform transform scale-95 border border-brand-500/30 text-center overflow-hidden">
             <div class="absolute -top-10 -right-10 w-32 h-32 bg-brand-500/20 rounded-full blur-2xl"></div>
@@ -658,9 +704,11 @@
         </div>
     </div>
 
+    <!-- PAINEL ADM SUPERIOR (ERP) PADRONIZADO -->
     <div id="modal-admin" class="fixed inset-0 bg-slate-900/60 dark:bg-black/80 backdrop-blur-md z-[3000] hidden flex items-center justify-center p-0 md:p-6 font-sans">
         <div id="modal-admin-box" class="bg-slate-50 dark:bg-brand-900 w-full h-full md:h-auto md:max-h-[95vh] md:max-w-7xl md:rounded-[2rem] flex flex-col shadow-2xl relative transition-transform transform scale-95 border border-slate-200 dark:border-white/10 overflow-hidden">
             
+            <!-- Admin Header -->
             <div class="bg-white dark:bg-brand-800 p-4 md:p-6 flex justify-between items-center border-b border-slate-200 dark:border-white/10 flex-wrap gap-4">
                 <div class="flex items-center gap-4">
                     <div class="w-12 h-12 bg-gradient-to-br from-brand-500 to-yellow-600 text-white rounded-xl flex items-center justify-center text-xl shadow-glow"><i class="fas fa-glasses"></i></div>
@@ -669,7 +717,7 @@
                         <span class="text-[10px] text-brand-500 font-bold uppercase tracking-widest flex items-center gap-1"><i class="fas fa-shield-alt"></i> Autenticado: Gestor</span>
                     </div>
                 </div>
-                <div class="flex items-center gap-2 md:gap-3 w-full md:w-auto overflow-x-auto no-scrollbar">
+                <div class="flex items-center gap-2 md:gap-3 w-full md:w-auto overflow-x-auto no-scrollbar pb-2 md:pb-0">
                     <button onclick="app.startAdmTour()" class="flex items-center gap-2 bg-brand-500/10 hover:bg-brand-500/20 text-brand-600 dark:text-brand-500 px-4 py-2 rounded-lg text-[11px] font-bold uppercase tracking-widest transition border border-brand-500/30 whitespace-nowrap">
                         <i class="fas fa-magic"></i> Tour Guiado
                     </button>
@@ -679,28 +727,31 @@
                 </div>
             </div>
 
-            <div class="flex border-b border-slate-200 dark:border-white/10 bg-white dark:bg-brand-800 px-4 md:px-6 overflow-x-auto no-scrollbar">
-                <button class="adm-tab-btn active px-6 py-4 text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 hover:text-brand-500 dark:hover:text-white transition whitespace-nowrap" onclick="app.changeAdmTab('dashboard', this)"><i class="fas fa-chart-pie mr-2"></i> Visão Geral</button>
-                <button class="adm-tab-btn px-6 py-4 text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 hover:text-brand-500 dark:hover:text-white transition whitespace-nowrap" onclick="app.changeAdmTab('estoque', this)"><i class="fas fa-boxes mr-2"></i> Estoque & Planilhas</button>
-                <button class="adm-tab-btn px-6 py-4 text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 hover:text-brand-500 dark:hover:text-white transition whitespace-nowrap" onclick="app.changeAdmTab('marketing', this)"><i class="fas fa-bullhorn mr-2"></i> Marketing & Visual</button>
-                <button class="adm-tab-btn px-6 py-4 text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 hover:text-brand-500 dark:hover:text-white transition whitespace-nowrap" onclick="app.changeAdmTab('depoimentos', this)"><i class="fas fa-star mr-2"></i> Depoimentos</button>
+            <!-- Menus de Navegação do ADM (BOTOES PILL ATUALIZADOS) -->
+            <div class="flex border-b border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-brand-900/50 p-4 gap-3 overflow-x-auto no-scrollbar">
+                <button class="adm-tab-btn active px-5 py-3 rounded-xl text-[10px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 whitespace-nowrap flex items-center gap-2" onclick="app.changeAdmTab('dashboard', this)"><i class="fas fa-chart-pie text-lg"></i> Visão Geral</button>
+                <button class="adm-tab-btn px-5 py-3 rounded-xl text-[10px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 whitespace-nowrap flex items-center gap-2" onclick="app.changeAdmTab('estoque', this)"><i class="fas fa-boxes text-lg"></i> Estoque & Planilhas</button>
+                <button class="adm-tab-btn px-5 py-3 rounded-xl text-[10px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 whitespace-nowrap flex items-center gap-2" onclick="app.changeAdmTab('marketing', this)"><i class="fas fa-bullhorn text-lg"></i> Marketing & Visual</button>
+                <button class="adm-tab-btn px-5 py-3 rounded-xl text-[10px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 whitespace-nowrap flex items-center gap-2" onclick="app.changeAdmTab('depoimentos', this)"><i class="fas fa-star text-lg"></i> Depoimentos</button>
             </div>
 
-            <div class="flex-1 overflow-y-auto p-4 md:p-6 custom-scrollbar bg-slate-50 dark:bg-brand-900 relative">
+            <!-- Área de Conteúdo do ADM -->
+            <div class="flex-1 overflow-y-auto p-4 md:p-6 custom-scrollbar bg-white dark:bg-brand-900 relative">
                 
+                <!-- ABA: VISÃO GERAL -->
                 <div id="tab-dashboard" class="adm-tab-content active">
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-                        <div class="bg-white dark:bg-brand-800 p-6 rounded-2xl border border-slate-200 dark:border-white/5 relative overflow-hidden shadow-sm hover:-translate-y-1 transition-transform">
+                        <div class="bg-slate-50 dark:bg-brand-800 p-6 rounded-2xl border border-slate-200 dark:border-white/5 relative overflow-hidden shadow-sm hover:-translate-y-1 transition-transform">
                             <div class="w-10 h-10 bg-blue-100 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 rounded-lg flex items-center justify-center mb-4"><i class="fas fa-dollar-sign"></i></div>
                             <span class="text-[9px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 block mb-1">Total Faturamento</span>
                             <p class="font-bold text-2xl md:text-3xl text-slate-900 dark:text-white">R$ 84.5k</p>
                         </div>
-                        <div class="bg-white dark:bg-brand-800 p-6 rounded-2xl border border-slate-200 dark:border-white/5 relative overflow-hidden shadow-sm hover:-translate-y-1 transition-transform">
+                        <div class="bg-slate-50 dark:bg-brand-800 p-6 rounded-2xl border border-slate-200 dark:border-white/5 relative overflow-hidden shadow-sm hover:-translate-y-1 transition-transform">
                             <div class="w-10 h-10 bg-orange-100 dark:bg-orange-500/20 text-orange-600 dark:text-orange-400 rounded-lg flex items-center justify-center mb-4"><i class="fas fa-calendar-check"></i></div>
                             <span class="text-[9px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 block mb-1">Exames Agendados</span>
                             <p class="font-bold text-2xl md:text-3xl text-slate-900 dark:text-white">45</p>
                         </div>
-                        <div class="bg-white dark:bg-brand-800 p-6 rounded-2xl border border-slate-200 dark:border-white/5 relative overflow-hidden shadow-sm hover:-translate-y-1 transition-transform">
+                        <div class="bg-slate-50 dark:bg-brand-800 p-6 rounded-2xl border border-slate-200 dark:border-white/5 relative overflow-hidden shadow-sm hover:-translate-y-1 transition-transform">
                             <div class="w-10 h-10 bg-green-100 dark:bg-green-500/20 text-green-600 dark:text-green-400 rounded-lg flex items-center justify-center mb-4"><i class="fas fa-shopping-bag"></i></div>
                             <span class="text-[9px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 block mb-1">Vendas Online</span>
                             <p class="font-bold text-2xl md:text-3xl text-slate-900 dark:text-white">128</p>
@@ -713,14 +764,14 @@
                     </div>
 
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                        <div class="bg-white dark:bg-brand-800 rounded-2xl border border-slate-200 dark:border-white/5 overflow-hidden shadow-sm">
-                            <div class="p-4 border-b border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5"><h3 class="text-xs font-bold text-slate-800 dark:text-white uppercase tracking-widest"><i class="fas fa-fire text-brand-500 mr-2"></i>Top Produtos (Mais Vendidos)</h3></div>
+                        <div class="bg-slate-50 dark:bg-brand-800 rounded-2xl border border-slate-200 dark:border-white/5 overflow-hidden shadow-sm">
+                            <div class="p-4 border-b border-slate-200 dark:border-white/10 bg-white dark:bg-white/5"><h3 class="text-xs font-bold text-slate-800 dark:text-white uppercase tracking-widest"><i class="fas fa-fire text-brand-500 mr-2"></i>Top Produtos (Mais Vendidos)</h3></div>
                             <div class="p-4">
-                                <div class="flex justify-between items-center mb-3 border-b border-slate-100 dark:border-white/5 pb-2">
+                                <div class="flex justify-between items-center mb-3 border-b border-slate-200 dark:border-white/5 pb-2">
                                     <div class="flex items-center gap-3"><img src="https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=50" class="w-8 h-8 rounded object-cover"><span class="text-sm text-slate-700 dark:text-slate-300">Armação Hexagonal Gold</span></div>
                                     <span class="text-brand-500 font-bold">42 un</span>
                                 </div>
-                                <div class="flex justify-between items-center mb-3 border-b border-slate-100 dark:border-white/5 pb-2">
+                                <div class="flex justify-between items-center mb-3 border-b border-slate-200 dark:border-white/5 pb-2">
                                     <div class="flex items-center gap-3"><img src="https://acdn-us.mitiendanube.com/stores/001/116/055/products/mulher-com-relfogio-minimalista-petit-gold-a8fd6b2980bbfd89d017527756048343-1024-1024.webp" class="w-8 h-8 rounded object-cover"><span class="text-sm text-slate-700 dark:text-slate-300">Relógio Minimalist</span></div>
                                     <span class="text-brand-500 font-bold">28 un</span>
                                 </div>
@@ -747,6 +798,7 @@
                     </div>
                 </div>
 
+                <!-- ABA: ESTOQUE E PLANILHAS -->
                 <div id="tab-estoque" class="adm-tab-content">
                     <div class="flex flex-wrap justify-between items-center mb-6 gap-4">
                         <h3 class="text-slate-900 dark:text-white font-bold text-lg font-serif">Controle de Entradas e Saídas</h3>
@@ -756,9 +808,9 @@
                         </div>
                     </div>
 
-                    <div class="bg-white dark:bg-brand-800 rounded-2xl border border-slate-200 dark:border-white/5 overflow-x-auto shadow-sm">
+                    <div class="bg-slate-50 dark:bg-brand-800 rounded-2xl border border-slate-200 dark:border-white/5 overflow-x-auto shadow-sm">
                         <table class="w-full text-left text-sm text-slate-700 dark:text-slate-300 min-w-[900px]">
-                            <thead class="bg-slate-50 dark:bg-white/5 text-[9px] uppercase tracking-widest text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-white/10">
+                            <thead class="bg-white dark:bg-white/5 text-[9px] uppercase tracking-widest text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-white/10">
                                 <tr>
                                     <th class="py-4 px-4">Produto & SKU</th>
                                     <th class="py-4 px-4">Fornecedor / Lote</th>
@@ -770,20 +822,22 @@
                                 </tr>
                             </thead>
                             <tbody id="admin-products-tbody">
-                                </tbody>
+                                <!-- Produtos renderizados via JavaScript -->
+                            </tbody>
                         </table>
                     </div>
                 </div>
 
+                <!-- ABA: MARKETING -->
                 <div id="tab-marketing" class="adm-tab-content">
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                         
                         <div class="space-y-6">
-                            <div class="bg-white dark:bg-brand-800 rounded-2xl border border-slate-200 dark:border-white/5 p-6 shadow-sm">
+                            <div class="bg-slate-50 dark:bg-brand-800 rounded-2xl border border-slate-200 dark:border-white/5 p-6 shadow-sm">
                                 <h3 class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-widest mb-4"><i class="fas fa-bullhorn text-brand-500 mr-2"></i> Campanhas e Textos Promocionais</h3>
                                 <div class="mb-4">
                                     <label class="text-[9px] text-slate-500 dark:text-slate-400 uppercase font-bold">Campanha Sazonal Ativa</label>
-                                    <select class="w-full bg-slate-50 dark:bg-brand-900 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white rounded-lg p-3 mt-1 outline-none text-sm transition focus:border-brand-500">
+                                    <select class="w-full bg-white dark:bg-brand-900 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white rounded-lg p-3 mt-1 outline-none text-sm transition focus:border-brand-500">
                                         <option>Nenhuma</option>
                                         <option selected>Verão & Estilo (+10 anos)</option>
                                         <option>Black Friday</option>
@@ -791,30 +845,30 @@
                                 </div>
                                 <div class="mb-4">
                                     <label class="text-[9px] text-slate-500 dark:text-slate-400 uppercase font-bold">Texto do Banner Principal</label>
-                                    <input type="text" value="A elegância que você merece." class="w-full bg-slate-50 dark:bg-brand-900 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white rounded-lg p-3 mt-1 outline-none text-sm transition focus:border-brand-500">
+                                    <input type="text" value="A elegância que você merece." class="w-full bg-white dark:bg-brand-900 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white rounded-lg p-3 mt-1 outline-none text-sm transition focus:border-brand-500">
                                 </div>
                                 <button onclick="app.adminAction('Salvando textos promocionais...')" class="bg-brand-500 text-brand-900 px-4 py-3 rounded-lg text-[10px] font-bold uppercase tracking-widest hover:bg-brand-600 transition w-full shadow-md">Salvar Textos</button>
                             </div>
 
-                            <div class="bg-white dark:bg-brand-800 rounded-2xl border border-slate-200 dark:border-white/5 p-6 shadow-sm">
+                            <div class="bg-slate-50 dark:bg-brand-800 rounded-2xl border border-slate-200 dark:border-white/5 p-6 shadow-sm">
                                 <h3 class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-widest mb-4"><i class="fas fa-tag text-brand-500 mr-2"></i> Estratégias de Destaque</h3>
                                 <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">Selecione produtos para aplicar etiquetas de marketing na vitrine.</p>
-                                <div class="flex items-center justify-between bg-slate-50 dark:bg-brand-900 p-3 rounded-lg border border-slate-200 dark:border-white/10 mb-2">
+                                <div class="flex items-center justify-between bg-white dark:bg-brand-900 p-3 rounded-lg border border-slate-200 dark:border-white/10 mb-2">
                                     <span class="text-sm text-slate-800 dark:text-white">Relógio Gold Minimalist</span>
                                     <span class="bg-brand-100 dark:bg-brand-500/20 text-brand-700 dark:text-brand-500 px-2 py-1 rounded text-[9px] uppercase font-bold border border-brand-200 dark:border-brand-500/50">Mais Vendido</span>
                                 </div>
-                                <div class="flex items-center justify-between bg-slate-50 dark:bg-brand-900 p-3 rounded-lg border border-slate-200 dark:border-white/10">
+                                <div class="flex items-center justify-between bg-white dark:bg-brand-900 p-3 rounded-lg border border-slate-200 dark:border-white/10">
                                     <span class="text-sm text-slate-800 dark:text-white">Armação Crystal Glow</span>
                                     <span class="bg-purple-100 dark:bg-purple-500/20 text-purple-700 dark:text-purple-400 px-2 py-1 rounded text-[9px] uppercase font-bold border border-purple-200 dark:border-purple-500/50">Edição Limitada</span>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="bg-white dark:bg-brand-800 rounded-2xl border border-slate-200 dark:border-white/5 p-6 h-max shadow-sm">
+                        <div class="bg-slate-50 dark:bg-brand-800 rounded-2xl border border-slate-200 dark:border-white/5 p-6 h-max shadow-sm">
                             <h3 class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-widest mb-4"><i class="fas fa-camera text-brand-500 mr-2"></i> Conteúdo Visual (Fotos do Site)</h3>
                             <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">Faça o upload de fotos com <b>fundo transparente ou padronizado</b> para manter a elegância da vitrine e edição de banners.</p>
                             
-                            <div class="border-2 border-dashed border-slate-300 dark:border-white/20 bg-slate-50 dark:bg-brand-900 rounded-xl p-8 text-center cursor-pointer hover:border-brand-500 dark:hover:border-brand-500 transition mb-6" onclick="app.adminAction('Abrindo janela de upload de arquivos...')">
+                            <div class="border-2 border-dashed border-slate-300 dark:border-white/20 bg-white dark:bg-brand-900 rounded-xl p-8 text-center cursor-pointer hover:border-brand-500 dark:hover:border-brand-500 transition mb-6" onclick="app.adminAction('Abrindo janela de upload de arquivos...')">
                                 <i class="fas fa-cloud-upload-alt text-3xl text-brand-500 mb-3"></i>
                                 <p class="text-sm text-slate-800 dark:text-white font-bold">Arraste fotos de produtos aqui</p>
                                 <p class="text-xs text-slate-500">JPG, PNG (Transparente) max 2MB</p>
@@ -831,6 +885,7 @@
                     </div>
                 </div>
 
+                <!-- ABA: DEPOIMENTOS -->
                 <div id="tab-depoimentos" class="adm-tab-content">
                     <div class="flex justify-between items-center mb-6">
                         <h3 class="text-slate-900 dark:text-white font-bold text-lg font-serif">Gestão de Reviews e Prova Social</h3>
@@ -838,7 +893,7 @@
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="bg-white dark:bg-brand-800 rounded-2xl border border-slate-200 dark:border-white/5 p-5 relative group shadow-sm">
+                        <div class="bg-slate-50 dark:bg-brand-800 rounded-2xl border border-slate-200 dark:border-white/5 p-5 relative group shadow-sm">
                             <button class="absolute top-4 right-4 text-slate-400 hover:text-brand-500 transition"><i class="fas fa-pen"></i></button>
                             <div class="flex items-center gap-4 mb-4">
                                 <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" class="w-12 h-12 rounded-full border-2 border-brand-500 object-cover">
@@ -848,14 +903,14 @@
                             <span class="absolute bottom-4 right-4 bg-green-100 dark:bg-green-500/20 text-green-700 dark:text-green-400 px-2 py-1 rounded text-[8px] uppercase font-bold border border-green-200 dark:border-green-500/30">Publicado no Site</span>
                         </div>
                         
-                        <div class="bg-white dark:bg-brand-800 rounded-2xl border border-slate-200 dark:border-white/5 p-5 relative group shadow-sm">
+                        <div class="bg-slate-50 dark:bg-brand-800 rounded-2xl border border-slate-200 dark:border-white/5 p-5 relative group shadow-sm">
                             <button class="absolute top-4 right-4 text-slate-400 hover:text-brand-500 transition"><i class="fas fa-pen"></i></button>
                             <div class="flex items-center gap-4 mb-4">
-                                <div class="w-12 h-12 rounded-full bg-slate-50 dark:bg-brand-900 border border-dashed border-slate-300 dark:border-slate-500 flex items-center justify-center text-slate-400"><i class="fas fa-camera"></i></div>
+                                <div class="w-12 h-12 rounded-full bg-white dark:bg-brand-900 border border-dashed border-slate-300 dark:border-slate-500 flex items-center justify-center text-slate-400"><i class="fas fa-camera"></i></div>
                                 <div><h4 class="text-sm font-bold text-slate-800 dark:text-white">Roberto Alves</h4><span class="text-[9px] text-slate-500 uppercase tracking-widest">Aprovação Pendente</span></div>
                             </div>
                             <p class="text-xs text-slate-600 dark:text-slate-400 italic">"Gostei da agilidade na compra online..."</p>
-                            <button onclick="app.adminAction('Publicando depoimento...')" class="absolute bottom-4 right-4 bg-slate-100 hover:bg-brand-500 text-slate-700 hover:text-brand-900 dark:bg-white/10 dark:text-white dark:hover:bg-brand-500 dark:hover:text-brand-900 px-3 py-1.5 rounded text-[9px] uppercase font-bold transition">Aprovar</button>
+                            <button onclick="app.adminAction('Publicando depoimento...')" class="absolute bottom-4 right-4 bg-white hover:bg-brand-500 text-slate-700 hover:text-brand-900 dark:bg-white/10 dark:text-white dark:hover:bg-brand-500 dark:hover:text-brand-900 px-3 py-1.5 rounded text-[9px] uppercase font-bold transition border border-slate-200 dark:border-transparent">Aprovar</button>
                         </div>
                     </div>
                 </div>
@@ -864,6 +919,7 @@
         </div>
     </div>
 
+    <!-- MODAL EDITAR/NOVO PRODUTO -->
     <div id="modal-edit-product" class="fixed inset-0 bg-slate-900/60 dark:bg-black/80 backdrop-blur-md z-[4000] hidden flex items-center justify-center p-4 font-sans">
         <div id="modal-edit-product-box" class="bg-white dark:bg-brand-800 w-full max-w-2xl rounded-[2rem] p-6 md:p-8 shadow-2xl relative transition-transform transform scale-95 border border-slate-200 dark:border-white/10 overflow-y-auto max-h-[95vh] custom-scrollbar">
             <button onclick="app.closeProductModal()" class="absolute top-6 right-6 w-8 h-8 rounded-full bg-slate-100 dark:bg-brand-900 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-brand-500 transition"><i class="fas fa-times"></i></button>
@@ -930,6 +986,7 @@
         </div>
     </div>
 
+    <!-- Pop-up Notificação Inteligente -->
     <div id="sales-notification" class="fixed top-24 md:bottom-10 md:top-auto left-4 right-4 md:right-auto bg-brand-900 p-3 rounded-2xl shadow-premium flex items-center gap-3 transform -translate-y-48 md:translate-y-48 transition-transform duration-500 z-[80] border border-brand-500/30 pointer-events-none md:w-72">
         <div id="sn-icon-container" class="w-10 h-10 rounded-full bg-brand-500/20 flex items-center justify-center text-brand-500 shrink-0"><i id="sn-icon" class="far fa-eye"></i></div>
         <div class="flex-1 min-w-0">
@@ -938,6 +995,7 @@
         </div>
     </div>
 
+    <!-- Toast -->
     <div id="toast" class="fixed top-5 left-1/2 -translate-x-1/2 bg-brand-900 text-brand-500 border border-brand-500/50 shadow-2xl rounded-full p-3 pr-6 flex items-center gap-3 transform -translate-y-32 transition-transform duration-500 z-[3000] w-max max-w-[90%]">
         <div class="w-8 h-8 bg-brand-500 text-brand-900 rounded-full flex items-center justify-center shrink-0 shadow-inner">
             <i class="fas fa-check text-xs"></i>
@@ -1328,11 +1386,9 @@
 
             changeAdmTab(tabId, btnElement) {
                 document.querySelectorAll('.adm-tab-btn').forEach(btn => {
-                    btn.classList.remove('active', 'text-white');
-                    btn.classList.add('text-slate-400');
+                    btn.classList.remove('active');
                 });
-                btnElement.classList.add('active', 'text-white');
-                btnElement.classList.remove('text-slate-400');
+                btnElement.classList.add('active');
 
                 document.querySelectorAll('.adm-tab-content').forEach(content => {
                     content.classList.remove('active');
@@ -1495,7 +1551,7 @@
                 const events = [
                     { name: "Letícia M.", action: "comprou Óculos Solar Cat Eye Vintage", icon: "fas fa-shopping-bag" },
                     { name: "Carlos A.", action: "agendou para o dia de exame de vista", icon: "far fa-calendar-check" },
-                    { name: "Juliana T.", action: "comprou Colar Ponto de Luz", icon: "fas fa-glasses" },
+                    { name: "Juliana T.", action: "comprou Colar Ponto de Luz", icon: "fas fa-gem" },
                     { name: "Ana P.", action: "confirmou comparecimento no exame", icon: "fas fa-user-check" },
                     { name: "Roberto F.", action: "comprou Chronograph Steel", icon: "far fa-clock" },
                     { name: "Marcela V.", action: "comprou Armação Crystal Glow", icon: "fas fa-glasses" }
