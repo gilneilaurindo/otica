@@ -1,29 +1,24 @@
 <!DOCTYPE html>
-<html lang="pt-PT" class=A"dark">
+<html lang="pt-BR" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Sua Logo | Luxo, Relojoaria & Joias</title>
     
-    <!-- FAVICON -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👓</text></svg>">
 
-    <!-- TAGS DE PARTILHA (WHATSAPP, FACEBOOK, INSTAGRAM) -->
     <meta property="og:title" content="Sua Logo | Ótica, Relojoaria & Joias">
-    <meta property="og:description" content="Há mais de 10 anos a transformar olhares. Agende o seu check-up visual e descubra a elegância que merece.">
+    <meta property="og:description" content="Há mais de 10 anos transformando olhares e elevando o seu estilo. Agende seu check-up visual hoje.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
     <meta property="og:type" content="website">
     
-    <!-- OTIMIZAÇÃO E FONTES -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     
-    <!-- BIBLIOTECA DE ANIMAÇÃO DE SCROLL (AOS) -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
-    <!-- TAILWIND CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -40,8 +35,8 @@
                             100: '#F5EEDC', 
                             500: '#C5A059', // Dourado Champagne (Cor Principal)
                             600: '#A6823F', 
-                            800: '#3A3A3C', // Cinzento Chumbo Escuro (Logo)
-                            900: '#2C2C2E'  // Cinzento Fundo (Logo)
+                            800: '#3A3A3C', // Cinza Chumbo Escuro (Logo)
+                            900: '#2C2C2E'  // Cinza Fundo (Logo)
                         },
                         adm: {
                             bg: '#0F1219',
@@ -95,7 +90,7 @@
             100% { transform: translateY(0px) rotate(0deg); }
         }
 
-        /* Animação de Brilho nas Letras */
+        /* Animação de Brilho nas Letras (Shine Effect) */
         @keyframes shineText {
             0% { background-position: -200% center; }
             100% { background-position: 200% center; }
@@ -158,7 +153,6 @@
 </head>
 <body class="bg-brand-50 text-slate-900 dark:bg-brand-900 dark:text-white transition-colors duration-500 font-sans overflow-x-hidden">
 
-    <!-- Preloader -->
     <div id="preloader">
         <div class="loader-logo flex items-center gap-2">
             <i class="fas fa-glasses text-brand-500"></i>
@@ -169,44 +163,58 @@
         </div>
     </div>
 
-    <!-- Barra Superior -->
     <div class="bg-animated-banner text-brand-900 text-[9px] md:text-[11px] font-bold py-2.5 text-center uppercase tracking-[0.2em] px-4 relative z-[60] shadow-md">
-        <span id="top-bar-text" class="transition-opacity duration-500 drop-shadow-sm">✨ Há mais de 10 anos a transformar olhares & Estilos ✨</span>
+        <span id="top-bar-text" class="transition-opacity duration-500 drop-shadow-sm">✨ Há mais de 10 anos transformando olhares & Estilos ✨</span>
     </div>
 
-    <!-- Navegação Desktop -->
     <nav class="sticky top-0 glass-nav z-50 h-16 md:h-20 flex items-center transition-all">
         <div class="max-w-7xl mx-auto px-4 w-full flex justify-between items-center">
-            <!-- Logo -->
+            
             <div class="font-serif text-2xl text-slate-900 dark:text-white tracking-wider cursor-pointer flex items-center gap-2 group" onclick="app.scrollTo('hero')">
                 <i class="fas fa-glasses text-brand-500 text-xl text-shine group-hover:scale-110 transition-transform duration-300"></i>
                 <span class="font-bold">SUA</span><span class="font-light text-brand-500">LOGO</span>
             </div>
+            
             <div class="hidden md:flex items-center gap-6 lg:gap-8">
                 <button onclick="app.scrollTo('sobre')" class="nav-link text-slate-600 dark:text-slate-300 text-[11px] font-bold uppercase tracking-widest transition-colors duration-300">Quem Somos</button>
                 <button onclick="app.scrollTo('colecao')" class="nav-link text-slate-600 dark:text-slate-300 text-[11px] font-bold uppercase tracking-widest transition-colors duration-300">Catálogo</button>
                 <button onclick="app.scrollTo('consultas')" class="nav-link text-slate-600 dark:text-slate-300 text-[11px] font-bold uppercase tracking-widest transition-colors duration-300">Exames</button>
-                <button onclick="app.scrollTo('lojas')" class="nav-link text-slate-600 dark:text-slate-300 text-[11px] font-bold uppercase tracking-widest transition-colors duration-300">Lojas</button>
+                
+                <button onclick="app.compartilharApp()" class="text-brand-500 bg-brand-500/10 px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-brand-500 hover:text-white transition-colors duration-300 flex items-center gap-2">
+                    <i class="fas fa-share-alt"></i> Compartilhar
+                </button>
+                
                 <div class="flex items-center gap-3 border-l border-slate-300 dark:border-white/20 pl-6">
-                    <button onclick="app.toggleTheme()" class="w-10 h-10 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/10 transition-all duration-300 hover:rotate-180" title="Mudar Tema"><i id="theme-icon" class="fas fa-sun text-lg"></i></button>
+                    <button onclick="app.toggleTheme()" class="w-10 h-10 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/10 transition-all duration-300 hover:rotate-180" title="Mudar Tema">
+                        <i id="theme-icon" class="fas fa-sun text-lg"></i>
+                    </button>
+                    
                     <button onclick="app.toggleCart()" class="w-10 h-10 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/10 transition-all duration-300 hover:scale-110 relative" title="Carrinho">
                         <i class="fas fa-shopping-bag text-lg"></i>
                         <span id="cart-count-desktop" class="absolute top-1 right-1 bg-brand-500 text-brand-900 text-[9px] font-bold w-4 h-4 flex items-center justify-center rounded-full hidden shadow-glow">0</span>
                     </button>
-                    <button onclick="app.openLoginAdm()" class="w-10 h-10 rounded-full flex items-center justify-center text-slate-400 hover:text-brand-500 transition-all duration-300 hover:scale-110" title="Painel Administrativo"><i class="fas fa-chart-line text-lg"></i></button>
+
+                    <button onclick="app.openLoginAdm()" class="w-10 h-10 rounded-full flex items-center justify-center text-slate-400 hover:text-brand-500 transition-all duration-300 hover:scale-110" title="Painel Administrativo">
+                        <i class="fas fa-chart-line text-lg"></i>
+                    </button>
                 </div>
             </div>
+            
             <div class="md:hidden flex items-center gap-3">
+                <button onclick="app.compartilharApp()" class="w-8 h-8 rounded-full flex items-center justify-center text-brand-500 bg-brand-500/10 transition-transform duration-300 active:scale-90">
+                    <i class="fas fa-share-alt"></i>
+                </button>
                 <button onclick="app.toggleCart()" class="relative w-10 h-10 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 transition-transform duration-300 active:scale-90">
                     <i class="fas fa-shopping-bag text-lg"></i>
                     <span id="cart-count-mobile" class="absolute top-1 right-1 bg-brand-500 text-brand-900 text-[9px] font-bold w-4 h-4 flex items-center justify-center rounded-full hidden">0</span>
                 </button>
-                <button onclick="app.openLoginAdm()" class="text-slate-400 hover:text-brand-500 transition-transform duration-300 active:scale-90 ml-2"><i class="fas fa-chart-line text-lg"></i></button>
+                <button onclick="app.openLoginAdm()" class="text-slate-400 hover:text-brand-500 transition-transform duration-300 active:scale-90 ml-2">
+                    <i class="fas fa-chart-line text-lg"></i>
+                </button>
             </div>
         </div>
     </nav>
 
-    <!-- Menu Inferior Mobile -->
     <div class="md:hidden fixed bottom-0 left-0 w-full glass-nav z-[60] flex justify-around items-center py-3 pb-safe shadow-[0_-10px_40px_rgba(0,0,0,0.05)] rounded-t-3xl border-t border-brand-500/20">
         <button onclick="app.scrollTo('hero')" class="mobile-nav-btn flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 hover:text-brand-500 transition w-16">
             <i class="fas fa-home text-lg"></i><span class="text-[8px] font-bold uppercase">Início</span>
@@ -223,7 +231,6 @@
     </div>
 
     <main>
-        <!-- Hero Section Animada -->
         <section id="hero" class="relative overflow-hidden py-6 md:py-10">
             <div class="bg-text top-10 -left-20">LUXURY</div>
             <div class="max-w-7xl mx-auto px-4 relative z-10">
@@ -237,7 +244,7 @@
                     
                     <div class="relative z-10 p-8 md:p-20 text-white w-full text-center md:text-left mt-auto md:mt-0 max-w-2xl">
                         <span data-aos="fade-up" data-aos-delay="200" class="text-[9px] md:text-[11px] font-bold uppercase tracking-[0.4em] text-brand-500 border border-brand-500/50 bg-brand-500/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6 inline-block">Ótica, Relógios & Joias</span>
-                        <h1 data-aos="fade-up" data-aos-delay="400" class="font-serif text-4xl md:text-6xl lg:text-7xl mb-4 leading-[1.1] drop-shadow-2xl">A <span class="text-shine">elegância</span> que <br>merece.</h1>
+                        <h1 data-aos="fade-up" data-aos-delay="400" class="font-serif text-4xl md:text-6xl lg:text-7xl mb-4 leading-[1.1] drop-shadow-2xl">A <span class="text-shine">elegância</span> que <br>você merece.</h1>
                         <p data-aos="fade-up" data-aos-delay="600" class="text-slate-300 text-sm md:text-lg mb-8 max-w-md mx-auto md:mx-0 font-light">Exclusividade em armações, precisão em relógios e o brilho eterno das joias finas.</p>
                         <button data-aos="fade-up" data-aos-delay="800" onclick="app.scrollTo('colecao')" class="bg-brand-500 text-brand-900 px-8 py-4 rounded-full font-bold uppercase text-[10px] md:text-[12px] tracking-widest hover:bg-white hover:text-brand-900 transition-all duration-300 shadow-glow hover:shadow-premium hover:scale-105">
                             Explorar Vitrine <i class="fas fa-arrow-right ml-2"></i>
@@ -246,12 +253,11 @@
 
                     <div class="absolute top-10 right-20 z-20 text-brand-500/30 text-6xl floating-icon hidden md:block"><i class="fas fa-glasses"></i></div>
                     <div class="absolute bottom-20 right-40 z-20 text-brand-500/20 text-5xl floating-icon-delayed hidden md:block"><i class="far fa-clock"></i></div>
-                    <div class="absolute top-40 right-10 z-20 text-brand-500/20 text-4xl floating-icon-fast hidden md:block"><i class="fas fa-glasses"></i></div>
+                    <div class="absolute top-40 right-10 z-20 text-brand-500/20 text-4xl floating-icon-fast hidden md:block"><i class="fas fa-gem"></i></div>
                 </div>
             </div>
         </section>
 
-        <!-- Seção Quem Somos -->
         <section id="sobre" class="py-16 md:py-24 relative overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -267,28 +273,16 @@
                         <span class="text-brand-500 text-[10px] font-bold uppercase tracking-widest mb-4 block">Quem Somos</span>
                         <h2 class="font-serif text-3xl md:text-5xl italic mb-6 text-slate-900 dark:text-white leading-tight">Uma década de <span class="text-shine">excelência</span> visual.</h2>
                         <p class="text-slate-600 dark:text-slate-300 text-sm md:text-base mb-6 font-light leading-relaxed">
-                            Fundada com o propósito de unir saúde ocular e alta moda, a <strong class="text-brand-500">SUA LOGO</strong> construiu uma trajetória de sucesso. Trabalhamos incansavelmente para trazer as melhores tendências do mercado mundial direto para si.
+                            Fundada com o propósito de unir saúde ocular e alta moda, a <strong class="text-brand-500">SUA LOGO</strong> construiu uma trajetória de sucesso. Trabalhamos incansavelmente para trazer as melhores tendências do mercado mundial direto para você.
                         </p>
                         <p class="text-slate-600 dark:text-slate-300 text-sm md:text-base mb-8 font-light leading-relaxed">
-                            Nossa equipa é formada por consultores ópticos especializados, prontos para oferecer um atendimento humanizado, compreendendo exatamente o que o seu rosto e o seu estilo precisam.
+                            Nossa equipe é formada por consultores ópticos especializados, prontos para oferecer um atendimento humanizado, compreendendo exatamente o que o seu rosto e o seu estilo precisam.
                         </p>
-                        <div class="flex items-center gap-6 border-t border-slate-200 dark:border-white/10 pt-6">
-                            <div class="flex -space-x-4">
-                                <img class="w-12 h-12 rounded-full border-2 border-white dark:border-brand-900 object-cover hover:-translate-y-2 transition-transform duration-300 cursor-pointer" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100" alt="Equipe">
-                                <img class="w-12 h-12 rounded-full border-2 border-white dark:border-brand-900 object-cover hover:-translate-y-2 transition-transform duration-300 cursor-pointer" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100" alt="Equipe">
-                                <img class="w-12 h-12 rounded-full border-2 border-white dark:border-brand-900 object-cover hover:-translate-y-2 transition-transform duration-300 cursor-pointer" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" alt="Equipe">
-                            </div>
-                            <div>
-                                <p class="text-[10px] uppercase font-bold text-slate-500 tracking-widest">Equipa de Especialistas</p>
-                                <p class="text-sm font-serif italic text-slate-800 dark:text-white">Sempre prontos para si</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Vitrine Completa Estilo E-commerce -->
         <section id="colecao" class="max-w-7xl mx-auto px-4 py-16 md:py-24 relative bg-slate-50 dark:bg-brand-900/50 rounded-[3rem]">
             <div class="bg-text top-40 right-0 opacity-50 text-right">EXCLUSIVO</div>
             
@@ -307,8 +301,7 @@
             </div>
 
             <div id="vitrine-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6 relative z-10">
-                <!-- Produtos renderizados via JavaScript -->
-            </div>
+                </div>
             
             <div class="text-center mt-12" data-aos="fade-up">
                 <button onclick="app.openWhatsApp('Olá! Gostaria de ver o catálogo completo de produtos.')" class="border border-slate-900 dark:border-slate-500 text-brand-500 px-10 py-4 rounded-full text-[10px] md:text-xs uppercase font-bold tracking-widest hover:text-slate-400 hover:border-slate-400 transition-all duration-300 bg-transparent shadow-sm hover:shadow-md">
@@ -317,11 +310,9 @@
             </div>
         </section>
 
-        <!-- Seção Check-up da Visão -->
         <section id="consultas" class="py-16 md:py-24 relative overflow-hidden bg-white dark:bg-brand-900 transition-colors duration-500">
             <div class="max-w-7xl mx-auto px-4 relative z-10">
                 <div class="flex flex-col lg:flex-row items-center relative">
-                    
                     <div class="w-full lg:w-3/5 rounded-[2rem] overflow-hidden shadow-2xl relative group" data-aos="fade-right">
                         <img src="https://marcelabarreira.com.br/wp-content/uploads/2021/11/exame-vista-crian%C3%A7as-bebe.jpg-g-scaled.jpg" alt="Exame de Vista Pediátrico" class="w-full h-[400px] md:h-[600px] object-cover group-hover:scale-105 transition duration-700">
                         <div class="absolute inset-0 bg-brand-900/10 mix-blend-multiply"></div>
@@ -347,12 +338,10 @@
                             <i class="far fa-calendar-alt text-lg"></i> Agendar meu Exame Agora
                         </button>
                     </div>
-
                 </div>
             </div>
         </section>
 
-        <!-- Carrossel de Depoimentos -->
         <section id="depoimentos" class="max-w-7xl mx-auto px-4 py-16 md:py-24 relative overflow-hidden">
             <div class="bg-text top-10 left-10 opacity-20">CLIENTES</div>
             <div class="text-center mb-12 relative z-10" data-aos="fade-up">
@@ -366,45 +355,15 @@
                 </button>
 
                 <div id="carrossel-depoimentos" class="flex gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-8 pt-4 scroll-smooth px-4">
-                    
-                    <!-- Depoimento 1 -->
                     <div class="bg-white dark:bg-brand-800 p-8 rounded-[2rem] shadow-sm border border-slate-100 dark:border-brand-500/20 hover:shadow-premium transition-all duration-500 flex-1 min-w-[300px] sm:min-w-[350px] snap-center relative hover:-translate-y-2">
                         <div class="absolute top-6 right-6 text-brand-500/20 text-4xl"><i class="fas fa-quote-right"></i></div>
                         <div class="flex gap-1 text-brand-500 text-xs mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <p class="text-slate-600 dark:text-slate-300 text-sm italic mb-8 relative z-10">"Amei o atendimento da Sua Logo! A Doutora foi super atenciosa no exame, e ajudaram-me a escolher uma armação que combinou certinho."</p>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm italic mb-8 relative z-10">"Amei o atendimento da Sua Logo! A Doutora foi super atenciosa no exame, e me ajudaram a escolher uma armação que combinou certinho."</p>
                         <div class="flex items-center gap-4 border-t border-slate-100 dark:border-white/10 pt-4">
                             <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Cliente" class="w-12 h-12 rounded-full object-cover border-2 border-brand-500">
                             <div>
                                 <h4 class="text-xs font-bold text-slate-800 dark:text-white uppercase tracking-wide">Camila Silva</h4>
                                 <span class="text-[9px] text-brand-500 font-medium">Lente Multifocal</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Depoimento 2 -->
-                    <div class="bg-brand-900 dark:bg-brand-950 p-8 rounded-[2rem] shadow-premium border border-brand-500/30 hover:-translate-y-2 transition-all duration-500 flex-1 min-w-[300px] sm:min-w-[350px] snap-center relative">
-                        <div class="absolute top-6 right-6 text-brand-500/20 text-4xl"><i class="fas fa-quote-right"></i></div>
-                        <div class="flex gap-1 text-brand-500 text-xs mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <p class="text-slate-300 text-sm italic mb-8 relative z-10">"Comprei um relógio para presentear a minha esposa e uns óculos de grau para mim. Qualidade impecável! Atendimento nota mil."</p>
-                        <div class="flex items-center gap-4 border-t border-white/10 pt-4">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Cliente" class="w-12 h-12 rounded-full object-cover border-2 border-brand-500">
-                            <div>
-                                <h4 class="text-xs font-bold text-white uppercase tracking-wide">Marcos Costa</h4>
-                                <span class="text-[9px] text-brand-500 font-medium">Óculos e Relógio</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Depoimento 3 -->
-                    <div class="bg-white dark:bg-brand-800 p-8 rounded-[2rem] shadow-sm border border-slate-100 dark:border-brand-500/20 hover:shadow-premium transition-all duration-500 flex-1 min-w-[300px] sm:min-w-[350px] snap-center relative hover:-translate-y-2">
-                        <div class="absolute top-6 right-6 text-brand-500/20 text-4xl"><i class="fas fa-quote-right"></i></div>
-                        <div class="flex gap-1 text-brand-500 text-xs mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <p class="text-slate-600 dark:text-slate-300 text-sm italic mb-8 relative z-10">"Estava com muita dor de cabeça por causa da luz do computador. Fiz o exame na Sua Logo, coloquei lentes Blue Protect e a minha vida mudou!"</p>
-                        <div class="flex items-center gap-4 border-t border-slate-100 dark:border-white/10 pt-4">
-                            <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Cliente" class="w-12 h-12 rounded-full object-cover border-2 border-brand-500">
-                            <div>
-                                <h4 class="text-xs font-bold text-slate-800 dark:text-white uppercase tracking-wide">Fernanda L.</h4>
-                                <span class="text-[9px] text-brand-500 font-medium">Lente Filtro Azul</span>
                             </div>
                         </div>
                     </div>
@@ -416,7 +375,6 @@
             </div>
         </section>
 
-        <!-- Nossas Lojas (GPS) -->
         <section id="lojas" class="max-w-7xl mx-auto px-4 py-16 md:py-24 relative border-t border-slate-200 dark:border-white/10">
             <div class="text-center mb-12" data-aos="fade-up">
                 <span class="text-brand-500 text-[10px] font-bold uppercase tracking-widest mb-2 block">Visite-nos</span>
@@ -434,21 +392,9 @@
                         <i class="fas fa-location-arrow"></i> Traçar Rota no GPS
                     </button>
                 </div>
-
-                <div class="bg-white dark:bg-brand-800 rounded-[2rem] p-6 shadow-lg border border-slate-100 dark:border-brand-500/20 group" data-aos="fade-left">
-                    <div class="overflow-hidden rounded-xl mb-6">
-                        <img src="https://cdn6.campograndenews.com.br/uploads/noticias/2025/01/11/0317ab477a2ded630218a9043e77d179a01080ab.jpeg" alt="Loja Shopping" class="w-full h-48 object-cover transform group-hover:scale-110 transition duration-700">
-                    </div>
-                    <h3 class="font-serif text-2xl text-slate-900 dark:text-white mb-2">Unidade Shopping</h3>
-                    <p class="text-slate-500 dark:text-slate-400 text-sm mb-6"><i class="fas fa-map-marker-alt text-brand-500 mr-2"></i> Shopping Boulevard - Piso 2 - Loja 45</p>
-                    <button onclick="window.open('https://maps.google.com/?q=Otica', '_blank')" class="w-full border-2 border-brand-500 text-brand-500 py-3 rounded-xl uppercase text-[10px] font-bold tracking-widest hover:bg-brand-500 hover:text-brand-900 transition flex items-center justify-center gap-2">
-                        <i class="fas fa-location-arrow"></i> Traçar Rota no GPS
-                    </button>
-                </div>
             </div>
         </section>
 
-        <!-- Footer -->
         <footer class="bg-brand-900 text-white pt-16 pb-8 px-4 border-t-[4px] border-brand-500 relative overflow-hidden">
             <div class="absolute -top-40 -right-40 w-96 h-96 bg-brand-500/5 rounded-full blur-3xl pointer-events-none"></div>
             
@@ -461,7 +407,7 @@
                     <p class="text-slate-400 text-sm max-w-xs mx-auto md:mx-0">Cuidar da sua visão e do seu estilo é o nosso maior compromisso.</p>
                 </div>
                 <div class="flex flex-col items-center md:items-end gap-4">
-                    <button onclick="app.openWhatsApp('Olá, vim pelo site e gostaria de conversar com um atendente.')" class="bg-brand-500 text-brand-900 px-6 py-3 rounded-full text-[10px] uppercase font-bold tracking-widest hover:bg-white transition shadow-md">Fale Connosco</button>
+                    <button onclick="app.openWhatsApp('Olá, vim pelo site e gostaria de conversar com um atendente.')" class="bg-brand-500 text-brand-900 px-6 py-3 rounded-full text-[10px] uppercase font-bold tracking-widest hover:bg-white transition shadow-md">Fale Conosco</button>
                     <div class="flex gap-4 mt-2">
                         <a href="https://instagram.com/sualogo" target="_blank" class="w-10 h-10 rounded-full bg-brand-800 border border-brand-500/30 flex items-center justify-center hover:bg-brand-500 hover:text-brand-900 transition hover:scale-110"><i class="fab fa-instagram"></i></a>
                     </div>
@@ -475,20 +421,17 @@
         </footer>
     </main>
 
-    <!-- Balão Flutuante do WhatsApp -->
     <button onclick="app.openWhatsApp('Olá! Vim pelo site e gostaria de atendimento.');" class="fixed bottom-24 md:bottom-8 right-4 md:right-8 bg-[#25d366] text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-[0_10px_20px_rgba(37,211,102,0.3)] hover:scale-110 hover:-translate-y-1 transition-all z-[90] cursor-pointer border-none outline-none focus:outline-none">
         <i class="fab fa-whatsapp"></i>
     </button>
 
-    <!-- CARRINHO LATERAL (SIDEBAR) -->
     <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full md:w-[400px] bg-white dark:bg-brand-900 shadow-2xl z-[2000] transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col border-l border-slate-100 dark:border-brand-500/20">
         <div class="p-6 border-b border-slate-100 dark:border-white/10 flex justify-between items-center bg-brand-50 dark:bg-brand-800">
             <h3 class="font-serif text-2xl italic tracking-tight text-slate-900 dark:text-white"><i class="fas fa-shopping-bag text-brand-500 mr-2"></i>Sua Sacola</h3>
             <button onclick="app.toggleCart()" class="w-8 h-8 rounded-full bg-slate-200 dark:bg-brand-900 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-brand-500 transition"><i class="fas fa-times"></i></button>
         </div>
         <div id="cart-items" class="flex-1 overflow-y-auto p-6 space-y-4 custom-scrollbar bg-white dark:bg-brand-900">
-            <!-- Itens injetados via JS -->
-        </div>
+            </div>
         <div class="p-6 bg-brand-50 dark:bg-brand-800 border-t border-slate-100 dark:border-white/10 shadow-[0_-10px_20px_rgba(0,0,0,0.05)]">
             <div class="mb-5">
                 <label class="text-[9px] font-bold uppercase text-slate-500 dark:text-slate-400 ml-1">Como deseja receber?</label>
@@ -508,7 +451,6 @@
     </div>
     <div id="cart-overlay" class="fixed inset-0 bg-brand-900/60 backdrop-blur-sm z-[1900] hidden opacity-0 transition-opacity duration-500" onclick="app.toggleCart()"></div>
 
-    <!-- MODAL DE AGENDAMENTO (CALENDÁRIO ANIMADO) -->
     <div id="modal-agendamento" class="fixed inset-0 bg-brand-900/80 backdrop-blur-sm z-[2000] hidden flex items-end md:items-center justify-center pb-0 md:p-4">
         <div id="modal-agendamento-box" class="bg-white dark:bg-brand-800 w-full max-w-md rounded-t-[2.5rem] md:rounded-[2.5rem] p-6 md:p-8 shadow-premium relative transition-transform transform translate-y-full md:translate-y-0 border border-slate-100 dark:border-brand-500/30">
             <button onclick="app.closeModal('modal-agendamento')" class="absolute top-6 right-6 w-8 h-8 rounded-full bg-slate-100 dark:bg-brand-900 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-brand-500 transition"><i class="fas fa-times"></i></button>
@@ -552,7 +494,6 @@
         </div>
     </div>
 
-    <!-- MODAL DE LOGIN ADM RESTRITO -->
     <div id="modal-login-adm" class="fixed inset-0 bg-slate-900/80 backdrop-blur-md z-[2500] hidden flex items-center justify-center p-4">
         <div id="modal-login-adm-box" class="bg-white dark:bg-brand-800 w-full max-w-sm rounded-[2rem] p-8 shadow-premium relative transition-transform transform scale-95 border border-slate-100 dark:border-brand-500/30">
             <button onclick="app.closeModal('modal-login-adm')" class="absolute top-4 right-4 text-slate-400 hover:text-brand-500 transition"><i class="fas fa-times"></i></button>
@@ -562,16 +503,102 @@
                 <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">Área exclusiva para administradores e gestores da <b>Sua Logo</b>.</p>
             </div>
             <button onclick="app.entrarAdm()" class="w-full bg-brand-500 text-brand-900 font-bold py-3 rounded-xl uppercase text-[11px] tracking-widest hover:bg-brand-600 transition shadow-md">
-                Aceder ao Dashboard (Protótipo)
+                Acessar Dashboard (Protótipo)
             </button>
         </div>
     </div>
 
-    <!-- PAINEL ADM SUPERIOR (ERP) PADRONIZADO -->
+    <div id="modal-calendario-br" class="fixed inset-0 bg-slate-900/80 backdrop-blur-md z-[4000] hidden flex items-center justify-center p-4">
+        <div id="modal-calendario-br-box" class="bg-white dark:bg-brand-800 w-full max-w-lg rounded-[2rem] p-8 shadow-premium relative transition-transform transform scale-95 border border-slate-100 dark:border-brand-500/30 max-h-[90vh] overflow-y-auto custom-scrollbar">
+            <button onclick="app.closeModal('modal-calendario-br')" class="absolute top-6 right-6 w-8 h-8 rounded-full bg-slate-100 dark:bg-brand-900 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-brand-500 transition"><i class="fas fa-times"></i></button>
+            <h3 class="font-serif text-2xl italic mb-1 text-slate-900 dark:text-white">Calendário Estratégico</h3>
+            <p class="text-[10px] text-brand-500 font-bold uppercase tracking-widest mb-6">Dicas de Vendas Nacionais</p>
+            
+            <div class="space-y-4">
+                <div class="bg-slate-50 dark:bg-brand-900 p-4 rounded-xl border border-slate-200 dark:border-white/5">
+                    <h4 class="text-sm font-bold text-slate-800 dark:text-white mb-1"><i class="fas fa-heart text-red-500 mr-2"></i> Dia dos Namorados (Junho)</h4>
+                    <p class="text-xs text-slate-600 dark:text-slate-400"><b>Ação:</b> Foco extremo em Relógios (Masculinos/Femininos) e Joias Finas. Crie "Combos para Casais". Aplique etiqueta de 'Edição Limitada'.</p>
+                </div>
+                <div class="bg-slate-50 dark:bg-brand-900 p-4 rounded-xl border border-slate-200 dark:border-white/5">
+                    <h4 class="text-sm font-bold text-slate-800 dark:text-white mb-1"><i class="fas fa-child text-blue-500 mr-2"></i> Férias Escolares (Julho)</h4>
+                    <p class="text-xs text-slate-600 dark:text-slate-400"><b>Ação:</b> Época de ouro para Exames de Vista Pediátricos. Envie campanhas no WhatsApp lembrando as mães da importância do check-up antes da volta às aulas.</p>
+                </div>
+                <div class="bg-slate-50 dark:bg-brand-900 p-4 rounded-xl border border-slate-200 dark:border-white/5">
+                    <h4 class="text-sm font-bold text-slate-800 dark:text-white mb-1"><i class="fas fa-user-tie text-slate-500 mr-2"></i> Dia dos Pais (Agosto)</h4>
+                    <p class="text-xs text-slate-600 dark:text-slate-400"><b>Ação:</b> Destaque Óculos Solares Masculinos (ex: Aviador) e Relógios Chronograph. Oferte "Exame de Vista Grátis na compra da armação para o seu Pai".</p>
+                </div>
+                <div class="bg-slate-50 dark:bg-brand-900 p-4 rounded-xl border border-slate-200 dark:border-white/5">
+                    <h4 class="text-sm font-bold text-slate-800 dark:text-white mb-1"><i class="fas fa-tags text-green-500 mr-2"></i> Black Friday (Novembro)</h4>
+                    <p class="text-xs text-slate-600 dark:text-slate-400"><b>Ação:</b> Queima de estoque de coleções passadas. Ative a etiqueta "Oferta" e impulsione produtos que estão parados no sistema.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-tour" class="fixed inset-0 bg-slate-900/80 dark:bg-black/90 backdrop-blur-md z-[5000] hidden flex items-center justify-center p-4 font-sans">
+        <div id="modal-tour-box" class="bg-white dark:bg-brand-900 w-full max-w-md rounded-[2rem] p-8 shadow-premium relative transition-transform transform scale-95 border border-slate-200 dark:border-brand-500/30 text-center">
+            <div id="tour-icon" class="w-20 h-20 mx-auto bg-brand-50 dark:bg-brand-500/10 text-brand-500 rounded-full flex items-center justify-center text-4xl mb-6 shadow-inner transition-transform duration-300 transform hover:scale-110">
+                <i class="fas fa-rocket"></i>
+            </div>
+            <span id="tour-step-badge" class="text-[9px] text-brand-500 font-bold uppercase tracking-widest mb-2 block">Passo 1 de 4</span>
+            <h3 id="tour-title" class="font-serif text-2xl italic mb-4 text-slate-900 dark:text-white">Bem-vindo ao seu App!</h3>
+            <p id="tour-text" class="text-sm text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
+                Este aplicativo foi criado como um protótipo funcional para demonstrar a estratégia de vendas e gestão da sua nova ótica.
+            </p>
+            
+            <div class="flex justify-center gap-2 mb-8" id="tour-dots">
+                <div class="w-2 h-2 rounded-full bg-brand-500"></div>
+                <div class="w-2 h-2 rounded-full bg-slate-200 dark:bg-slate-700"></div>
+                <div class="w-2 h-2 rounded-full bg-slate-200 dark:bg-slate-700"></div>
+                <div class="w-2 h-2 rounded-full bg-slate-200 dark:bg-slate-700"></div>
+            </div>
+
+            <div class="flex gap-3">
+                <button onclick="app.closeTour()" class="flex-1 bg-slate-100 dark:bg-white/5 text-slate-600 dark:text-slate-300 font-bold py-3 rounded-xl uppercase text-[10px] tracking-widest hover:bg-slate-200 dark:hover:bg-white/10 transition">
+                    Pular
+                </button>
+                <button id="tour-next-btn" onclick="app.nextTourStep()" class="flex-1 bg-brand-500 text-brand-900 font-bold py-3 rounded-xl uppercase text-[10px] tracking-widest hover:bg-brand-600 transition shadow-md">
+                    Próximo <i class="fas fa-arrow-right ml-1"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-adm-tour" class="fixed inset-0 bg-brand-900/90 backdrop-blur-xl z-[6000] hidden flex items-center justify-center p-4 font-sans">
+        <div id="modal-adm-tour-box" class="bg-slate-50 dark:bg-brand-800 w-full max-w-md rounded-[2rem] p-8 shadow-premium relative transition-transform transform scale-95 border border-brand-500/30 text-center overflow-hidden">
+            <div class="absolute -top-10 -right-10 w-32 h-32 bg-brand-500/20 rounded-full blur-2xl"></div>
+            <button onclick="app.closeAdmTour()" class="absolute top-4 right-4 text-slate-400 hover:text-brand-500 transition z-10"><i class="fas fa-times"></i></button>
+            
+            <div id="adm-tour-icon" class="w-20 h-20 mx-auto bg-white dark:bg-brand-900 text-brand-500 rounded-2xl flex items-center justify-center text-4xl mb-6 shadow-md border border-brand-500/20 transition-transform duration-300">
+                <i class="fas fa-chart-line"></i>
+            </div>
+            <span id="adm-tour-step-badge" class="text-[9px] text-brand-500 font-bold uppercase tracking-widest mb-2 block">Poder do ERP - Passo 1 de 4</span>
+            <h3 id="adm-tour-title" class="font-serif text-2xl italic mb-4 text-slate-900 dark:text-white">Seu Centro de Comando</h3>
+            <p id="adm-tour-text" class="text-sm text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
+                Aqui você tem acesso a todos os indicadores vitais do seu negócio em tempo real. Controle faturamento e agendamentos numa única janela.
+            </p>
+            
+            <div class="flex justify-center gap-2 mb-8" id="adm-tour-dots">
+                <div class="w-2 h-2 rounded-full bg-brand-500"></div>
+                <div class="w-2 h-2 rounded-full bg-slate-200 dark:bg-slate-700"></div>
+                <div class="w-2 h-2 rounded-full bg-slate-200 dark:bg-slate-700"></div>
+                <div class="w-2 h-2 rounded-full bg-slate-200 dark:bg-slate-700"></div>
+            </div>
+
+            <div class="flex gap-3">
+                <button onclick="app.closeAdmTour()" class="flex-1 bg-white dark:bg-brand-900 border border-slate-200 dark:border-white/10 text-slate-600 dark:text-slate-300 font-bold py-3 rounded-xl uppercase text-[10px] tracking-widest hover:bg-slate-100 dark:hover:bg-white/5 transition">
+                    Explorar
+                </button>
+                <button id="adm-tour-next-btn" onclick="app.nextAdmTourStep()" class="flex-1 bg-brand-500 text-brand-900 font-bold py-3 rounded-xl uppercase text-[10px] tracking-widest hover:bg-brand-600 transition shadow-md">
+                    Avançar <i class="fas fa-arrow-right ml-1"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <div id="modal-admin" class="fixed inset-0 bg-slate-900/60 dark:bg-black/80 backdrop-blur-md z-[3000] hidden flex items-center justify-center p-0 md:p-6 font-sans">
         <div id="modal-admin-box" class="bg-slate-50 dark:bg-brand-900 w-full h-full md:h-auto md:max-h-[95vh] md:max-w-7xl md:rounded-[2rem] flex flex-col shadow-2xl relative transition-transform transform scale-95 border border-slate-200 dark:border-white/10 overflow-hidden">
             
-            <!-- Admin Header -->
             <div class="bg-white dark:bg-brand-800 p-4 md:p-6 flex justify-between items-center border-b border-slate-200 dark:border-white/10 flex-wrap gap-4">
                 <div class="flex items-center gap-4">
                     <div class="w-12 h-12 bg-gradient-to-br from-brand-500 to-yellow-600 text-white rounded-xl flex items-center justify-center text-xl shadow-glow"><i class="fas fa-glasses"></i></div>
@@ -581,16 +608,17 @@
                     </div>
                 </div>
                 <div class="flex items-center gap-2 md:gap-3 w-full md:w-auto overflow-x-auto no-scrollbar pb-2 md:pb-0">
+                    <button onclick="app.openModal('modal-calendario-br')" class="flex items-center gap-2 bg-blue-500/10 hover:bg-blue-500/20 text-blue-600 dark:text-blue-400 px-4 py-2 rounded-lg text-[11px] font-bold uppercase tracking-widest transition border border-blue-500/30 whitespace-nowrap">
+                        <i class="far fa-calendar-alt"></i> Calendário Estratégico
+                    </button>
                     <button onclick="app.startAdmTour()" class="flex items-center gap-2 bg-brand-500/10 hover:bg-brand-500/20 text-brand-600 dark:text-brand-500 px-4 py-2 rounded-lg text-[11px] font-bold uppercase tracking-widest transition border border-brand-500/30 whitespace-nowrap">
                         <i class="fas fa-magic"></i> Tour Guiado
                     </button>
-                    <button onclick="app.adminAction('A sincronizar a base de dados...')" class="hidden md:flex items-center gap-2 bg-slate-100 hover:bg-slate-200 dark:bg-brand-900 dark:hover:bg-white/10 text-slate-700 dark:text-white px-4 py-2 rounded-lg text-[11px] font-bold uppercase tracking-widest transition border border-slate-200 dark:border-white/5"><i class="fas fa-sync-alt"></i> Sincronizar</button>
-                    <button onclick="app.adminAction('A gerar relatório Excel...')" class="flex items-center gap-2 bg-green-600 hover:bg-green-500 text-white px-4 py-2 rounded-lg text-[11px] font-bold uppercase tracking-widest transition shadow-md whitespace-nowrap"><i class="fas fa-file-excel"></i> Exportar Base</button>
+                    <button onclick="app.adminAction('Gerando relatório Excel...')" class="flex items-center gap-2 bg-green-600 hover:bg-green-500 text-white px-4 py-2 rounded-lg text-[11px] font-bold uppercase tracking-widest transition shadow-md whitespace-nowrap"><i class="fas fa-file-excel"></i> Exportar Base</button>
                     <button onclick="app.closeModal('modal-admin')" class="w-10 h-10 min-w-[40px] bg-slate-100 dark:bg-red-500/10 text-slate-500 hover:text-red-500 dark:text-red-500 rounded-lg flex items-center justify-center hover:bg-red-50 dark:hover:bg-red-500 dark:hover:text-white transition"><i class="fas fa-times"></i></button>
                 </div>
             </div>
 
-            <!-- Menus de Navegação do ADM -->
             <div class="flex border-b border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-brand-900/50 p-4 gap-3 overflow-x-auto no-scrollbar">
                 <button class="adm-tab-btn active px-5 py-3 rounded-xl text-[10px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 whitespace-nowrap flex items-center gap-2" onclick="app.changeAdmTab('dashboard', this)"><i class="fas fa-chart-pie text-lg"></i> Visão Geral</button>
                 <button class="adm-tab-btn px-5 py-3 rounded-xl text-[10px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 whitespace-nowrap flex items-center gap-2" onclick="app.changeAdmTab('estoque', this)"><i class="fas fa-boxes text-lg"></i> Estoque & Planilhas</button>
@@ -598,33 +626,15 @@
                 <button class="adm-tab-btn px-5 py-3 rounded-xl text-[10px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 whitespace-nowrap flex items-center gap-2" onclick="app.changeAdmTab('depoimentos', this)"><i class="fas fa-star text-lg"></i> Depoimentos</button>
             </div>
 
-            <!-- Área de Conteúdo do ADM -->
             <div class="flex-1 overflow-y-auto p-4 md:p-6 custom-scrollbar bg-white dark:bg-brand-900 relative">
                 
-                <!-- ABA: VISÃO GERAL -->
                 <div id="tab-dashboard" class="adm-tab-content active">
                     
-                    <!-- Conselheiro Estratégico do Sistema -->
                     <div class="bg-gradient-to-r from-brand-500/20 to-transparent border border-brand-500/30 p-5 rounded-2xl mb-6 shadow-sm relative overflow-hidden">
                         <div class="absolute -right-4 -top-4 text-brand-500/10 text-8xl"><i class="fas fa-lightbulb"></i></div>
-                        <h3 class="text-brand-500 font-bold uppercase tracking-widest text-[10px] mb-2 flex items-center gap-2"><i class="fas fa-robot"></i> Inteligência e Estratégia do Sistema</h3>
-                        <p class="text-sm text-slate-800 dark:text-white font-medium mb-2">Bem-vinda! Este painel trabalha por si.</p>
-                        <p class="text-xs text-slate-600 dark:text-slate-400 mb-4">Como gestora, não precisa de vasculhar dados. <b>O sistema notifica-a automaticamente</b> sobre ações críticas para que se concentre no que mais importa: faturar e escalar a marca.</p>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 relative z-10">
-                            <div class="bg-white/60 dark:bg-black/20 p-3 rounded-xl border border-brand-500/20">
-                                <h4 class="text-[10px] font-bold text-brand-600 dark:text-brand-400 uppercase mb-1 flex items-center gap-1"><i class="fas fa-calendar-alt"></i> Agenda & Datas Oportunas</h4>
-                                <p class="text-[10px] text-slate-700 dark:text-slate-300"><b>Ação Ativa:</b> O <b>Dia dos Namorados (12/06)</b> está a chegar! Prepare o stock de Relógios e Joias. Em seguida, impulsione as marcações de exames pediátricos para as <b>Férias Escolares de Julho</b>.</p>
-                            </div>
-                            <div class="bg-white/60 dark:bg-black/20 p-3 rounded-xl border border-brand-500/20">
-                                <h4 class="text-[10px] font-bold text-brand-600 dark:text-brand-400 uppercase mb-1 flex items-center gap-1"><i class="fas fa-box-open"></i> Alertas de Rutura (Stock)</h4>
-                                <p class="text-[10px] text-slate-700 dark:text-slate-300">Fique tranquila. Sempre que um produto "Curva A" estiver perto do fim, o sistema emitirá alertas visuais exclusivos para si (como os avisos intermitentes no ecrã) exigindo reposição.</p>
-                            </div>
-                            <div class="bg-white/60 dark:bg-black/20 p-3 rounded-xl border border-brand-500/20">
-                                <h4 class="text-[10px] font-bold text-brand-600 dark:text-brand-400 uppercase mb-1 flex items-center gap-1"><i class="fas fa-chart-line"></i> Conversão Histórica</h4>
-                                <p class="text-[10px] text-slate-700 dark:text-slate-300">No ano transato (2025), o <b>Relógio Minimalist</b> liderou em Junho. Adicione a etiqueta "Mais Vendido" no separador <b>Marketing</b> e aumente a conversão destes presentes em até 15%.</p>
-                            </div>
-                        </div>
+                        <h3 class="text-brand-500 font-bold uppercase tracking-widest text-[10px] mb-2 flex items-center gap-2"><i class="fas fa-robot"></i> Conselheiro Estratégico de Vendas</h3>
+                        <p class="text-sm text-slate-800 dark:text-white font-medium mb-1">O Dia dos Namorados aproxima-se! (12 de Junho)</p>
+                        <p class="text-xs text-slate-600 dark:text-slate-400">O período do Dia das Mães foi encerrado com sucesso. O foco agora é o <b>Dia dos Namorados</b>! Historicamente, nesta época, os <b>Relógios Premium</b> e as <b>Joias Finas (Colares e Anéis)</b> têm um aumento de 45% na procura. Sugerimos promover estes itens com a etiqueta "Destaque" para captar quem procura o presente perfeito.</p>
                     </div>
 
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
@@ -685,28 +695,13 @@
                     </div>
                 </div>
 
-                <!-- ABA: ESTOQUE E PLANILHAS -->
                 <div id="tab-estoque" class="adm-tab-content">
                     <div class="flex flex-wrap justify-between items-center mb-6 gap-4">
                         <h3 class="text-slate-900 dark:text-white font-bold text-lg font-serif">Controle de Entradas e Saídas</h3>
                         <div class="flex gap-2">
-                            <button onclick="app.adminAction('A abrir o formulário de nova movimentação...')" class="bg-slate-200 dark:bg-white/10 hover:bg-slate-300 dark:hover:bg-white/20 text-slate-700 dark:text-white px-4 py-2 rounded-lg text-[10px] font-bold uppercase tracking-widest transition"><i class="fas fa-exchange-alt mr-1"></i> Nova Movimentação</button>
+                            <button onclick="app.adminAction('Abrindo formulário de nova movimentação...')" class="bg-slate-200 dark:bg-white/10 hover:bg-slate-300 dark:hover:bg-white/20 text-slate-700 dark:text-white px-4 py-2 rounded-lg text-[10px] font-bold uppercase tracking-widest transition"><i class="fas fa-exchange-alt mr-1"></i> Nova Movimentação</button>
                             <button onclick="app.openProductModal()" class="bg-brand-500 hover:bg-brand-600 text-brand-900 px-4 py-2 rounded-lg text-[10px] font-bold uppercase tracking-widest transition shadow-md"><i class="fas fa-plus mr-1"></i> Novo Produto</button>
                         </div>
-                    </div>
-
-                    <!-- Filtros do Estoque -->
-                    <div class="flex gap-3 mb-4 overflow-x-auto no-scrollbar pb-2">
-                        <select class="bg-white dark:bg-brand-900 border border-slate-200 dark:border-white/10 text-slate-800 dark:text-white rounded-lg p-2 text-xs outline-none focus:border-brand-500">
-                            <option>Ano: 2026</option><option>Ano: 2025</option>
-                        </select>
-                        <select class="bg-white dark:bg-brand-900 border border-slate-200 dark:border-white/10 text-slate-800 dark:text-white rounded-lg p-2 text-xs outline-none focus:border-brand-500">
-                            <option>Mês: Maio</option><option>Mês: Abril</option><option>Todos os Meses</option>
-                        </select>
-                        <select class="bg-white dark:bg-brand-900 border border-slate-200 dark:border-white/10 text-slate-800 dark:text-white rounded-lg p-2 text-xs outline-none focus:border-brand-500">
-                            <option>Filtrar: Mais Vendidos</option><option>Filtrar: Maior Estoque</option><option>Filtrar: Menor Estoque</option>
-                        </select>
-                        <button onclick="app.adminAction('A aplicar filtros avançados...')" class="bg-brand-500 text-brand-900 px-4 py-2 rounded-lg text-xs font-bold uppercase hover:bg-brand-600 transition shadow-sm flex items-center gap-1"><i class="fas fa-filter"></i> Filtrar</button>
                     </div>
 
                     <div class="bg-slate-50 dark:bg-brand-800 rounded-2xl border border-slate-200 dark:border-white/5 overflow-x-auto shadow-sm">
@@ -723,13 +718,11 @@
                                 </tr>
                             </thead>
                             <tbody id="admin-products-tbody">
-                                <!-- Produtos renderizados via JavaScript -->
-                            </tbody>
+                                </tbody>
                         </table>
                     </div>
                 </div>
 
-                <!-- ABA: MARKETING -->
                 <div id="tab-marketing" class="adm-tab-content">
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                         
@@ -740,70 +733,20 @@
                                     <label class="text-[9px] text-slate-500 dark:text-slate-400 uppercase font-bold">Campanha Sazonal Ativa</label>
                                     <select class="w-full bg-white dark:bg-brand-900 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white rounded-lg p-3 mt-1 outline-none text-sm transition focus:border-brand-500">
                                         <option>Nenhuma</option>
-                                        <option selected>Dia dos Namorados - Surpreenda quem ama</option>
-                                        <option>Coleção de Inverno (Acesso Antecipado)</option>
-                                        <option>Verão & Estilo (+10 anos)</option>
+                                        <option selected>Verão & Estilo (+10 anos)</option>
+                                        <option>Dia dos Namorados</option>
                                     </select>
                                 </div>
                                 <div class="mb-4">
                                     <label class="text-[9px] text-slate-500 dark:text-slate-400 uppercase font-bold">Texto do Banner Principal</label>
-                                    <input type="text" value="A elegância que o seu amor merece." class="w-full bg-white dark:bg-brand-900 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white rounded-lg p-3 mt-1 outline-none text-sm transition focus:border-brand-500">
+                                    <input type="text" value="A elegância que você merece." class="w-full bg-white dark:bg-brand-900 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white rounded-lg p-3 mt-1 outline-none text-sm transition focus:border-brand-500">
                                 </div>
-                                <button onclick="app.adminAction('A guardar textos promocionais...')" class="bg-brand-500 text-brand-900 px-4 py-3 rounded-lg text-[10px] font-bold uppercase tracking-widest hover:bg-brand-600 transition w-full shadow-md">Guardar Textos</button>
-                            </div>
-
-                            <div class="bg-slate-50 dark:bg-brand-800 rounded-2xl border border-slate-200 dark:border-white/5 p-6 shadow-sm">
-                                <h3 class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-widest mb-4"><i class="fas fa-tag text-brand-500 mr-2"></i> Estratégias de Destaque</h3>
-                                <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">Selecione produtos para aplicar etiquetas de marketing na vitrine.</p>
-                                
-                                <div class="flex items-center justify-between bg-white dark:bg-brand-900 p-3 rounded-lg border border-slate-200 dark:border-white/10 mb-2">
-                                    <span class="text-sm text-slate-800 dark:text-white">Relógio Gold Minimalist</span>
-                                    
-                                    <!-- Tooltip Interativo -->
-                                    <span class="relative group cursor-help bg-brand-100 dark:bg-brand-500/20 text-brand-700 dark:text-brand-500 px-2 py-1 rounded text-[9px] uppercase font-bold border border-brand-200 dark:border-brand-500/50 flex items-center">
-                                        Mais Vendido <i class="fas fa-info-circle ml-1"></i>
-                                        <div class="absolute bottom-full right-0 md:left-1/2 md:-translate-x-1/2 mb-2 hidden group-hover:block w-48 bg-slate-900 text-white text-[9px] p-2 rounded shadow-lg text-center z-50 normal-case font-normal border border-slate-700 transition-opacity">
-                                            A etiqueta "Mais Vendido" cria urgência e prova social, aumentando a conversão do produto em até 15%. Ideal para produtos estrela.
-                                        </div>
-                                    </span>
-                                </div>
-                                
-                                <div class="flex items-center justify-between bg-white dark:bg-brand-900 p-3 rounded-lg border border-slate-200 dark:border-white/10">
-                                    <span class="text-sm text-slate-800 dark:text-white">Armação Crystal Glow</span>
-                                    
-                                    <!-- Tooltip Interativo -->
-                                    <span class="relative group cursor-help bg-purple-100 dark:bg-purple-500/20 text-purple-700 dark:text-purple-400 px-2 py-1 rounded text-[9px] uppercase font-bold border border-purple-200 dark:border-purple-500/50 flex items-center">
-                                        Edição Limitada <i class="fas fa-info-circle ml-1"></i>
-                                        <div class="absolute bottom-full right-0 md:left-1/2 md:-translate-x-1/2 mb-2 hidden group-hover:block w-48 bg-slate-900 text-white text-[9px] p-2 rounded shadow-lg text-center z-50 normal-case font-normal border border-slate-700 transition-opacity">
-                                            "Edição Limitada" é o gatilho mental da Escassez. Utilize quando houver poucas unidades no stock ou produtos exclusivos.
-                                        </div>
-                                    </span>
-                                </div>
+                                <button onclick="app.adminAction('Salvando textos promocionais...')" class="bg-brand-500 text-brand-900 px-4 py-3 rounded-lg text-[10px] font-bold uppercase tracking-widest hover:bg-brand-600 transition w-full shadow-md">Salvar Textos</button>
                             </div>
                         </div>
-
-                        <div class="bg-slate-50 dark:bg-brand-800 rounded-2xl border border-slate-200 dark:border-white/5 p-6 h-max shadow-sm">
-                            <h3 class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-widest mb-4"><i class="fas fa-camera text-brand-500 mr-2"></i> Conteúdo Visual (Fotos do Site)</h3>
-                            <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">Faça o upload de fotos com <b>fundo transparente ou padronizado</b> para manter a elegância da vitrine e edição de banners.</p>
-                            
-                            <div class="border-2 border-dashed border-slate-300 dark:border-white/20 bg-white dark:bg-brand-900 rounded-xl p-8 text-center cursor-pointer hover:border-brand-500 dark:hover:border-brand-500 transition mb-6" onclick="app.adminAction('A abrir a janela de upload de ficheiros...')">
-                                <i class="fas fa-cloud-upload-alt text-3xl text-brand-500 mb-3"></i>
-                                <p class="text-sm text-slate-800 dark:text-white font-bold">Arraste fotos de produtos aqui</p>
-                                <p class="text-xs text-slate-500">JPG, PNG (Transparente) max 2MB</p>
-                            </div>
-
-                            <h4 class="text-xs text-slate-900 dark:text-white font-bold uppercase mb-3">Galeria de Banners Atuais</h4>
-                            <div class="grid grid-cols-3 gap-2">
-                                <img src="https://images.unsplash.com/photo-1509695507497-903c140c43b0?w=150" class="w-full h-16 object-cover rounded border border-slate-200 dark:border-white/10 opacity-70 hover:opacity-100 transition cursor-pointer">
-                                <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=150" class="w-full h-16 object-cover rounded border border-slate-200 dark:border-white/10 opacity-70 hover:opacity-100 transition cursor-pointer">
-                                <img src="https://images.unsplash.com/photo-1582142407894-ec85a1260a46?w=150" class="w-full h-16 object-cover rounded border border-slate-200 dark:border-white/10 opacity-70 hover:opacity-100 transition cursor-pointer">
-                            </div>
-                        </div>
-
                     </div>
                 </div>
 
-                <!-- ABA: DEPOIMENTOS -->
                 <div id="tab-depoimentos" class="adm-tab-content">
                     <div class="flex justify-between items-center mb-6">
                         <h3 class="text-slate-900 dark:text-white font-bold text-lg font-serif">Gestão de Reviews e Prova Social</h3>
@@ -812,23 +755,11 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div class="bg-slate-50 dark:bg-brand-800 rounded-2xl border border-slate-200 dark:border-white/5 p-5 relative group shadow-sm">
-                            <button class="absolute top-4 right-4 text-slate-400 hover:text-brand-500 transition"><i class="fas fa-pen"></i></button>
                             <div class="flex items-center gap-4 mb-4">
                                 <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" class="w-12 h-12 rounded-full border-2 border-brand-500 object-cover">
                                 <div><h4 class="text-sm font-bold text-slate-800 dark:text-white">Camila Silva</h4><span class="text-[9px] text-brand-500 uppercase tracking-widest">Lente Multifocal</span></div>
                             </div>
                             <p class="text-xs text-slate-600 dark:text-slate-400 italic">"Amei o atendimento da Sua Logo! A Doutora foi super atenciosa..."</p>
-                            <span class="absolute bottom-4 right-4 bg-green-100 dark:bg-green-500/20 text-green-700 dark:text-green-400 px-2 py-1 rounded text-[8px] uppercase font-bold border border-green-200 dark:border-green-500/30">Publicado no Site</span>
-                        </div>
-                        
-                        <div class="bg-slate-50 dark:bg-brand-800 rounded-2xl border border-slate-200 dark:border-white/5 p-5 relative group shadow-sm">
-                            <button class="absolute top-4 right-4 text-slate-400 hover:text-brand-500 transition"><i class="fas fa-pen"></i></button>
-                            <div class="flex items-center gap-4 mb-4">
-                                <div class="w-12 h-12 rounded-full bg-white dark:bg-brand-900 border border-dashed border-slate-300 dark:border-slate-500 flex items-center justify-center text-slate-400"><i class="fas fa-camera"></i></div>
-                                <div><h4 class="text-sm font-bold text-slate-800 dark:text-white">Roberto Alves</h4><span class="text-[9px] text-slate-500 uppercase tracking-widest">Aprovação Pendente</span></div>
-                            </div>
-                            <p class="text-xs text-slate-600 dark:text-slate-400 italic">"Gostei da agilidade na compra online..."</p>
-                            <button onclick="app.adminAction('A publicar depoimento...')" class="absolute bottom-4 right-4 bg-white hover:bg-brand-500 text-slate-700 hover:text-brand-900 dark:bg-white/10 dark:text-white dark:hover:bg-brand-500 dark:hover:text-brand-900 px-3 py-1.5 rounded text-[9px] uppercase font-bold transition border border-slate-200 dark:border-transparent">Aprovar</button>
                         </div>
                     </div>
                 </div>
@@ -837,205 +768,6 @@
         </div>
     </div>
 
-    <!-- MODAL RELATÓRIO DO PRODUTO (NOVO - ERP) -->
-    <div id="modal-relatorio" class="fixed inset-0 bg-slate-900/80 dark:bg-black/90 backdrop-blur-md z-[5000] hidden flex items-center justify-center p-4">
-        <div id="modal-relatorio-box" class="bg-white text-slate-900 w-full max-w-3xl rounded-[1rem] p-6 md:p-8 shadow-2xl relative transition-transform transform scale-95 max-h-[90vh] overflow-y-auto custom-scrollbar">
-            <!-- Header do Relatório -->
-            <button onclick="app.closeRelatorio()" class="absolute top-6 right-6 w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:text-brand-500 transition print:hidden"><i class="fas fa-times"></i></button>
-            <button onclick="window.print()" class="absolute top-6 right-16 w-8 h-8 rounded-full bg-brand-500/10 flex items-center justify-center text-brand-600 hover:bg-brand-500 hover:text-white transition print:hidden" title="Imprimir Relatório"><i class="fas fa-print"></i></button>
-            
-            <div class="border-b-2 border-brand-500 pb-6 mb-6 flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
-                <div>
-                    <h2 class="font-serif text-3xl font-bold text-slate-900 mb-1 flex items-center gap-2"><i class="fas fa-glasses text-brand-500"></i> SUA LOGO</h2>
-                    <p class="text-[10px] uppercase tracking-widest text-slate-500">Relatório Estratégico de Produto</p>
-                </div>
-                <div class="text-left md:text-right">
-                    <p class="text-sm font-bold text-slate-800" id="relatorio-data">Emissão: 15/05/2026</p>
-                    <p class="text-xs text-slate-500">Nº de Controlo: RP-2026-X88</p>
-                </div>
-            </div>
-
-            <!-- Corpo do Relatório -->
-            <div class="flex flex-col md:flex-row gap-6 mb-8 items-center bg-slate-50 p-6 rounded-xl border border-slate-100">
-                <img id="relatorio-img" src="" class="w-32 h-32 object-cover rounded-lg border border-slate-200 shadow-sm">
-                <div class="flex-1 w-full">
-                    <h3 id="relatorio-nome" class="font-serif text-2xl font-bold text-slate-800 mb-3">Nome do Produto</h3>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        <p class="text-sm"><span class="text-slate-500 uppercase text-[9px] font-bold tracking-widest block">SKU</span> <strong id="relatorio-sku">---</strong></p>
-                        <p class="text-sm"><span class="text-slate-500 uppercase text-[9px] font-bold tracking-widest block">Categoria</span> <strong id="relatorio-cat">---</strong></p>
-                        <p class="text-sm"><span class="text-slate-500 uppercase text-[9px] font-bold tracking-widest block">Fornecedor</span> <strong id="relatorio-fornecedor">---</strong></p>
-                        <p class="text-sm"><span class="text-slate-500 uppercase text-[9px] font-bold tracking-widest block">Lote Atual</span> <strong id="relatorio-lote">---</strong></p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Indicadores -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-                <div class="bg-white border-l-4 border-blue-500 p-4 shadow-sm rounded-r-lg border-y border-r border-slate-100">
-                    <p class="text-[10px] uppercase text-slate-500 font-bold tracking-widest">Estoque Atual</p>
-                    <p class="text-2xl font-bold text-slate-800" id="relatorio-estoque">0 un</p>
-                </div>
-                <div class="bg-white border-l-4 border-green-500 p-4 shadow-sm rounded-r-lg border-y border-r border-slate-100">
-                    <p class="text-[10px] uppercase text-slate-500 font-bold tracking-widest">Preço de Venda</p>
-                    <p class="text-2xl font-bold text-slate-800" id="relatorio-preco">R$ 0,00</p>
-                </div>
-                <div class="bg-white border-l-4 border-brand-500 p-4 shadow-sm rounded-r-lg border-y border-r border-slate-100">
-                    <p class="text-[10px] uppercase text-slate-500 font-bold tracking-widest">Vendas Acumuladas</p>
-                    <p class="text-2xl font-bold text-slate-800" id="relatorio-vendas">---</p>
-                </div>
-            </div>
-
-            <!-- Gráfico Falso Analítico -->
-            <div class="hidden md:block">
-                <h4 class="text-xs uppercase text-slate-500 font-bold tracking-widest mb-4 border-b border-slate-200 pb-2">Histórico de Movimentação (2026)</h4>
-                <div class="h-32 w-full bg-slate-50 rounded-lg border border-slate-100 relative flex items-end justify-between px-6 pt-6 pb-2">
-                    <div class="w-10 bg-brand-500/40 rounded-t-sm h-[30%] relative"><span class="absolute -top-5 left-1/2 -translate-x-1/2 text-[9px] text-slate-500 font-bold">Jan</span></div>
-                    <div class="w-10 bg-brand-500/60 rounded-t-sm h-[50%] relative"><span class="absolute -top-5 left-1/2 -translate-x-1/2 text-[9px] text-slate-500 font-bold">Fev</span></div>
-                    <div class="w-10 bg-brand-500/80 rounded-t-sm h-[80%] relative"><span class="absolute -top-5 left-1/2 -translate-x-1/2 text-[9px] text-slate-500 font-bold">Mar</span></div>
-                    <div class="w-10 bg-brand-500 rounded-t-sm h-[100%] relative shadow-[0_0_10px_rgba(197,160,89,0.5)]"><span class="absolute -top-5 left-1/2 -translate-x-1/2 text-[9px] text-brand-600 font-bold">Abr</span></div>
-                    <div class="w-10 bg-brand-500/50 rounded-t-sm h-[60%] relative"><span class="absolute -top-5 left-1/2 -translate-x-1/2 text-[9px] text-slate-500 font-bold">Mai</span></div>
-                </div>
-            </div>
-            
-            <div class="mt-8 text-center text-[9px] text-slate-400">
-                <p>Relatório gerado automaticamente pelo Sistema ERP Sua Logo.</p>
-                <p>Confidencial - Protegido pela LGPD.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- MODAL EDITAR/NOVO PRODUTO -->
-    <div id="modal-edit-product" class="fixed inset-0 bg-slate-900/60 dark:bg-black/80 backdrop-blur-md z-[4000] hidden flex items-center justify-center p-4 font-sans">
-        <div id="modal-edit-product-box" class="bg-white dark:bg-brand-800 w-full max-w-2xl rounded-[2rem] p-6 md:p-8 shadow-2xl relative transition-transform transform scale-95 border border-slate-200 dark:border-white/10 overflow-y-auto max-h-[95vh] custom-scrollbar">
-            <button onclick="app.closeProductModal()" class="absolute top-6 right-6 w-8 h-8 rounded-full bg-slate-100 dark:bg-brand-900 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-brand-500 transition"><i class="fas fa-times"></i></button>
-            <h3 id="modal-product-title" class="font-serif text-2xl italic mb-6 text-slate-900 dark:text-white">Novo Produto</h3>
-            
-            <form id="form-product" onsubmit="event.preventDefault(); app.saveProduct();" class="space-y-4">
-                <input type="hidden" id="prod-id">
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                        <label class="text-[9px] font-bold uppercase text-slate-500 dark:text-slate-400 ml-1">Nome do Produto</label>
-                        <input type="text" id="prod-nome" required class="w-full bg-slate-50 dark:bg-brand-900 border border-slate-200 dark:border-white/10 text-slate-800 dark:text-white rounded-xl p-3 mt-1 outline-none text-sm focus:border-brand-500 transition">
-                    </div>
-                    <div>
-                        <label class="text-[9px] font-bold uppercase text-slate-500 dark:text-slate-400 ml-1">Categoria</label>
-                        <select id="prod-cat" required class="w-full bg-slate-50 dark:bg-brand-900 border border-slate-200 dark:border-white/10 text-slate-800 dark:text-white rounded-xl p-3 mt-1 outline-none text-sm focus:border-brand-500 transition">
-                            <option value="Oculos">Óculos</option>
-                            <option value="Relogios">Relógios</option>
-                            <option value="Joias">Joias</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div>
-                        <label class="text-[9px] font-bold uppercase text-slate-500 dark:text-slate-400 ml-1">Preço (R$)</label>
-                        <input type="number" step="0.01" id="prod-preco" required class="w-full bg-slate-50 dark:bg-brand-900 border border-slate-200 dark:border-white/10 text-slate-800 dark:text-white rounded-xl p-3 mt-1 outline-none text-sm focus:border-brand-500 transition">
-                    </div>
-                    <div>
-                        <label class="text-[9px] font-bold uppercase text-slate-500 dark:text-slate-400 ml-1">Estoque</label>
-                        <input type="number" id="prod-estoque" required class="w-full bg-slate-50 dark:bg-brand-900 border border-slate-200 dark:border-white/10 text-slate-800 dark:text-white rounded-xl p-3 mt-1 outline-none text-sm focus:border-brand-500 transition">
-                    </div>
-                    <div>
-                        <label class="text-[9px] font-bold uppercase text-slate-500 dark:text-slate-400 ml-1">SKU</label>
-                        <input type="text" id="prod-sku" required class="w-full bg-slate-50 dark:bg-brand-900 border border-slate-200 dark:border-white/10 text-slate-800 dark:text-white rounded-xl p-3 mt-1 outline-none text-sm focus:border-brand-500 transition">
-                    </div>
-                    <div>
-                        <label class="text-[9px] font-bold uppercase text-slate-500 dark:text-slate-400 ml-1">Lote</label>
-                        <input type="text" id="prod-lote" class="w-full bg-slate-50 dark:bg-brand-900 border border-slate-200 dark:border-white/10 text-slate-800 dark:text-white rounded-xl p-3 mt-1 outline-none text-sm focus:border-brand-500 transition">
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                        <label class="text-[9px] font-bold uppercase text-slate-500 dark:text-slate-400 ml-1">Fornecedor</label>
-                        <input type="text" id="prod-fornecedor" class="w-full bg-slate-50 dark:bg-brand-900 border border-slate-200 dark:border-white/10 text-slate-800 dark:text-white rounded-xl p-3 mt-1 outline-none text-sm focus:border-brand-500 transition">
-                    </div>
-                    <div class="flex items-center gap-2 mt-6">
-                        <input type="checkbox" id="prod-destaque" class="w-5 h-5 accent-brand-500 cursor-pointer">
-                        <label class="text-sm font-bold text-slate-800 dark:text-white cursor-pointer" onclick="document.getElementById('prod-destaque').click()">Marcar como Destaque</label>
-                    </div>
-                </div>
-
-                <div>
-                    <label class="text-[9px] font-bold uppercase text-slate-500 dark:text-slate-400 ml-1">Imagem (URL da Foto)</label>
-                    <input type="text" id="prod-img" required placeholder="https://images.unsplash.com/..." class="w-full bg-slate-50 dark:bg-brand-900 border border-slate-200 dark:border-white/10 text-slate-800 dark:text-white rounded-xl p-3 mt-1 outline-none text-sm focus:border-brand-500 transition">
-                </div>
-
-                <div class="pt-4 border-t border-slate-100 dark:border-white/10 flex justify-end gap-3 mt-4">
-                    <button type="button" onclick="app.closeProductModal()" class="px-6 py-3 rounded-xl text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-white/10 transition">Cancelar</button>
-                    <button type="submit" class="bg-brand-500 text-brand-900 px-6 py-3 rounded-xl text-xs font-bold uppercase tracking-widest hover:bg-brand-600 transition shadow-md">Salvar Produto</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- MODAL DE TOUR INTERATIVO (ONBOARDING GERAL) -->
-    <div id="modal-tour" class="fixed inset-0 bg-slate-900/80 dark:bg-black/90 backdrop-blur-md z-[5000] hidden flex items-center justify-center p-4 font-sans">
-        <div id="modal-tour-box" class="bg-white dark:bg-brand-900 w-full max-w-md rounded-[2rem] p-8 shadow-premium relative transition-transform transform scale-95 border border-slate-200 dark:border-brand-500/30 text-center">
-            <div id="tour-icon" class="w-20 h-20 mx-auto bg-brand-50 dark:bg-brand-500/10 text-brand-500 rounded-full flex items-center justify-center text-4xl mb-6 shadow-inner transition-transform duration-300 transform hover:scale-110">
-                <i class="fas fa-rocket"></i>
-            </div>
-            <span id="tour-step-badge" class="text-[9px] text-brand-500 font-bold uppercase tracking-widest mb-2 block">Passo 1 de 4</span>
-            <h3 id="tour-title" class="font-serif text-2xl italic mb-4 text-slate-900 dark:text-white">Bem-vinda ao seu App!</h3>
-            <p id="tour-text" class="text-sm text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
-                Este aplicativo foi criado como um protótipo funcional para demonstrar a estratégia de vendas e gestão da sua nova ótica.
-            </p>
-            
-            <div class="flex justify-center gap-2 mb-8" id="tour-dots">
-                <div class="w-2 h-2 rounded-full bg-brand-500"></div>
-                <div class="w-2 h-2 rounded-full bg-slate-200 dark:bg-slate-700"></div>
-                <div class="w-2 h-2 rounded-full bg-slate-200 dark:bg-slate-700"></div>
-                <div class="w-2 h-2 rounded-full bg-slate-200 dark:bg-slate-700"></div>
-            </div>
-
-            <div class="flex gap-3">
-                <button onclick="app.closeTour()" class="flex-1 bg-slate-100 dark:bg-white/5 text-slate-600 dark:text-slate-300 font-bold py-3 rounded-xl uppercase text-[10px] tracking-widest hover:bg-slate-200 dark:hover:bg-white/10 transition">
-                    Saltar
-                </button>
-                <button id="tour-next-btn" onclick="app.nextTourStep()" class="flex-1 bg-brand-500 text-brand-900 font-bold py-3 rounded-xl uppercase text-[10px] tracking-widest hover:bg-brand-600 transition shadow-md">
-                    Próximo <i class="fas fa-arrow-right ml-1"></i>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- MODAL DE TOUR DO PAINEL ADM -->
-    <div id="modal-adm-tour" class="fixed inset-0 bg-brand-900/90 backdrop-blur-xl z-[6000] hidden flex items-center justify-center p-4 font-sans">
-        <div id="modal-adm-tour-box" class="bg-slate-50 dark:bg-brand-800 w-full max-w-md rounded-[2rem] p-8 shadow-premium relative transition-transform transform scale-95 border border-brand-500/30 text-center overflow-hidden">
-            <div class="absolute -top-10 -right-10 w-32 h-32 bg-brand-500/20 rounded-full blur-2xl"></div>
-            
-            <button onclick="app.closeAdmTour()" class="absolute top-4 right-4 text-slate-400 hover:text-brand-500 transition z-10"><i class="fas fa-times"></i></button>
-            
-            <div id="adm-tour-icon" class="w-20 h-20 mx-auto bg-white dark:bg-brand-900 text-brand-500 rounded-2xl flex items-center justify-center text-4xl mb-6 shadow-md border border-brand-500/20 transition-transform duration-300">
-                <i class="fas fa-chart-line"></i>
-            </div>
-            <span id="adm-tour-step-badge" class="text-[9px] text-brand-500 font-bold uppercase tracking-widest mb-2 block">Poder do ERP - Passo 1 de 4</span>
-            <h3 id="adm-tour-title" class="font-serif text-2xl italic mb-4 text-slate-900 dark:text-white">Seu Centro de Comando</h3>
-            <p id="adm-tour-text" class="text-sm text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
-                Aqui tem acesso a todos os indicadores vitais do seu negócio em tempo real. Controle o faturamento e os agendamentos numa única janela.
-            </p>
-            
-            <div class="flex justify-center gap-2 mb-8" id="adm-tour-dots">
-                <div class="w-2 h-2 rounded-full bg-brand-500"></div>
-                <div class="w-2 h-2 rounded-full bg-slate-200 dark:bg-slate-700"></div>
-                <div class="w-2 h-2 rounded-full bg-slate-200 dark:bg-slate-700"></div>
-                <div class="w-2 h-2 rounded-full bg-slate-200 dark:bg-slate-700"></div>
-            </div>
-
-            <div class="flex gap-3">
-                <button onclick="app.closeAdmTour()" class="flex-1 bg-white dark:bg-brand-900 border border-slate-200 dark:border-white/10 text-slate-600 dark:text-slate-300 font-bold py-3 rounded-xl uppercase text-[10px] tracking-widest hover:bg-slate-100 dark:hover:bg-white/5 transition">
-                    Explorar
-                </button>
-                <button id="adm-tour-next-btn" onclick="app.nextAdmTourStep()" class="flex-1 bg-brand-500 text-brand-900 font-bold py-3 rounded-xl uppercase text-[10px] tracking-widest hover:bg-brand-600 transition shadow-md">
-                    Avançar <i class="fas fa-arrow-right ml-1"></i>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Pop-up Notificação Inteligente Geral -->
     <div id="sales-notification" class="fixed top-24 md:bottom-10 md:top-auto left-4 right-4 md:right-auto bg-brand-900 p-3 rounded-2xl shadow-premium flex items-center gap-3 transform -translate-y-48 md:translate-y-48 transition-transform duration-500 z-[80] border border-brand-500/30 pointer-events-none md:w-72">
         <div id="sn-icon-container" class="w-10 h-10 rounded-full bg-brand-500/20 flex items-center justify-center text-brand-500 shrink-0"><i id="sn-icon" class="far fa-eye"></i></div>
         <div class="flex-1 min-w-0">
@@ -1044,9 +776,8 @@
         </div>
     </div>
 
-    <!-- Toast de Avisos Gerais e ADM -->
     <div id="toast" class="fixed top-5 left-1/2 -translate-x-1/2 bg-brand-900 text-brand-500 border border-brand-500/50 shadow-2xl rounded-full p-3 pr-6 flex items-center gap-3 transform -translate-y-32 transition-transform duration-500 z-[3000] w-max max-w-[90%]">
-        <div id="toast-icon" class="w-8 h-8 bg-brand-500 text-brand-900 rounded-full flex items-center justify-center shrink-0 shadow-inner">
+        <div class="w-8 h-8 bg-brand-500 text-brand-900 rounded-full flex items-center justify-center shrink-0 shadow-inner">
             <i class="fas fa-check text-xs"></i>
         </div>
         <span id="toast-message" class="font-bold text-[10px] uppercase tracking-wider text-white">Ação concluída!</span>
@@ -1057,6 +788,7 @@
         const app = {
             whatsappNumber: "5511999990000", 
             cart: [],
+            currentFilter: 'Tudo',
             products: [
                 { id: 1, nome: "Solar Cat Eye Vintage", category: "Oculos", preco: 329.90, img: "https://images.unsplash.com/photo-1508296695146-257a814070b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", sku: "SL-001", fornecedor: "Luxxotica", lote: "10/25", estoque: 15, destaque: true },
                 { id: 2, nome: "Aviador Dark Classic", category: "Oculos", preco: 349.00, img: "https://acdn-us.mitiendanube.com/stores/001/753/058/products/13-13-13-c09531768ef7c725bb17701261229401-1024-1024.webp", sku: "SL-002", fornecedor: "RayBan", lote: "11/25", estoque: 8, destaque: false },
@@ -1065,19 +797,7 @@
                 { id: 5, nome: "Armação Hexagonal Gold", category: "Oculos", preco: 289.00, img: "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", sku: "RX-1029", fornecedor: "RayBan", lote: "05/26", estoque: 42, destaque: false },
                 { id: 6, nome: "Colar Ponto de Luz", category: "Joias", preco: 199.90, img: "https://karinaacessorios.bwimg.com.br/karinaacessorios/produtos/colar-ponto-de-luz-6mm-folheado-ouro-18k-1634401327.1197.jpg", sku: "JL-001", fornecedor: "Rommanel", lote: "J001", estoque: 1, destaque: false },
                 { id: 7, nome: "Armação Executive Masc", category: "Oculos", preco: 219.00, img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", sku: "RX-1030", fornecedor: "Oakley", lote: "03/26", estoque: 12, destaque: false },
-                { id: 8, nome: "Armação Crystal Glow", category: "Oculos", preco: 199.00, img: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", sku: "TR-9920", fornecedor: "Luxxotica", lote: "L203", estoque: 2, destaque: false },
-                { id: 9, nome: "Solar Bold Square", category: "Oculos", preco: 389.00, img: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", sku: "SL-003", fornecedor: "Prada", lote: "02/26", estoque: 4, destaque: false },
-                { id: 10, nome: "Solar Sport Performance", category: "Oculos", preco: 459.00, img: "https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", sku: "SL-004", fornecedor: "Oakley", lote: "06/26", estoque: 18, destaque: false },
-                { id: 11, nome: "Relógio Silver & Blue", category: "Relogios", preco: 749.00, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShAO4rCUJ6ALHr26i_yERsvSCXGm5avY0DnbEjKMSeew&s", sku: "RL-003", fornecedor: "Technos", lote: "04/26", estoque: 11, destaque: true },
-                { id: 12, nome: "Relógio Rose Gold", category: "Relogios", preco: 689.00, img: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", sku: "RL-004", fornecedor: "Michael Kors", lote: "07/26", estoque: 6, destaque: false },
-                { id: 13, nome: "Brinco Argola Ouro 18k", category: "Joias", preco: 429.00, img: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", sku: "JL-002", fornecedor: "Vivara", lote: "J002", estoque: 10, destaque: false },
-                { id: 14, nome: "Anel Solitário Diamante", category: "Joias", preco: 1290.00, img: "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", sku: "JL-003", fornecedor: "Sua Logo Fine", lote: "J003", estoque: 2, destaque: true },
-                { id: 15, nome: "Armação Redonda Classic", category: "Oculos", preco: 249.00, img: "https://images.unsplash.com/photo-1509695507497-903c140c43b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", sku: "RX-1031", fornecedor: "RayBan", lote: "08/26", estoque: 22, destaque: false },
-                { id: 16, nome: "Armação Clubmaster Masc", category: "Oculos", preco: 319.00, img: "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", sku: "RX-1032", fornecedor: "RayBan", lote: "09/26", estoque: 14, destaque: false },
-                { id: 17, nome: "Solar Wayfarer Style", category: "Oculos", preco: 299.00, img: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", sku: "SL-005", fornecedor: "Vogue", lote: "10/26", estoque: 30, destaque: false },
-                { id: 18, nome: "Pulseira Riviera", category: "Joias", preco: 589.00, img: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", sku: "JL-004", fornecedor: "Rommanel", lote: "J004", estoque: 7, destaque: false },
-                { id: 19, nome: "Relógio Smart Elegance", category: "Relogios", preco: 1199.00, img: "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", sku: "RL-005", fornecedor: "Apple", lote: "11/26", estoque: 3, destaque: true },
-                { id: 20, nome: "Armação Titanium Ultra", category: "Oculos", preco: 459.00, img: "https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", sku: "RX-1033", fornecedor: "Oakley", lote: "12/26", estoque: 9, destaque: false }
+                { id: 8, nome: "Armação Crystal Glow", category: "Oculos", preco: 199.00, img: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", sku: "TR-9920", fornecedor: "Luxxotica", lote: "L203", estoque: 2, destaque: false }
             ],
 
             init() {
@@ -1093,7 +813,6 @@
                 const dateInput = document.getElementById('form-data');
                 if(dateInput) dateInput.setAttribute('min', today);
 
-                // Iniciar Alertas ADM se o modal estiver aberto (Simulação)
                 this.startAdmNotifications();
 
                 setTimeout(() => {
@@ -1156,7 +875,6 @@
             openModal(id) {
                 const m = document.getElementById(id);
                 const box = document.getElementById(id + '-box');
-                
                 document.body.style.overflow = 'hidden'; 
                 
                 m.classList.remove('hidden');
@@ -1169,7 +887,6 @@
             closeModal(id) {
                 const m = document.getElementById(id);
                 const box = document.getElementById(id + '-box');
-                
                 document.body.style.overflow = ''; 
                 
                 if(id === 'modal-admin' || id === 'modal-relatorio') box.classList.add('scale-95');
@@ -1190,10 +907,22 @@
             },
 
             openWhatsApp(mensagem) {
-                this.showToast("A abrir o WhatsApp...");
+                this.showToast("Abrindo WhatsApp...");
                 setTimeout(() => {
                     window.open(`https://wa.me/${this.whatsappNumber}?text=${encodeURIComponent(mensagem)}`, '_blank');
                 }, 800);
+            },
+            
+            compartilharApp() {
+                if (navigator.share) {
+                    navigator.share({
+                        title: 'Sua Logo | Ótica e Joalheria',
+                        text: 'A elegância que você merece. Venha conhecer a nossa vitrine de luxo!',
+                        url: window.location.href
+                    }).catch(console.error);
+                } else {
+                    this.showToast('Copie o link do navegador para compartilhar!');
+                }
             },
 
             scrollCarrossel(amount) {
@@ -1206,17 +935,13 @@
             enviarAgendamento() {
                 const assunto = document.getElementById('form-assunto').value;
                 const nome = document.getElementById('form-nome').value.trim();
-                
                 if(!nome) { 
                     this.showToast("Preencha o seu nome!", true); 
                     return; 
                 }
-
-                const msg = `*📅 NOVO AGENDAMENTO SITE*%0A%0A*Nome:* ${nome}%0A*Serviço:* ${assunto}%0A%0A_Gostaria de verificar a disponibilidade de horário num dos dias de atendimento disponíveis._`;
-                
+                const msg = `*📅 NOVO AGENDAMENTO SITE*%0A%0A*Nome:* ${nome}%0A*Serviço:* ${assunto}%0A%0A_Gostaria de verificar a disponibilidade de horário num dos dias de atendimento disponíveis._ \n\n📍 Link do App: https://sualogo.com.br`;
                 this.closeModal('modal-agendamento');
                 this.openWhatsApp(msg);
-                
                 document.getElementById('form-nome').value = '';
             },
 
@@ -1228,17 +953,23 @@
                 
                 grid.innerHTML = filtered.map((p, idx) => {
                     let catName = p.category === 'Oculos' ? 'Óculos' : (p.category === 'Relogios' ? 'Relógio' : 'Joia');
+                    const inCart = this.cart.some(i => i.id === p.id);
+                    
+                    const borderClass = inCart ? 'border-brand-500 ring-2 ring-brand-500 bg-brand-50 dark:bg-brand-900/40' : 'bg-white dark:bg-brand-800 border-slate-100 dark:border-brand-500/20';
+                    const badge = inCart ? '<div class="absolute top-2 right-2 bg-brand-900 text-brand-500 text-[8px] font-bold uppercase tracking-widest px-2 py-1 rounded-md z-10 shadow-md"><i class="fas fa-check"></i> Na Sacola</div>' : '';
+
                     return `
-                        <div id="prod-card-${p.id}" onclick="app.selecionarProduto(${p.id}, this)" class="product-card bg-white dark:bg-brand-800 rounded-[2rem] p-3 md:p-4 border border-slate-100 dark:border-brand-500/20 shadow-lg group flex flex-col animate-[fadeIn_0.5s_ease-in-out] cursor-pointer transition-all duration-300">
+                        <div id="prod-card-${p.id}" onclick="app.selecionarProduto(${p.id}, this)" class="product-card ${borderClass} rounded-[2rem] p-3 md:p-4 border shadow-lg group flex flex-col animate-[fadeIn_0.5s_ease-in-out] cursor-pointer transition-all duration-300">
                             <div class="h-48 md:h-64 rounded-xl overflow-hidden relative mb-4 bg-slate-50 dark:bg-slate-900 flex items-center justify-center">
                                 ${p.destaque ? '<div class="absolute top-2 left-2 bg-brand-500 text-brand-900 text-[8px] font-bold uppercase tracking-widest px-2 py-1 rounded-md z-10 shadow-md">Destaque</div>' : ''}
+                                ${badge}
                                 <img src="${p.img}" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
                             </div>
                             <span class="text-[9px] text-brand-500 font-bold uppercase tracking-widest">${catName}</span>
                             <h3 class="font-bold text-slate-800 dark:text-white text-xs md:text-sm mt-1 truncate">${p.nome}</h3>
                             <p class="font-serif italic text-lg md:text-xl mt-2 text-slate-900 dark:text-brand-500 font-bold mb-4">R$ ${p.preco.toFixed(2).replace('.', ',')}</p>
-                            <button class="w-full mt-auto bg-slate-100 dark:bg-brand-900 text-slate-900 dark:text-white py-3 rounded-xl text-[10px] uppercase font-bold tracking-widest group-hover:bg-brand-500 group-hover:text-brand-900 transition-colors shadow-sm pointer-events-none">
-                                Adicionar
+                            <button class="w-full mt-auto ${inCart ? 'bg-brand-500 text-white' : 'bg-slate-100 dark:bg-brand-900 text-slate-900 dark:text-white group-hover:bg-brand-500 group-hover:text-brand-900'} py-3 rounded-xl text-[10px] uppercase font-bold tracking-widest transition-colors shadow-sm pointer-events-none">
+                                ${inCart ? '<i class="fas fa-check"></i> Adicionado' : 'Adicionar'}
                             </button>
                         </div>
                     `;
@@ -1249,41 +980,12 @@
                 if (navigator.vibrate) {
                     navigator.vibrate([50, 50, 50]);
                 }
-
                 element.classList.add('ring-4', 'ring-brand-500', 'scale-105', 'bg-brand-50', 'dark:bg-brand-900');
                 setTimeout(() => {
                     element.classList.remove('ring-4', 'ring-brand-500', 'scale-105', 'bg-brand-50', 'dark:bg-brand-900');
                 }, 400);
 
                 this.adicionarAoCarrinho(id);
-            },
-
-            // --- FUNÇÃO DO RELATÓRIO DO ADM ---
-            openRelatorio(id) {
-                const p = this.products.find(x => x.id === id);
-                if(!p) return;
-                
-                document.getElementById('relatorio-nome').innerText = p.nome;
-                document.getElementById('relatorio-sku').innerText = p.sku;
-                document.getElementById('relatorio-cat').innerText = p.category === 'Oculos' ? 'Óculos' : (p.category === 'Relogios' ? 'Relógio' : 'Joia');
-                document.getElementById('relatorio-fornecedor').innerText = p.fornecedor;
-                document.getElementById('relatorio-lote').innerText = p.lote;
-                document.getElementById('relatorio-estoque').innerText = p.estoque + ' un';
-                document.getElementById('relatorio-preco').innerText = 'R$ ' + p.preco.toFixed(2).replace('.', ',');
-                document.getElementById('relatorio-img').src = p.img;
-                
-                // Simula vendas acumuladas
-                const randomVendas = Math.floor(Math.random() * 80) + 10;
-                document.getElementById('relatorio-vendas').innerText = randomVendas + ' un';
-
-                const today = new Date();
-                document.getElementById('relatorio-data').innerText = `Emissão: ${today.toLocaleDateString('pt-PT')}`;
-
-                this.openModal('modal-relatorio');
-            },
-
-            closeRelatorio() {
-                this.closeModal('modal-relatorio');
             },
 
             renderAdminTable() {
@@ -1305,97 +1007,17 @@
                             <td class="py-3 px-4 text-xs">Hoje <br><span class="text-green-600 dark:text-green-400 text-[10px]">Atualizado</span></td>
                             <td class="py-3 px-4 text-brand-500 font-bold">R$ ${p.preco.toFixed(2).replace('.', ',')}</td>
                             <td class="py-3 px-4">${stockStatus}</td>
-                            <td class="py-3 px-4 text-center whitespace-nowrap flex items-center justify-center gap-2">
-                                <button onclick="app.openRelatorio(${p.id})" class="text-slate-400 hover:text-blue-500 transition group relative" title="Ver Relatório Detalhado">
-                                    <i class="fas fa-file-alt"></i>
-                                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-32 bg-slate-900 text-white text-[9px] p-2 rounded shadow-lg text-center z-50">Ver Relatório Analítico</div>
-                                </button>
-                                <button onclick="app.openProductModal(${p.id})" class="text-slate-400 hover:text-brand-500 transition" title="Editar Produto"><i class="fas fa-pen"></i></button>
-                                <button onclick="app.deleteProduct(${p.id})" class="text-slate-400 hover:text-red-500 transition" title="Excluir Produto"><i class="fas fa-trash"></i></button>
+                            <td class="py-3 px-4 text-center whitespace-nowrap">
+                                <button class="text-slate-400 hover:text-brand-500 mr-3 transition"><i class="fas fa-pen"></i></button>
+                                <button class="text-slate-400 hover:text-red-500 transition"><i class="fas fa-trash"></i></button>
                             </td>
                         </tr>
                     `;
                 }).join('');
             },
 
-            openProductModal(id = null) {
-                const m = document.getElementById('modal-edit-product');
-                const box = document.getElementById('modal-edit-product-box');
-                
-                if(id) {
-                    const p = this.products.find(x => x.id === id);
-                    if(!p) return;
-                    document.getElementById('modal-product-title').innerText = "Editar Produto";
-                    document.getElementById('prod-id').value = p.id;
-                    document.getElementById('prod-nome').value = p.nome;
-                    document.getElementById('prod-cat').value = p.category;
-                    document.getElementById('prod-preco').value = p.preco;
-                    document.getElementById('prod-estoque').value = p.estoque;
-                    document.getElementById('prod-sku').value = p.sku;
-                    document.getElementById('prod-lote').value = p.lote;
-                    document.getElementById('prod-fornecedor').value = p.fornecedor;
-                    document.getElementById('prod-img').value = p.img;
-                    document.getElementById('prod-destaque').checked = p.destaque;
-                } else {
-                    document.getElementById('form-product').reset();
-                    document.getElementById('modal-product-title').innerText = "Novo Produto";
-                    document.getElementById('prod-id').value = '';
-                }
-
-                m.classList.remove('hidden');
-                setTimeout(() => box.classList.remove('scale-95'), 10);
-            },
-
-            closeProductModal() {
-                const m = document.getElementById('modal-edit-product');
-                const box = document.getElementById('modal-edit-product-box');
-                box.classList.add('scale-95');
-                setTimeout(() => m.classList.add('hidden'), 300);
-            },
-
-            saveProduct() {
-                const idVal = document.getElementById('prod-id').value;
-                const newProduct = {
-                    id: idVal ? parseInt(idVal) : Date.now(),
-                    nome: document.getElementById('prod-nome').value,
-                    category: document.getElementById('prod-cat').value,
-                    preco: parseFloat(document.getElementById('prod-preco').value),
-                    estoque: parseInt(document.getElementById('prod-estoque').value),
-                    sku: document.getElementById('prod-sku').value,
-                    lote: document.getElementById('prod-lote').value,
-                    fornecedor: document.getElementById('prod-fornecedor').value,
-                    img: document.getElementById('prod-img').value,
-                    destaque: document.getElementById('prod-destaque').checked
-                };
-
-                if (idVal) {
-                    const idx = this.products.findIndex(p => p.id === parseInt(idVal));
-                    if(idx !== -1) this.products[idx] = newProduct;
-                } else {
-                    this.products.unshift(newProduct);
-                }
-
-                this.renderVitrine();
-                this.renderAdminTable();
-                this.closeProductModal();
-                this.showToast("Produto guardado com sucesso!");
-                
-                document.querySelectorAll('.filter-btn').forEach((btn, i) => {
-                    if(i===0) { btn.classList.add('bg-brand-500', 'text-brand-900'); btn.classList.remove('text-slate-500', 'dark:text-slate-300'); }
-                    else { btn.classList.remove('bg-brand-500', 'text-brand-900'); btn.classList.add('text-slate-500', 'dark:text-slate-300'); }
-                });
-            },
-
-            deleteProduct(id) {
-                if(confirm("Deseja realmente remover este produto?")) {
-                    this.products = this.products.filter(p => p.id !== id);
-                    this.renderVitrine();
-                    this.renderAdminTable();
-                    this.showToast("Produto removido!");
-                }
-            },
-
             filterProducts(category, btnElement) {
+                this.currentFilter = category;
                 const buttons = document.querySelectorAll('.filter-btn');
                 buttons.forEach(btn => {
                     btn.classList.remove('bg-brand-500', 'text-brand-900');
@@ -1410,9 +1032,7 @@
             toggleCart() {
                 const s = document.getElementById('cart-sidebar'), o = document.getElementById('cart-overlay');
                 const op = !s.classList.contains('translate-x-full');
-                
                 document.body.style.overflow = op ? 'hidden' : '';
-                
                 s.classList.toggle('translate-x-full', op);
                 o.classList.toggle('hidden', op);
                 setTimeout(() => o.classList.toggle('opacity-0', op), 10);
@@ -1427,6 +1047,8 @@
                 else this.cart.push({ id: product.id, nome: product.nome, preco: product.preco, img: product.img, qtd: 1 });
                 
                 this.atualizarCarrinhoUI();
+                this.renderVitrine(this.currentFilter);
+                this.showToast(`${product.nome} adicionado à sacola!`);
                 
                 const icon = document.getElementById('cart-count-desktop').parentElement;
                 icon.classList.add('scale-125');
@@ -1470,6 +1092,7 @@
             removerDoCarrinho(idx) {
                 this.cart.splice(idx, 1);
                 this.atualizarCarrinhoUI();
+                this.renderVitrine(this.currentFilter);
             },
 
             enviarPedidoCarrinho() {
@@ -1481,12 +1104,13 @@
                     total += sub;
                     msg += `▪ ${i.qtd}x ${i.nome} - R$ ${sub.toFixed(2).replace('.',',')}%0A`;
                 });
-                msg += `%0A*TOTAL: R$ ${total.toFixed(2).replace('.',',')}*`;
+                msg += `%0A*TOTAL: R$ ${total.toFixed(2).replace('.',',')}* \n\n📍 Link do App: https://sualogo.com.br`;
                 
                 this.toggleCart();
                 this.openWhatsApp(msg);
                 this.cart = [];
                 this.atualizarCarrinhoUI();
+                this.renderVitrine(this.currentFilter);
             },
 
             changeAdmTab(tabId, btnElement) {
@@ -1513,8 +1137,8 @@
             tourData: [
                 {
                     icon: "fas fa-rocket",
-                    title: "Bem-vinda ao seu App!",
-                    text: "Este aplicativo é um protótipo funcional criado para demonstrar a poderosa estratégia de vendas e gestão da sua nova ótica."
+                    title: "Bem-vindo ao seu App!",
+                    text: "Este aplicativo é um protótipo funcional criado para demonstrar a estratégia de vendas e gestão da sua nova ótica."
                 },
                 {
                     icon: "fas fa-bullseye",
@@ -1524,29 +1148,29 @@
                 {
                     icon: "fas fa-shield-alt",
                     title: "Segurança e LGPD",
-                    text: "Fique tranquila: toda a captação de leads, agendamentos e vendas será registada em planilhas seguras, a respeitar rigorosamente a LGPD."
+                    text: "Fique tranquila: toda a captação de leads, agendamentos e vendas será registrada em planilhas seguras, respeitando rigorosamente a LGPD."
                 },
                 {
                     icon: "fas fa-chart-line",
                     title: "Painel Gestor (ERP)",
-                    text: "Tem o controlo! Clique no ícone de gráfico no menu superior para aceder ao Painel ADM e gerir o stock, as vendas e o marketing de forma simples."
+                    text: "Você tem o controle! Clique no ícone de gráfico no menu superior para acessar o Painel ADM e gerenciar estoque, vendas e marketing."
                 }
             ],
             admTourData: [
                 {
                     icon: "fas fa-chart-pie",
                     title: "Indicadores em Tempo Real",
-                    text: "Na Visão Geral, acompanha o seu faturamento, agendamentos e recebe alertas críticos se algum produto estiver a esgotar."
+                    text: "Na Visão Geral, acompanha o faturamento, agendamentos e recebe alertas críticos se algum produto estiver esgotando."
                 },
                 {
                     icon: "fas fa-boxes",
-                    title: "Controlo de Estoque",
-                    text: "Aqui pode adicionar novos produtos, editar SKUs, gerir fornecedores e tirar um Relatório PDF impecável ao clicar no ícone do documento!"
+                    title: "Controle de Estoque",
+                    text: "Aqui você adiciona novos produtos, edita SKUs e mantém a vitrine do site sempre atualizada."
                 },
                 {
                     icon: "fas fa-bullhorn",
                     title: "Estratégia de Marketing",
-                    text: "Mude os textos dos banners, ative campanhas sazonais e coloque etiquetas de 'Mais Vendido' (Passe o rato sobre o ícone (i) nas etiquetas para saber a estratégia)."
+                    text: "Mude os textos dos banners e coloque etiquetas de 'Mais Vendido' nos seus produtos."
                 },
                 {
                     icon: "fas fa-star",
@@ -1567,6 +1191,7 @@
             },
 
             updateTourUI() {
+                if(!this.tourData[this.tourStep]) return;
                 const data = this.tourData[this.tourStep];
                 document.getElementById('tour-icon').innerHTML = `<i class="${data.icon}"></i>`;
                 document.getElementById('tour-step-badge').innerText = `Passo ${this.tourStep + 1} de ${this.tourData.length}`;
@@ -1615,9 +1240,10 @@
             },
 
             updateAdmTourUI() {
+                if(!this.admTourData[this.admTourStep]) return;
                 const data = this.admTourData[this.admTourStep];
                 document.getElementById('adm-tour-icon').innerHTML = `<i class="${data.icon}"></i>`;
-                document.getElementById('adm-tour-step-badge').innerText = `O Poder do ERP - Passo ${this.admTourStep + 1} de ${this.admTourData.length}`;
+                document.getElementById('adm-tour-step-badge').innerText = `Poder do ERP - Passo ${this.admTourStep + 1} de ${this.admTourData.length}`;
                 document.getElementById('adm-tour-title').innerText = data.title;
                 document.getElementById('adm-tour-text').innerText = data.text;
 
@@ -1654,9 +1280,9 @@
 
             startSmartNotifications() {
                 const events = [
-                    { name: "Letícia M.", action: "comprou Óculos Solar Cat Eye Vintage", icon: "fas fa-shopping-bag" },
+                    { name: "Letícia M.", action: "comprou Óculos Solar Cat Eye", icon: "fas fa-shopping-bag" },
                     { name: "Carlos A.", action: "agendou para o dia de exame de vista", icon: "far fa-calendar-check" },
-                    { name: "Juliana T.", action: "comprou Colar Ponto de Luz", icon: "fas fa-glasses" },
+                    { name: "Juliana T.", action: "comprou Colar Ponto de Luz", icon: "fas fa-gem" },
                     { name: "Ana P.", action: "confirmou comparecimento no exame", icon: "fas fa-user-check" },
                     { name: "Roberto F.", action: "comprou Chronograph Steel", icon: "far fa-clock" },
                     { name: "Marcela V.", action: "comprou Armação Crystal Glow", icon: "fas fa-glasses" }
@@ -1680,7 +1306,6 @@
             },
 
             startAdmNotifications() {
-                // Simula alertas intermitentes quando o ADM está aberto
                 const adminModal = document.getElementById('modal-admin');
                 setInterval(() => {
                     if(!adminModal.classList.contains('hidden')) {
@@ -1690,7 +1315,7 @@
                             this.showToast(`⚠️ ALERTA ADM: Estoque crítico para ${item.nome} (${item.estoque} un)`, true);
                         }
                     }
-                }, 30000); // 30 segundos
+                }, 30000); 
             }
         };
 
